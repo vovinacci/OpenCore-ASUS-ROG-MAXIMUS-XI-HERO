@@ -24,12 +24,17 @@ Original hardware selection idea is based on [tonymacx86.com Stork's MyHero II B
 | Monitor | [Dell S2415H 23.8" 1920x1080 60 Hz Monitor](https://pcpartpicker.com/product/gZL7YJ/dell-monitor-s2415h) |
 | Camera | [Logitech C920S HD Pro Webcam](https://www.amazon.com/gp/product/B07K95WFWM) |
 
-Other accessories
+Other accessories:
 
 | Type | Item |
 | ---- | ---- |
 | Internal Drive Bay Panel | [Chieftec SDC-025 Drive Bay Panel](https://www.amazon.com/Chieftec-SDC-025-Geh%C3%A4use-f%C3%BCr-Speicherlaufwerke/dp/B009DGM4B0) |
 | SATA Cable | [SATA III 50cm data cable with 90 degree bent connector](https://www.amazon.co.uk/Gembird-cc-satam-data90-0-5-Cable-Cables-500-Piece/dp/B06XCTW4YZ) |
+
+
+## macOS
+
+macOS Catalina version 10.15.4.
 
 
 ## OpenCore
@@ -77,3 +82,6 @@ USB map for `USBInjectAll` - `SSDT-UIAC.aml`. Taken from [this great reddit post
 ### Tools
 
 - OpenCore - `CleanNvram.efi` `OpenControl.efi`, `OpenShell.efi`
+
+
+## BIOS Settings

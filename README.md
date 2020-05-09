@@ -30,3 +30,50 @@ Other accessories
 | ---- | ---- |
 | Internal Drive Bay Panel | [Chieftec SDC-025 Drive Bay Panel](https://www.amazon.com/Chieftec-SDC-025-Geh%C3%A4use-f%C3%BCr-Speicherlaufwerke/dp/B009DGM4B0) |
 | SATA Cable | [SATA III 50cm data cable with 90 degree bent connector](https://www.amazon.co.uk/Gembird-cc-satam-data90-0-5-Cable-Cables-500-Piece/dp/B06XCTW4YZ) |
+
+
+## OpenCore
+
+- [OpenCore 0.5.8](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.5.8)
+- [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
+- [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
+
+
+### ACPI
+
+As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi):
+
+- [SSDT-AWAC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl)
+- [SSDT-EC-USBX.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-EC-USBX.dsl)
+- [SSDT-PLUG.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl)
+- [SSDT-PMC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl)
+
+USB map for `USBInjectAll` - `SSDT-UIAC.aml`
+
+![USB port mapping](assets/usb-mapping.png)
+
+
+### Drivers
+
+- OpenCore - `OpenCanopy.efi`, `OpenRuntime.efi`
+- [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)
+
+
+### Kext
+
+- [AppleALC 1.4.9](https://github.com/acidanthera/AppleALC/releases/tag/1.4.9)
+- [IntelMausi 1.0.2](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.2)
+- [Lilu 1.4.4](https://github.com/acidanthera/Lilu/releases/tag/1.4.4)
+- [USBInjectAll 2018-1108](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip)
+- [VirtualSMC 1.1.3](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.3) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.3.9](https://github.com/acidanthera/WhateverGreen/releases/tag/1.3.9)
+
+
+### Resources
+
+- [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [Resources/](https://github.com/acidanthera/OcBinaryData/blob/master/Resources)
+
+
+### Tools
+
+- OpenCore - `CleanNvram.efi` `OpenControl.efi`, `OpenShell.efi`

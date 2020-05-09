@@ -1,5 +1,7 @@
 # OpenCore-ASUS-ROG-MAXIMUS-XI-HERO
-OpenCore configuration for ASUS ROG MAXIMUS XI HERO
+OpenCore configuration for ASUS ROG MAXIMUS XI HERO.
+
+This is work in progress.
 
 ## Hardware list
 

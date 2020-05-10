@@ -53,7 +53,7 @@ As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guid
 - [SSDT-PLUG.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl)
 - [SSDT-PMC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl)
 
-USB map for `USBInjectAll` - `SSDT-UIAC.aml`. Taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
+USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 
 ![USB port mapping](assets/usb-mapping.png)
 

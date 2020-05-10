@@ -3,8 +3,7 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO.
 
 This is work in progress.
 
-Table of Contents
-=================
+## Table of Contents
 
    * [Hardware list](#hardware-list)
    * [macOS](#macos)

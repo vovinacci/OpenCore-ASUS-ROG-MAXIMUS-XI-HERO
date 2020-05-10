@@ -90,4 +90,4 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 - Version [1401](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1401.zip)
 - Settings [backup](BIOS/V1401.CMO)
 
-Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to 1401.
+Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to 1401. (09-May-2020)

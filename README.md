@@ -3,6 +3,20 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO.
 
 This is work in progress.
 
+Table of Contents
+=================
+
+   * [Hardware list](#hardware-list)
+   * [macOS](#macos)
+   * [OpenCore](#opencore)
+      * [ACPI](#acpi)
+      * [Drivers](#drivers)
+      * [Kext](#kext)
+      * [Resources](#resources)
+      * [Tools](#tools)
+   * [BIOS Settings](#bios-settings)
+
+
 ## Hardware list
 
 Original hardware selection idea is based on [tonymacx86.com Stork's MyHero II Build](https://www.tonymacx86.com/threads/storks-myhero-ii-build-asus-rog-maximus-z370-hero-x-i7-8700k-amd-rx-580.245074/)

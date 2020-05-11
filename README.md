@@ -59,12 +59,12 @@ macOS Catalina version 10.15.4.
 
 ### ACPI
 
-As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi):
+As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
 
-- [SSDT-AWAC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl)
-- [SSDT-EC-USBX.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-EC-USBX.dsl)
-- [SSDT-PLUG.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl)
-- [SSDT-PMC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl)
+- [SSDT-AWAC.aml](ACPI/SSDT-AWAC.aml)
+- [SSDT-EC-USBX.aml](ACPI/SSDT-EC-USBX.aml)
+- [SSDT-PLUG.aml](ACPI/SSDT-PLUG.aml)
+- [SSDT-PMC.aml](ACPI/SSDT-PMC.aml)
 
 USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 

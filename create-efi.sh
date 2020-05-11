@@ -17,7 +17,7 @@ readonly TMP_DIR="$(mktemp -d)"
 # Keep environment clean
 trap 'run-on-trap $?' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
 run-on-trap() {
-  echo "Removing temporary directory '${TMP_DIR}'..."; rm -rf ${TMP_DIR}
+  echo "Removing temporary directory '${TMP_DIR}'..."; rm -rf "${TMP_DIR}"
   if [[ $1 -ne 0 ]]; then
     echo "Removing EFI directory '${BASE_EFI_DIR}'..."; rm -fr "${BASE_EFI_DIR}"
   fi

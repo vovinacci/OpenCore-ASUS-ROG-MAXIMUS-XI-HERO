@@ -78,10 +78,10 @@ declare -ar PKG_LIST=(
 #
 # ACPI SSDT
 declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
-  "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/AcpiSamples/SSDT-AWAC.dsl"
-  "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/AcpiSamples/SSDT-EC-USBX.dsl"
-  "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/AcpiSamples/SSDT-PLUG.dsl"
-  "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/AcpiSamples/SSDT-PMC.dsl"
+  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-AWAC.aml"
+  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-EC-USBX.aml"
+  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PLUG.aml"
+  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PMC.aml"
   "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-UIAC.aml"
 )
 # OpenCore configuration
@@ -133,11 +133,10 @@ download_pkg() {
 #   PKG_LIST
 #   TMP_DIR
 unarchive_pkg() {
-  echo "Unarchiving packages and deleting archives..."
+  echo "Unarchiving packages..."
   pushd "${TMP_DIR}" > /dev/null || fail "Cannot 'pushd ${TMP_DIR}'"
   for i in "${PKG_LIST[@]}"; do
     unzip -q "${i}.zip" -d "${i}"
-    rm -f "${i}.zip"
   done
   popd > /dev/null
 }
@@ -186,7 +185,7 @@ copy_oc_config() {
 #   TMP_DIR
 copy_acpi_ssdt() {
   echo "Copying ACPI SSTDs to EFI/ACPI directory..."
-  cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.dsl,SSDT-EC-USBX.dsl,SSDT-PLUG.dsl,SSDT-PMC.dsl,SSDT-UIAC.aml} "${BASE_OC_DIR}"/ACPI
+  cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.aml,SSDT-EC-USBX.aml,SSDT-PLUG.aml,SSDT-PMC.aml,SSDT-UIAC.aml} "${BASE_OC_DIR}"/ACPI
 }
 
 # Copy OpenCore drivers to EFI directory
@@ -228,7 +227,19 @@ copy_kexts() {
 #   TMP_DIR
 copy_oc_resources() {
   echo "Copying OpenCore resource files to EFI/Resources directories..."
-  # TODO: Implement me
+  # Enable globbing for file copy
+  set +f
+  # Copy files
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"{AXEFIAudio_Beep.wav,AXEFIAudio_Click.wav,AXEFIAudio_VoiceOver_Boot.wav} \
+    "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/OCEFIAudio_VoiceOver_Boot.wav" "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"AXEFIAudio_en_*.wav "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"OCEFIAudio_en_*.wav "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Font/"* "${BASE_OC_DIR}"/Resources/Font/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Image/"* "${BASE_OC_DIR}"/Resources/Image/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Label/"* "${BASE_OC_DIR}"/Resources/Label/
+  # Disable globbing back
+  set -f
 }
 
 ## Start the ball

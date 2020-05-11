@@ -15,8 +15,13 @@ readonly BASE_OC_DIR="${BASE_EFI_DIR}/OC"
 readonly TMP_DIR="$(mktemp -d)"
 
 # Keep environment clean
-trap 'echo "Removing ${TMP_DIR}"; rm -rf ${TMP_DIR}' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
-trap 'echo "Removing ${BASE_EFI_DIR}"; rm -fr "${BASE_EFI_DIR}"' ERR
+trap 'run-on-trap $?' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
+run-on-trap() {
+  echo "Removing ${TMP_DIR}..."; rm -rf ${TMP_DIR}
+  if [[ $1 -ne 0 ]]; then
+    echo "Removing ${BASE_EFI_DIR}..."; rm -fr "${BASE_EFI_DIR}"
+  fi
+}
 
 ## Variables
 # Package versions. Set desired versions here.
@@ -208,7 +213,12 @@ copy_oc_drivers() {
 #   TMP_DIR
 copy_kexts() {
   echo "Copying Kexts to EFI/Kexts directory..."
-  # TODO: Implement me
+  cp -vr "${TMP_DIR}/${PKG_KEXT_APPLEALC}"/AppleALC.kext "${BASE_OC_DIR}"/Kexts/
+  cp -vr "${TMP_DIR}/${PKG_KEXT_INTELMAUSI}"/IntelMausi.kext "${BASE_OC_DIR}"/Kexts/
+  cp -vr "${TMP_DIR}/${PKG_KEXT_LILU}"/Lilu.kext "${BASE_OC_DIR}"/Kexts/
+  cp -vr "${TMP_DIR}/${PKG_KEXT_USBINJECTALL}"/Release/USBInjectAll.kext "${BASE_OC_DIR}"/Kexts/
+  cp -vr "${TMP_DIR}/${PKG_KEXT_VIRTUALSMC}"/Kexts/{SMCProcessor.kext,SMCSuperIO.kext,VirtualSMC.kext} "${BASE_OC_DIR}"/Kexts/
+  cp -vr "${TMP_DIR}/${PKG_KEXT_WHATEVERGREEN}"/WhateverGreen.kext "${BASE_OC_DIR}"/Kexts/
 }
 
 # Copy OpenCore resource files to EFI/Resources directories

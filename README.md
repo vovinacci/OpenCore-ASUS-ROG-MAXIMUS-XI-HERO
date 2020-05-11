@@ -127,7 +127,8 @@ bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXI
 
 This should download all necessary packages and extract files to the `EFI` folder in current directory.
 
-One thing to be done manually before moving everything to actual EFI partition - replace `dummy serial`, `board serial` and `SmUUID` with actual values.
-Great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#generate-a-new-serial).
+Two things to be done manually before moving everything to actual EFI partition:
+- Replace `serial`, `board serial` and `SmUUID` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#generate-a-new-serial).
+- Replace `MAC address` with actual values in `config.plist`. Another great example is [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#fixing-en0).
 
 After that, mount EFI partition and copy `EFI` folder there.

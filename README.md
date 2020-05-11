@@ -110,6 +110,8 @@ Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to
 
 ## Create EFI directory and files helper script
 
+[![Build Status](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?branch=master)](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)
+
 Requirements:
 
 - [bash](https://www.gnu.org/software/bash/) > 4.0

@@ -2,8 +2,4 @@ os: linux
 dist: bionic
 language: minimal
 script:
-  # Install ShellCheck from pre-compiled binary as apt repository version is outdated
-  # https://github.com/koalaman/shellcheck#installing-a-pre-compiled-binary
-  - "wget -qO- 'https://storage.googleapis.com/shellcheck/shellcheck-stable.linux.x86_64.tar.xz' | tar -xJv"
-  - "cp shellcheck-stable/shellcheck /usr/bin/"
   - "make lint"

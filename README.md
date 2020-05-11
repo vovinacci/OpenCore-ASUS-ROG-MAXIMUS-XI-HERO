@@ -1,7 +1,6 @@
 # OpenCore-ASUS-ROG-MAXIMUS-XI-HERO
-OpenCore configuration for ASUS ROG MAXIMUS XI HERO.
+OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create EFI directory.
 
-This is work in progress.
 
 ## Table of Contents
 
@@ -14,6 +13,7 @@ This is work in progress.
       * [Resources](#resources)
       * [Tools](#tools)
    * [BIOS Settings](#bios-settings)
+   * [Create EFI directory and files helper script](#create-efi-directory-and-files-helper-script)
 
 
 ## Hardware list
@@ -49,6 +49,8 @@ Other accessories:
 
 macOS Catalina version 10.15.4.
 
+You may find great installation guide here](https://dortania.github.io/OpenCore-Desktop-Guide/installer-guide/).
+
 
 ## OpenCore
 
@@ -59,12 +61,12 @@ macOS Catalina version 10.15.4.
 
 ### ACPI
 
-As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi):
+As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
 
-- [SSDT-AWAC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-AWAC.dsl)
-- [SSDT-EC-USBX.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-EC-USBX.dsl)
-- [SSDT-PLUG.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PLUG.dsl)
-- [SSDT-PMC.aml](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/AcpiSamples/SSDT-PMC.dsl)
+- [SSDT-AWAC.aml](ACPI/SSDT-AWAC.aml)
+- [SSDT-EC-USBX.aml](ACPI/SSDT-EC-USBX.aml)
+- [SSDT-PLUG.aml](ACPI/SSDT-PLUG.aml)
+- [SSDT-PMC.aml](ACPI/SSDT-PMC.aml)
 
 USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 
@@ -104,3 +106,28 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 - Settings [backup](BIOS/V1401.CMO)
 
 Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to 1401. (09-May-2020)
+
+
+## Create EFI directory and files helper script
+
+Requirements:
+
+- [bash](https://www.gnu.org/software/bash/) > 4.0
+- [wget](https://www.gnu.org/software/wget/)
+
+Should you use [Homebrew](https://brew.sh/) on macOS, install it with
+```
+brew install bash wget
+```
+
+To create EFI folder, there's no need to clone this repository, just run
+```
+bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/create-efi.sh)"
+```
+
+This should download all necessary packages and extract files to the `EFI` folder in current directory.
+
+One thing to be done manually before moving everything to actual EFI partition - replace `dummy serial`, `board serial` and `SmUUID` with actual values.
+Great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#generate-a-new-serial).
+
+After that, mount EFI partition and copy `EFI` folder there.

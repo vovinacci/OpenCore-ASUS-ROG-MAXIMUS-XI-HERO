@@ -300,9 +300,9 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/IntelMausiEthernet</string>
+				<string>Contents/MacOS/IntelMausi</string>
 				<key>BundlePath</key>
-				<string>IntelMausiEthernet.kext</string>
+				<string>IntelMausi.kext</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -714,17 +714,17 @@
 			<key>AdviseWindows</key>
 			<false/>
 			<key>MLB</key>
-      <string>{BOARDSERIAL}</string>
+			<string>{BOARDSERIAL}</string>
 			<key>ROM</key>
-      <data>{MACADDRESS}</data>
+			<data>{MACADDRESS}</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>iMac19,1</string>
 			<key>SystemSerialNumber</key>
-      <string>{SERIAL}</string>
+			<string>{SERIAL}</string>
 			<key>SystemUUID</key>
-      <string>{SmUUID}</string>
+			<string>{SmUUID}</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>

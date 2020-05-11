@@ -1,5 +1,8 @@
 os: linux
 dist: bionic
 language: minimal
+branches:
+  only:
+    - master
 script:
   - "make lint"

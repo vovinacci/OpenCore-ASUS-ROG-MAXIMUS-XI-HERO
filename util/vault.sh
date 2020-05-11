@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# Replace dummy 'serial', 'board serial', 'SmUUID' and 'MAC address' with
-# actual values from vault.
-# Requires Ansible to be installed.
+# Replace '{{BOARDSERIAL}}', '{{MACADDRESS}}', '{{SERIAL}}' and '{{SMUUID}}'
+# with actual values from vault.
+#
+# Requires Ansible.
 
 # Write safe shell scripts
 set -euf -o pipefail

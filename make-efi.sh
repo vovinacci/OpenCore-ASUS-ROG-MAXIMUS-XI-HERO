@@ -4,11 +4,19 @@
 
 # Write safe shell scripts
 set -euf -o pipefail
+
 # Set locale
 export LC_ALL="en_US.UTF-8"
-# Keep environment clean
+
+# Directories
+readonly BASE_DIR="$(dirname "$(realpath "$0")")"
+readonly BASE_EFI_DIR="${BASE_DIR}/EFI"
+readonly BASE_OC_DIR="${BASE_EFI_DIR}/OC"
 readonly TMP_DIR="$(mktemp -d)"
+
+# Keep environment clean
 trap 'echo "Removing ${TMP_DIR}"; rm -rf ${TMP_DIR}' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
+trap 'echo "Removing ${BASE_EFI_DIR}"; rm -fr "${BASE_EFI_DIR}"' ERR
 
 ## Variables
 # Package versions. Set desired versions here.
@@ -74,12 +82,7 @@ declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/OC/config.plist"
 
-# Files and directories
-# Base directories
-readonly BASE_DIR="$(dirname "$(realpath "$0")")"
-readonly BASE_EFI_DIR="${BASE_DIR}/EFI"
-readonly BASE_OC_DIR="${BASE_EFI_DIR}/OC"
-
+## Functions
 # Print error message and exit
 # Arguments:
 #   Error message

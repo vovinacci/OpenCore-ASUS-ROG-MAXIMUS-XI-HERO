@@ -47,9 +47,9 @@ Other accessories:
 
 ## macOS
 
-macOS Catalina version 10.15.4.
+macOS Catalina version 10.15.4 with FileVault 2 enabled.
 
-You may find great installation guide here](https://dortania.github.io/OpenCore-Desktop-Guide/installer-guide/).
+You may find great installation guide [here](https://dortania.github.io/OpenCore-Desktop-Guide/installer-guide/).
 
 
 ## OpenCore

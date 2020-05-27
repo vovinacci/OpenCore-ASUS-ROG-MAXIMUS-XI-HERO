@@ -7,6 +7,7 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create 
    * [Hardware list](#hardware-list)
    * [macOS](#macos)
    * [OpenCore](#opencore)
+      * [Known Issues](#known-issues)
       * [ACPI](#acpi)
       * [Drivers](#drivers)
       * [Kext](#kext)
@@ -47,7 +48,7 @@ Other accessories:
 
 ## macOS
 
-macOS Catalina version 10.15.4 with FileVault 2 enabled.
+macOS Catalina version 10.15.5 with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Desktop-Guide/installer-guide/).
 
@@ -58,6 +59,9 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 - [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
+### Known issues
+
+  None.
 
 ### ACPI
 

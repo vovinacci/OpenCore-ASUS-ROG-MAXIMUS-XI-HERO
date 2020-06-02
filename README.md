@@ -85,12 +85,12 @@ USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this
 
 ### Kext
 
-- [AppleALC 1.4.9](https://github.com/acidanthera/AppleALC/releases/tag/1.4.9)
-- [IntelMausi 1.0.2](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.2)
-- [Lilu 1.4.4](https://github.com/acidanthera/Lilu/releases/tag/1.4.4)
+- [AppleALC 1.5.0](https://github.com/acidanthera/AppleALC/releases/tag/1.5.0)
+- [IntelMausi 1.0.3](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.3)
+- [Lilu 1.4.5](https://github.com/acidanthera/Lilu/releases/tag/1.4.5)
 - [USBInjectAll 2018-1108](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip)
-- [VirtualSMC 1.1.3](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.3) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.3.9](https://github.com/acidanthera/WhateverGreen/releases/tag/1.3.9)
+- [VirtualSMC 1.1.4](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.4) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.4.0](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.0)
 
 
 ### Resources

@@ -55,7 +55,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.5.8](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.5.8)
+- [OpenCore 0.5.9](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.5.9)
 - [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 

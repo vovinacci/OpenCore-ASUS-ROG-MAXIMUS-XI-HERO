@@ -20,7 +20,7 @@ lint:  ## Run linter checks
 
 run: clean  ## Generate EFI folder with 'config.plist' template
 	$(PRINT_TARGET)
-	@"${CURDIR}/create-efi.sh"
+	@LOCAL_RUN=1 "${CURDIR}/create-efi.sh"
 
 toc:  ## Generate README.md table of contents
 	$(PRINT_TARGET)

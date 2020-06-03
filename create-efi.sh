@@ -32,6 +32,8 @@ KEXT_LILU_VERSION="1.4.5"
 KEXT_USBINJECTALL_VERSION="2018-1108"
 KEXT_VIRTUALSMC_VERSION="1.1.4"
 KEXT_WHATEVERGREEN_VERSION="1.4.0"
+# Allow local file copy, instead of downloading.
+LOCAL_RUN=${LOCAL_RUN:-0}
 
 # Download locations
 #
@@ -110,11 +112,17 @@ download_acpi_ssdt() {
 
 # Download OpenCore 'config.plist' to TMP_DIR
 # Globals:
+#   BASE_DIR
 #   OC_CONFIG_PLIST
 #   TMP_DIR
 download_oc_config() {
-  echo "Downloading config.plist..."
-  wget -nv -c -P "${TMP_DIR}/" "${OC_CONFIG_PLIST}"
+  if [[ LOCAL_RUN -eq 0 ]]; then
+    echo "Downloading config.plist..."
+    wget -nv -c -P "${TMP_DIR}/" "${OC_CONFIG_PLIST}"
+  else
+    echo "Copying config.plist..."
+    cp -v "${BASE_DIR}/OC/config.plist" "${TMP_DIR}/"
+  fi
 }
 
 # Download all required packages to TMP_DIR

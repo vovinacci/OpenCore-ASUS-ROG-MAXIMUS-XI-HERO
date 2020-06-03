@@ -20,13 +20,20 @@ lint:  ## Run linter checks
 
 run: clean  ## Generate EFI folder with 'config.plist' template
 	$(PRINT_TARGET)
-	@"${CURDIR}/create-efi.sh"
+	@LOCAL_RUN=1 "${CURDIR}/create-efi.sh"
 
 toc:  ## Generate README.md table of contents
 	$(PRINT_TARGET)
 	@bash -c "$$(curl -fsSL raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc) README.md"
 
-vault: run  ## Generate OpenCore 'config.plist' from template
+vault-pre:  ## Vault prerequisite check
+	$(PRINT_TARGET)
+	@if [ -z "${ANSIBLE_VAULT_PASSWORD_FILE}" ]; then \
+		echo "ANSIBLE_VAULT_PASSWORD_FILE variable is not set"; \
+		exit 1; \
+	fi
+
+vault: vault-pre run  ## Generate OpenCore 'config.plist' from template
 	$(PRINT_TARGET)
 	@"${CURDIR}/util/vault.sh"
 

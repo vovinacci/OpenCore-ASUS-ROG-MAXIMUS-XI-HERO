@@ -119,11 +119,12 @@ Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to
 Requirements:
 
 - [bash](https://www.gnu.org/software/bash/) > 4.0
+- [OpenSSL](https://www.openssl.org/) 1.1 (required for `wget`)
 - [wget](https://www.gnu.org/software/wget/)
 
 Should you use [Homebrew](https://brew.sh/) on macOS, install it with
 ```
-brew install bash wget
+brew install bash openssl@1.1 wget
 ```
 
 To create EFI folder, there's no need to clone this repository, just run

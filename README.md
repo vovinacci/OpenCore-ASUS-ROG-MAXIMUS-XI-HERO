@@ -9,6 +9,7 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create 
    * [OpenCore](#opencore)
       * [Known Issues](#known-issues)
       * [ACPI](#acpi)
+      * [USB](#usb)
       * [Drivers](#drivers)
       * [Kext](#kext)
       * [Resources](#resources)
@@ -72,10 +73,14 @@ As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guid
 - [SSDT-PLUG.aml](ACPI/SSDT-PLUG.aml)
 - [SSDT-PMC.aml](ACPI/SSDT-PMC.aml)
 
-USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
+### USB
 
+Based [USB Map Guild](https://dortania.github.io/USB-Map-Guide) and [Intel USB mapping](https://dortania.github.io/USB-Map-Guide/intel-mapping/intel.html).
+
+USB port naming is taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 ![USB port mapping](assets/usb-mapping.png)
 
+Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Drivers
 

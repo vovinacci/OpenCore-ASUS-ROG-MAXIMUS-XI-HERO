@@ -82,8 +82,8 @@ declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
   "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PMC.aml"
 )
 # Additional Kexts
-declare -ar EXTRA_KEXTS_DOWNLOAD_LIST=(
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/Kexts/USBMap.kext"
+declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
+  [USBMap.kext]="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/Kexts/USBMap.kext/Contents/Info.plist"
 )
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/OC/config.plist"
@@ -116,8 +116,8 @@ download_acpi_ssdt() {
 download_extra_kexts() {
   if [[ LOCAL_RUN -eq 0 ]]; then
     echo "Downloading extra Kexts..."
-    for i in "${EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
-      wget -nv -c -nH -P "${TMP_DIR}/Kexts/" "$i"
+    for k in "${!EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
+      wget -nv -c --cut-dirs=5 -nH -P "${TMP_DIR}/Kexts/${k}" -r -np "${EXTRA_KEXTS_DOWNLOAD_LIST[$k]}"
     done
     ls -alhR "${TMP_DIR}/Kexts"
   else
@@ -209,7 +209,7 @@ copy_oc_config() {
 #   TMP_DIR
 copy_acpi_ssdt() {
   echo "Copying ACPI SSTDs to EFI/ACPI directory..."
-  cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.aml,SSDT-EC-USBX.aml,SSDT-PLUG.aml,SSDT-PMC.aml,SSDT-UIAC.aml} "${BASE_OC_DIR}"/ACPI
+  cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.aml,SSDT-EC-USBX.aml,SSDT-PLUG.aml,SSDT-PMC.aml} "${BASE_OC_DIR}"/ACPI
 }
 
 # Copy OpenCore drivers to EFI directory

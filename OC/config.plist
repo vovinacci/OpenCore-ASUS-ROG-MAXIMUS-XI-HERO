@@ -343,7 +343,7 @@
 				<key>BundlePath</key>
 				<string>USBMap.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>USB port mapping</string>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>

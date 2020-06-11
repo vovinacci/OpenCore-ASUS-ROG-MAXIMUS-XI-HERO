@@ -29,7 +29,6 @@ OPENCORE_VERSION="0.5.9"
 KEXT_APPLEALC_VERSION="1.5.0"
 KEXT_INTELMAUSI_VERSION="1.0.3"
 KEXT_LILU_VERSION="1.4.5"
-KEXT_USBINJECTALL_VERSION="2018-1108"
 KEXT_VIRTUALSMC_VERSION="1.1.4"
 KEXT_WHATEVERGREEN_VERSION="1.4.0"
 # Allow local file copy, instead of downloading.
@@ -46,7 +45,6 @@ readonly PKG_OC_BINDATA="master"
 readonly PKG_KEXT_APPLEALC="AppleALC-${KEXT_APPLEALC_VERSION}-RELEASE"
 readonly PKG_KEXT_INTELMAUSI="IntelMausi-${KEXT_INTELMAUSI_VERSION}-RELEASE"
 readonly PKG_KEXT_LILU="Lilu-${KEXT_LILU_VERSION}-RELEASE"
-readonly PKG_KEXT_USBINJECTALL="RehabMan-USBInjectAll-${KEXT_USBINJECTALL_VERSION}"
 readonly PKG_KEXT_VIRTUALSMC="VirtualSMC-${KEXT_VIRTUALSMC_VERSION}-RELEASE"
 readonly PKG_KEXT_WHATEVERGREEN="WhateverGreen-${KEXT_WHATEVERGREEN_VERSION}-RELEASE"
 # Download package list
@@ -59,7 +57,6 @@ declare -ar PKG_DOWNLOAD_LIST=(
   "${OC_BASE_URL}/AppleALC/releases/download/${KEXT_APPLEALC_VERSION}/${PKG_KEXT_APPLEALC}.zip"
   "${OC_BASE_URL}/IntelMausi/releases/download/${KEXT_INTELMAUSI_VERSION}/${PKG_KEXT_INTELMAUSI}.zip"
   "${OC_BASE_URL}/Lilu/releases/download/${KEXT_LILU_VERSION}/${PKG_KEXT_LILU}.zip"
-  "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/${PKG_KEXT_USBINJECTALL}.zip"
   "${OC_BASE_URL}/VirtualSMC/releases/download/${KEXT_VIRTUALSMC_VERSION}/${PKG_KEXT_VIRTUALSMC}.zip"
   "${OC_BASE_URL}/WhateverGreen/releases/download/${KEXT_WHATEVERGREEN_VERSION}/${PKG_KEXT_WHATEVERGREEN}.zip"
 )
@@ -72,7 +69,6 @@ declare -ar PKG_LIST=(
   "$PKG_KEXT_APPLEALC"
   "$PKG_KEXT_INTELMAUSI"
   "$PKG_KEXT_LILU"
-  "$PKG_KEXT_USBINJECTALL"
   "$PKG_KEXT_VIRTUALSMC"
   "$PKG_KEXT_WHATEVERGREEN"
 )
@@ -84,7 +80,10 @@ declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
   "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-EC-USBX.aml"
   "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PLUG.aml"
   "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PMC.aml"
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-UIAC.aml"
+)
+# Additional Kexts
+declare -ar EXTRA_KEXTS_DOWNLOAD_LIST=(
+  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/Kexts/USBMap.kext"
 )
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/OC/config.plist"
@@ -108,6 +107,23 @@ download_acpi_ssdt() {
   for i in "${ACPI_SSDT_DOWNLOAD_LIST[@]}"; do
     wget -nv -c -P "${TMP_DIR}/ACPI/" "$i"
   done
+}
+
+# Download extra Kexts to Kexts directory in TMP_DIR
+# Globals:
+#   EXTRA_KEXTS_DOWNLOAD_LIST
+#   TMP_DIR
+download_extra_kexts() {
+  if [[ LOCAL_RUN -eq 0 ]]; then
+    echo "Downloading extra Kexts..."
+    for i in "${EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
+      wget -nv -c -nH -P "${TMP_DIR}/Kexts/" "$i"
+    done
+    ls -alhR "${TMP_DIR}/Kexts"
+  else
+    echo "Copying extra Kexts..."
+    cp -rv "${BASE_DIR}/Kexts/" "${TMP_DIR}/"
+  fi
 }
 
 # Download OpenCore 'config.plist' to TMP_DIR
@@ -214,16 +230,15 @@ copy_oc_drivers() {
 #   PKG_KEXT_APPLEALC
 #   PKG_KEXT_INTELMAUSI
 #   PKG_KEXT_LILU
-#   PKG_KEXT_USBINJECTALL
 #   PKG_KEXT_VIRTUALSMC
 #   PKG_KEXT_WHATEVERGREEN
 #   TMP_DIR
 copy_kexts() {
   echo "Copying Kexts to EFI/Kexts directory..."
+  cp -vr "${TMP_DIR}/Kexts/" "${BASE_OC_DIR}"/
   cp -vr "${TMP_DIR}/${PKG_KEXT_APPLEALC}"/AppleALC.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_INTELMAUSI}"/IntelMausi.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_LILU}"/Lilu.kext "${BASE_OC_DIR}"/Kexts/
-  cp -vr "${TMP_DIR}/${PKG_KEXT_USBINJECTALL}"/Release/USBInjectAll.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_VIRTUALSMC}"/Kexts/{SMCProcessor.kext,SMCSuperIO.kext,VirtualSMC.kext} "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_WHATEVERGREEN}"/WhateverGreen.kext "${BASE_OC_DIR}"/Kexts/
 }
@@ -253,6 +268,7 @@ copy_oc_resources() {
 ## Start the ball
 # Download all required data
 download_acpi_ssdt
+download_extra_kexts
 download_oc_config
 download_pkg
 unarchive_pkg

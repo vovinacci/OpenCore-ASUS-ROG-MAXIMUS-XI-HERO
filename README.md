@@ -106,10 +106,8 @@ USB map for `USBInjectAll` [SSDT-UIAC.aml](ACPI/SSDT-UIAC.aml). Taken from [this
 ## BIOS Settings
 
 BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpDesk_BIOS/)
-- Version [1401](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1401.zip)
-- Settings [backup](BIOS/V1401.CMO)
-
-Note: After update to 1502 - unable to boot from non-Windows HDD, rolled back to 1401. (09-May-2020)
+- Version [1502](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1502.zip)
+- Settings [backup](BIOS/V1502.CMO)
 
 
 ## Create EFI directory and files helper script

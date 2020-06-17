@@ -122,12 +122,13 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 Requirements:
 
 - [bash](https://www.gnu.org/software/bash/) > 4.0
+- [Coreutils](https://www.gnu.org/software/coreutils/) > 8.15
 - [OpenSSL](https://www.openssl.org/) 1.1 (required for `wget`)
 - [wget](https://www.gnu.org/software/wget/)
 
 Should you use [Homebrew](https://brew.sh/) on macOS, install it with
 ```
-brew install bash openssl@1.1 wget
+brew install bash coreutils openssl@1.1 wget
 ```
 
 To create EFI folder, there's no need to clone this repository, just run

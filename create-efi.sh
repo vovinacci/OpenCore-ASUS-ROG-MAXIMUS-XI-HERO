@@ -235,7 +235,7 @@ copy_oc_drivers() {
 #   TMP_DIR
 copy_kexts() {
   echo "Copying Kexts to EFI/Kexts directory..."
-  cp -vr "${TMP_DIR}/Kexts/" "${BASE_OC_DIR}"/
+  cp -vr "${TMP_DIR}/Kexts" "${BASE_OC_DIR}"/
   cp -vr "${TMP_DIR}/${PKG_KEXT_APPLEALC}"/AppleALC.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_INTELMAUSI}"/IntelMausi.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_LILU}"/Lilu.kext "${BASE_OC_DIR}"/Kexts/

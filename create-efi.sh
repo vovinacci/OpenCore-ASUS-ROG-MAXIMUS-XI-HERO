@@ -119,7 +119,6 @@ download_extra_kexts() {
     for k in "${!EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
       wget -nv -c --cut-dirs=5 -nH -P "${TMP_DIR}/Kexts/${k}" -r -np "${EXTRA_KEXTS_DOWNLOAD_LIST[$k]}"
     done
-    ls -alhR "${TMP_DIR}/Kexts"
   else
     echo "Copying extra Kexts..."
     cp -rv "${BASE_DIR}/Kexts/" "${TMP_DIR}/"
@@ -235,7 +234,7 @@ copy_oc_drivers() {
 #   TMP_DIR
 copy_kexts() {
   echo "Copying Kexts to EFI/Kexts directory..."
-  cp -vr "${TMP_DIR}/Kexts/" "${BASE_OC_DIR}"/
+  cp -vr "${TMP_DIR}/Kexts" "${BASE_OC_DIR}"/
   cp -vr "${TMP_DIR}/${PKG_KEXT_APPLEALC}"/AppleALC.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_INTELMAUSI}"/IntelMausi.kext "${BASE_OC_DIR}"/Kexts/
   cp -vr "${TMP_DIR}/${PKG_KEXT_LILU}"/Lilu.kext "${BASE_OC_DIR}"/Kexts/

@@ -120,6 +120,7 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 [![Build Status](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?branch=master)](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)
 
 Requirements:
+
 - [bash](https://www.gnu.org/software/bash/) > 4.0
 - [Coreutils](https://www.gnu.org/software/coreutils/) > 8.15
 - [OpenSSL](https://www.openssl.org/) 1.1 (required for `wget`)

@@ -119,7 +119,6 @@ download_extra_kexts() {
     for k in "${!EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
       wget -nv -c --cut-dirs=5 -nH -P "${TMP_DIR}/Kexts/${k}" -r -np "${EXTRA_KEXTS_DOWNLOAD_LIST[$k]}"
     done
-    ls -alhR "${TMP_DIR}/Kexts"
   else
     echo "Copying extra Kexts..."
     cp -rv "${BASE_DIR}/Kexts/" "${TMP_DIR}/"

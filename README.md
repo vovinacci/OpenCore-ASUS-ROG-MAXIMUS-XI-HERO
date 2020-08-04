@@ -51,13 +51,13 @@ Other accessories:
 
 macOS Catalina version 10.15.6 with FileVault 2 enabled.
 
-You may find great installation guide [here](https://dortania.github.io/OpenCore-Desktop-Guide/installer-guide/).
+You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 
 
 ## OpenCore
 
-- [OpenCore 0.5.9](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.5.9)
-- [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/)
+- [OpenCore 0.6.0](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.0)
+- [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
 ### Known issues
@@ -66,7 +66,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ### ACPI
 
-As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
+As per [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
 
 - [SSDT-AWAC.aml](ACPI/SSDT-AWAC.aml)
 - [SSDT-EC-USBX.aml](ACPI/SSDT-EC-USBX.aml)
@@ -75,7 +75,7 @@ As per [OpenCore Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guid
 
 ### USB
 
-Based [USB Map Guild](https://dortania.github.io/USB-Map-Guide) and [Intel USB mapping](https://dortania.github.io/USB-Map-Guide/intel-mapping/intel.html).
+Based on [USB Mapping Guide](https://dortania.github.io/OpenCore-Post-Install/usb/) and [Intel USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).
 
 USB port naming is taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 ![USB port mapping](assets/usb-mapping.png)
@@ -90,12 +90,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.0](https://github.com/acidanthera/AppleALC/releases/tag/1.5.0)
+- [AppleALC 1.5.1](https://github.com/acidanthera/AppleALC/releases/tag/1.5.1)
 - [IntelMausi 1.0.3](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.3)
-- [Lilu 1.4.5](https://github.com/acidanthera/Lilu/releases/tag/1.4.5)
-- [USBInjectAll 2018-1108](https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip)
-- [VirtualSMC 1.1.4](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.4) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.0](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.0)
+- [Lilu 1.4.6](https://github.com/acidanthera/Lilu/releases/tag/1.4.6)
+- [VirtualSMC 1.1.5](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.5) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.4.1](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.1)
 
 
 ### Resources
@@ -139,7 +138,7 @@ bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXI
 This should download all necessary packages and extract files to the `EFI` folder in current directory.
 
 Two things to be done manually before moving everything to actual EFI partition:
-- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#generate-a-new-serial).
-- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Desktop-Guide/post-install/iservices.html#fixing-en0).
+- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
+- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
 
 After that, mount EFI partition and copy `EFI` folder there.

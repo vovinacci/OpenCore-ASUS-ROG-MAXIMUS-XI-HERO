@@ -13,8 +13,13 @@ jobs:
     runs-on: macos-10.15
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
-      - name: Print bash version
-        run: bash -c 'echo $BASH_VERSION'
+        uses: actions/checkout@v2
+      - name: Print versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          brew --version
+          make --version
       - name: Homebrew install linter
         run: brew bundle
+      - name: Run lint checks
+        run: make lint

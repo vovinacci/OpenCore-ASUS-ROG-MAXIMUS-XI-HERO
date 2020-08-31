@@ -1,8 +1,12 @@
-os: linux
-dist: focal
+os: osx
+osx_image: xcode12u
 language: minimal
 branches:
   only:
     - master
+addons:
+    homebrew:
+      packages:
+        - shellcheck
 script:
   - "make lint"

@@ -19,7 +19,7 @@ jobs:
           bash -c 'echo $BASH_VERSION'
           brew --version
           make --version
-      - name: Homebrew install linter
+      - name: Homebrew install packages
         run: brew bundle
       - name: Run lint checks
         run: make lint

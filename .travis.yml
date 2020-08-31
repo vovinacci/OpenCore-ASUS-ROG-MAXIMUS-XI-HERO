@@ -8,6 +8,5 @@ addons:
     homebrew:
       packages:
         - shellcheck
-      update: true
 script:
   - "make lint"

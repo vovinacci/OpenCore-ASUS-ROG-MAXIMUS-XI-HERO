@@ -1,0 +1,20 @@
+name: lint
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: macos-10.15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Print bash version
+        run: bash -c 'echo $BASH_VERSION'
+      - name: Homebrew install linter
+        run: brew bundle

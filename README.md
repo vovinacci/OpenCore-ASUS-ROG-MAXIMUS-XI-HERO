@@ -116,7 +116,7 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 
 ## Create EFI directory and files helper script
 
-[![Build Status](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?branch=master)](https://travis-ci.org/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)
+![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/lint/badge.svg)]
 
 Requirements:
 

@@ -142,4 +142,3 @@ Two things to be done manually before moving everything to actual EFI partition:
 - Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
 
 After that, mount EFI partition and copy `EFI` folder there.
-

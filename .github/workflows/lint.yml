@@ -1,4 +1,4 @@
-name: lint
+name: linter
 on:
   # Trigger the workflow on push or pull request,
   # but only for the master branch
@@ -9,7 +9,7 @@ on:
     branches:
       - "*"
 jobs:
-  build:
+  lint:
     runs-on: macos-10.15
     steps:
       - name: Checkout
@@ -19,7 +19,7 @@ jobs:
           bash -c 'echo $BASH_VERSION'
           brew --version
           make --version
-      - name: Homebrew install linter
+      - name: Homebrew install packages
         run: brew bundle
       - name: Run lint checks
         run: make lint

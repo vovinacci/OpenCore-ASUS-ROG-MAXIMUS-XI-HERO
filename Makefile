@@ -32,6 +32,7 @@ vault-pre:  ## Vault prerequisite check
 		echo "ANSIBLE_VAULT_PASSWORD_FILE variable is not set"; \
 		exit 1; \
 	fi
+	@ansible-vault --version
 
 vault: vault-pre run  ## Generate OpenCore 'config.plist' from template
 	$(PRINT_TARGET)

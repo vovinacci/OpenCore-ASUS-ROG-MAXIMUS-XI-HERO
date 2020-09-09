@@ -56,7 +56,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.6.0](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.0)
+- [OpenCore 0.6.1](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.1)
 - [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
@@ -90,11 +90,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.1](https://github.com/acidanthera/AppleALC/releases/tag/1.5.1)
+- [AppleALC 1.5.2](https://github.com/acidanthera/AppleALC/releases/tag/1.5.2)
 - [IntelMausi 1.0.3](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.3)
-- [Lilu 1.4.6](https://github.com/acidanthera/Lilu/releases/tag/1.4.6)
-- [VirtualSMC 1.1.5](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.5) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.1](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.1)
+- [Lilu 1.4.7](https://github.com/acidanthera/Lilu/releases/tag/1.4.7)
+- [VirtualSMC 1.1.6](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.6) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.4.2](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.2)
 
 
 ### Resources
@@ -122,8 +122,8 @@ Requirements:
 
 - [bash](https://www.gnu.org/software/bash/) > 4.0
 - [Coreutils](https://www.gnu.org/software/coreutils/) > 8.15
-- [OpenSSL](https://www.openssl.org/) 1.1 (required for `wget`)
-- [wget](https://www.gnu.org/software/wget/)
+- [OpenSSL](https://www.openssl.org/) 1.1 (required for Wget)
+- [Wget](https://www.gnu.org/software/wget/)
 
 Should you use [Homebrew](https://brew.sh/) on macOS, install it with
 ```

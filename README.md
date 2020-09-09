@@ -122,8 +122,8 @@ Requirements:
 
 - [bash](https://www.gnu.org/software/bash/) > 4.0
 - [Coreutils](https://www.gnu.org/software/coreutils/) > 8.15
-- [OpenSSL](https://www.openssl.org/) 1.1 (required for `wget`)
-- [wget](https://www.gnu.org/software/wget/)
+- [OpenSSL](https://www.openssl.org/) 1.1 (required for Wget)
+- [Wget](https://www.gnu.org/software/wget/)
 
 Should you use [Homebrew](https://brew.sh/) on macOS, install it with
 ```

@@ -32,12 +32,12 @@ if [[ ! -f "$OC_CONFIG_FILE" ]]; then
 fi
 
 # Do we have ansible installed?
-if ! ansible-vault --version > /dev/null; then
+if ! ansible-vault --version >/dev/null; then
   err "Cannot execute 'ansible-vault'."
 fi
 
 echo "Reading 'config.plist' template contents..."
-readonly OC_CONFIG_PLIST_TEMPLATE=$(< "$OC_CONFIG_FILE")
+readonly OC_CONFIG_PLIST_TEMPLATE=$(<"$OC_CONFIG_FILE")
 
 echo "Sourcing vault variables..."
 # shellcheck disable=SC1090
@@ -52,7 +52,7 @@ OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SMUUID\}\}/${VAULT_OC_SMUUID}}"
 echo "Removing template 'config.plist'..."
 rm -f "${OC_CONFIG_FILE}"
 echo "Writing back to 'config.plist'..."
-echo "$OC_CONFIG_PLIST" > "${OC_CONFIG_FILE}"
+echo "$OC_CONFIG_PLIST" >"${OC_CONFIG_FILE}"
 
 echo "Done."
 # EOF

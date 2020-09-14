@@ -120,7 +120,7 @@ BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpD
 
 Requirements:
 
-- [bash](https://www.gnu.org/software/bash/) > 4.0
+- [Bash](https://www.gnu.org/software/bash/) > 4.0
 - [Coreutils](https://www.gnu.org/software/coreutils/) > 8.15
 - [OpenSSL](https://www.openssl.org/) 1.1 (required for Wget)
 - [Wget](https://www.gnu.org/software/wget/)

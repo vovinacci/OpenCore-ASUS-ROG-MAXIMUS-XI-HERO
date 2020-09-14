@@ -99,7 +99,7 @@ fail() {
   exit 1
 }
 
-# Download all ACPI SSDT to ACPI directory in TMP_DIR
+# Download all ACPI SSDT to 'ACPI' directory in TMP_DIR
 # Globals:
 #   ACPI_SSDT_DOWNLOAD_LIST
 #   TMP_DIR
@@ -111,7 +111,7 @@ download_acpi_ssdt() {
   done
 }
 
-# Download extra Kexts to Kexts directory in TMP_DIR
+# Download extra Kexts to 'Kexts' directory in TMP_DIR
 # Globals:
 #   EXTRA_KEXTS_DOWNLOAD_LIST
 #   TMP_DIR
@@ -181,7 +181,7 @@ create_efi_dirs() {
   mkdir -pv "${BASE_OC_DIR}"/Resources/{Audio,Font,Image,Label}
 }
 
-# Copy OpenCore binaries to EFI directory
+# Copy OpenCore binaries to 'EFI' directory
 # Globals:
 #   BASE_EFI_DIR
 #   BASE_OC_DIR
@@ -195,7 +195,7 @@ copy_oc_bin() {
   cp -v "${TMP_DIR}/${PKG_OC}/EFI/OC/Tools/"{OpenControl.efi,OpenShell.efi,ResetSystem.efi} "${BASE_OC_DIR}"/Tools/
 }
 
-# Copy OpenCore configuration template to EFI folder
+# Copy OpenCore configuration template to 'EFI' directory
 # Globals:
 #   BASE_OC_DIR
 #   TMP_DIR
@@ -204,7 +204,7 @@ copy_oc_config() {
   cp -v "${TMP_DIR}/config.plist" "${BASE_OC_DIR}"/
 }
 
-# Copy ACPI SSDT to EFI/ACPI directory
+# Copy ACPI SSDT to 'EFI/ACPI' directory
 # Globals:
 #   BASE_OC_DIR
 #   TMP_DIR
@@ -213,7 +213,7 @@ copy_acpi_ssdt() {
   cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.aml,SSDT-EC-USBX.aml,SSDT-PLUG.aml,SSDT-PMC.aml} "${BASE_OC_DIR}"/ACPI
 }
 
-# Copy OpenCore drivers to EFI directory
+# Copy OpenCore drivers to 'EFI/Drivers' directory
 # Globals:
 #   BASE_OC_DIR
 #   PKG_OC
@@ -244,7 +244,7 @@ copy_kexts() {
   cp -vr "${TMP_DIR}/${PKG_KEXT_WHATEVERGREEN}"/WhateverGreen.kext "${BASE_OC_DIR}"/Kexts/
 }
 
-# Copy OpenCore resource files to EFI/Resources directories
+# Copy OpenCore resource files to 'EFI/Resources/{Audio,Font,Image,Label}' directories
 # Globals:
 #   BASE_OC_DIR
 #   PKG_OC_BINDATA

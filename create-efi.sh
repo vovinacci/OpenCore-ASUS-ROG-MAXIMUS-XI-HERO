@@ -17,9 +17,11 @@ readonly TMP_DIR="$(mktemp -d)"
 # Keep environment clean
 trap 'run-on-trap $?' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
 run-on-trap() {
-  echo "Removing temporary directory '${TMP_DIR}'..."; rm -rf "${TMP_DIR}"
+  echo "Removing temporary directory '${TMP_DIR}'..."
+  rm -rf "${TMP_DIR}"
   if [[ $1 -ne 0 ]]; then
-    echo "Removing EFI directory '${BASE_EFI_DIR}'..."; rm -fr "${BASE_EFI_DIR}"
+    echo "Removing EFI directory '${BASE_EFI_DIR}'..."
+    rm -fr "${BASE_EFI_DIR}"
   fi
 }
 
@@ -93,7 +95,7 @@ readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS
 # Arguments:
 #   Error message
 fail() {
-  (>&2 echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')] [FATAL]: $*")
+  (echo >&2 "[$(date +'%Y-%m-%dT%H:%M:%S%z')] [FATAL]: $*")
   exit 1
 }
 
@@ -147,7 +149,7 @@ download_oc_config() {
 download_pkg() {
   echo "Downloading packages..."
   for i in "${PKG_DOWNLOAD_LIST[@]}"; do
-    wget -nv -c -P "${TMP_DIR}"  "$i"
+    wget -nv -c -P "${TMP_DIR}" "$i"
   done
 }
 
@@ -157,11 +159,11 @@ download_pkg() {
 #   TMP_DIR
 unarchive_pkg() {
   echo "Unarchiving packages..."
-  pushd "${TMP_DIR}" > /dev/null || fail "Cannot 'pushd ${TMP_DIR}'"
+  pushd "${TMP_DIR}" >/dev/null || fail "Cannot 'pushd ${TMP_DIR}'"
   for i in "${PKG_LIST[@]}"; do
     unzip -q "${i}.zip" -d "${i}"
   done
-  popd > /dev/null
+  popd >/dev/null
 }
 
 # Create EFI directory structure

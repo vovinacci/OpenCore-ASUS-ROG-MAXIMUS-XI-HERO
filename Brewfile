@@ -1,1 +1,2 @@
-brew "shellcheck"
+brew 'shellcheck'
+brew 'yamllint'

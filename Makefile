@@ -15,8 +15,12 @@ help:  ## Display this help
 
 lint:  ## Run linter checks
 	$(PRINT_TARGET)
+	@echo "Linting bash scripts..."
 	@shellcheck --version
 	@find "${CURDIR}" -name '*.sh' -print0 | xargs -0 -t -n1 shellcheck --color=always --severity=style
+	@echo "Linting YAML files..."
+	@yamllint --version
+	@yamllint -s "${CURDIR}"
 
 run: clean  ## Generate EFI folder with 'config.plist' template
 	$(PRINT_TARGET)
@@ -26,6 +30,10 @@ toc:  ## Generate README.md table of contents
 	$(PRINT_TARGET)
 	@bash -c "$$(curl -fsSL raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc) README.md"
 
+vault: vault-pre run  ## Generate OpenCore 'config.plist' from template
+	$(PRINT_TARGET)
+	@"${CURDIR}/util/vault.sh"
+
 vault-pre:  ## Vault prerequisite check
 	$(PRINT_TARGET)
 	@if [ -z "${ANSIBLE_VAULT_PASSWORD_FILE}" ]; then \
@@ -34,14 +42,11 @@ vault-pre:  ## Vault prerequisite check
 	fi
 	@ansible-vault --version
 
-vault: vault-pre run  ## Generate OpenCore 'config.plist' from template
-	$(PRINT_TARGET)
-	@"${CURDIR}/util/vault.sh"
-
 .PHONY: \
 	clean \
 	help \
 	lint \
 	run \
 	toc \
-	vault
+	vault \
+	vault-pre

@@ -12,5 +12,5 @@ jobs:
           stale-issue-message: >
             This issue is stale because it has been open for 28 days with
             no activity. If no action is taken it will be closed in 7 days.
-          days-before-stale: 28
+          days-before-stale: 14
           days-before-close: 7

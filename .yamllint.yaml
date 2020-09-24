@@ -1,3 +1,6 @@
 extends: default
 rules:
-  document-start: false
+  comments-indentation: disable
+  document-start: disable
+  truthy:
+    check-keys: false

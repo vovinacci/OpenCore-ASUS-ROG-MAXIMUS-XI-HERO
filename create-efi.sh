@@ -27,12 +27,12 @@ run-on-trap() {
 
 ## Variables
 # Package versions. Set desired versions here.
-OPENCORE_VERSION="0.6.1"
-KEXT_APPLEALC_VERSION="1.5.2"
-KEXT_INTELMAUSI_VERSION="1.0.3"
-KEXT_LILU_VERSION="1.4.7"
-KEXT_VIRTUALSMC_VERSION="1.1.6"
-KEXT_WHATEVERGREEN_VERSION="1.4.2"
+OPENCORE_VERSION="0.6.2"
+KEXT_APPLEALC_VERSION="1.5.3"
+KEXT_INTELMAUSI_VERSION="1.0.4"
+KEXT_LILU_VERSION="1.4.8"
+KEXT_VIRTUALSMC_VERSION="1.1.7"
+KEXT_WHATEVERGREEN_VERSION="1.4.3"
 # Allow local file copy, instead of downloading.
 LOCAL_RUN=${LOCAL_RUN:-0}
 
@@ -189,10 +189,10 @@ create_efi_dirs() {
 #   TMP_DIR
 copy_oc_bin() {
   echo "Copying OpenCore binaries to EFI directories..."
-  cp -v "${TMP_DIR}/${PKG_OC}/EFI/BOOT/BOOTx64.efi" "${BASE_EFI_DIR}"/BOOT/
-  cp -v "${TMP_DIR}/${PKG_OC}/EFI/OC/OpenCore.efi" "${BASE_OC_DIR}"/
-  cp -v "${TMP_DIR}/${PKG_OC}/EFI/OC/Bootstrap/Bootstrap.efi" "${BASE_OC_DIR}"/Bootstrap/
-  cp -v "${TMP_DIR}/${PKG_OC}/EFI/OC/Tools/"{OpenControl.efi,OpenShell.efi,ResetSystem.efi} "${BASE_OC_DIR}"/Tools/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/BOOT/BOOTx64.efi" "${BASE_EFI_DIR}"/BOOT/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/OpenCore.efi" "${BASE_OC_DIR}"/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Bootstrap/Bootstrap.efi" "${BASE_OC_DIR}"/Bootstrap/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Tools/"{OpenControl.efi,OpenShell.efi,ResetSystem.efi} "${BASE_OC_DIR}"/Tools/
 }
 
 # Copy OpenCore configuration template to 'EFI' directory
@@ -221,7 +221,7 @@ copy_acpi_ssdt() {
 #   TMP_DIR
 copy_oc_drivers() {
   echo "Copying OpenCore drivers to EFI/Drivers directory..."
-  cp -v "${TMP_DIR}/${PKG_OC}/EFI/OC/Drivers/"{OpenCanopy.efi,OpenRuntime.efi} "${BASE_OC_DIR}"/Drivers/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{OpenCanopy.efi,OpenRuntime.efi} "${BASE_OC_DIR}"/Drivers/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Drivers/HfsPlus.efi" "${BASE_OC_DIR}"/Drivers/
 }
 

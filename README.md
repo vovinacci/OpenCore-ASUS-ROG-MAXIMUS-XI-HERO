@@ -109,7 +109,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ## BIOS Settings
 
-BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpDesk_BIOS/)
+BIOS [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
 - Version [1602](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1602.zip)
 - Settings [backup](BIOS/V1602.CMO)
 

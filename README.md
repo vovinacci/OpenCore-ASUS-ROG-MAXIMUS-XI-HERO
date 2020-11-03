@@ -56,7 +56,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.6.2](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.2)
+- [OpenCore 0.6.3](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.3)
 - [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
@@ -90,11 +90,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.3](https://github.com/acidanthera/AppleALC/releases/tag/1.5.3)
+- [AppleALC 1.5.4](https://github.com/acidanthera/AppleALC/releases/tag/1.5.4)
 - [IntelMausi 1.0.4](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.4)
-- [Lilu 1.4.8](https://github.com/acidanthera/Lilu/releases/tag/1.4.8)
-- [VirtualSMC 1.1.7](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.7) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.3](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.3)
+- [Lilu 1.4.9](https://github.com/acidanthera/Lilu/releases/tag/1.4.9)
+- [VirtualSMC 1.1.8](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.8) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.4.4](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.4)
 
 
 ### Resources
@@ -109,7 +109,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ## BIOS Settings
 
-BIOS [download page](https://www.asus.com/Motherboards/ROG-MAXIMUS-XI-HERO/HelpDesk_BIOS/)
+BIOS [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
 - Version [1602](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1602.zip)
 - Settings [backup](BIOS/V1602.CMO)
 

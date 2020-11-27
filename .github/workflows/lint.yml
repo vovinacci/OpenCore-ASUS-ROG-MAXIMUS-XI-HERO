@@ -10,7 +10,7 @@ on:
       - "*"
 jobs:
   lint:
-    runs-on: macos-10.15
+    runs-on: macos-11.0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,6 +19,8 @@ jobs:
           bash -c 'echo $BASH_VERSION'
           brew --version
           make --version
+          which tar || echo "No tar"
+          which unzip || echo "No unzip"
       - name: Homebrew install packages
         run: brew bundle
       - name: Run lint checks

@@ -19,8 +19,6 @@ jobs:
           bash -c 'echo $BASH_VERSION'
           brew --version
           make --version
-          which tar || echo "No tar"
-          which unzip || echo "No unzip"
       - name: Homebrew install packages
         run: brew bundle
       - name: Run lint checks

@@ -25,16 +25,19 @@ run-on-trap() {
   fi
 }
 
-## Variables
 # Package versions. Set desired versions here.
-OPENCORE_VERSION="0.6.3"
-KEXT_APPLEALC_VERSION="1.5.4"
-KEXT_INTELMAUSI_VERSION="1.0.4"
-KEXT_LILU_VERSION="1.4.9"
-KEXT_VIRTUALSMC_VERSION="1.1.8"
-KEXT_WHATEVERGREEN_VERSION="1.4.4"
-# Allow local file copy, instead of downloading.
-LOCAL_RUN=${LOCAL_RUN:-0}
+readonly OPENCORE_VERSION="0.6.3"
+readonly KEXT_APPLEALC_VERSION="1.5.4"
+readonly KEXT_INTELMAUSI_VERSION="1.0.4"
+readonly KEXT_LILU_VERSION="1.4.9"
+readonly KEXT_VIRTUALSMC_VERSION="1.1.8"
+readonly KEXT_WHATEVERGREEN_VERSION="1.4.4"
+
+# Installation settings
+# Any non-zero value turns on local file copy, instead of downloading.
+readonly LOCAL_RUN=${LOCAL_RUN:-0}
+# Use release or debug variant
+readonly OC_PKG_VARIANT=${OC_PKG_VARIANT:-RELEASE}
 
 # Download locations
 #
@@ -42,13 +45,13 @@ LOCAL_RUN=${LOCAL_RUN:-0}
 # Base URL
 readonly OC_BASE_URL="https://github.com/acidanthera"
 # Package names
-readonly PKG_OC="OpenCore-${OPENCORE_VERSION}-RELEASE"
+readonly PKG_OC="OpenCore-${OPENCORE_VERSION}-${OC_PKG_VARIANT}"
 readonly PKG_OC_BINDATA="master"
-readonly PKG_KEXT_APPLEALC="AppleALC-${KEXT_APPLEALC_VERSION}-RELEASE"
-readonly PKG_KEXT_INTELMAUSI="IntelMausi-${KEXT_INTELMAUSI_VERSION}-RELEASE"
-readonly PKG_KEXT_LILU="Lilu-${KEXT_LILU_VERSION}-RELEASE"
-readonly PKG_KEXT_VIRTUALSMC="VirtualSMC-${KEXT_VIRTUALSMC_VERSION}-RELEASE"
-readonly PKG_KEXT_WHATEVERGREEN="WhateverGreen-${KEXT_WHATEVERGREEN_VERSION}-RELEASE"
+readonly PKG_KEXT_APPLEALC="AppleALC-${KEXT_APPLEALC_VERSION}-${OC_PKG_VARIANT}"
+readonly PKG_KEXT_INTELMAUSI="IntelMausi-${KEXT_INTELMAUSI_VERSION}-${OC_PKG_VARIANT}"
+readonly PKG_KEXT_LILU="Lilu-${KEXT_LILU_VERSION}-${OC_PKG_VARIANT}"
+readonly PKG_KEXT_VIRTUALSMC="VirtualSMC-${KEXT_VIRTUALSMC_VERSION}-${OC_PKG_VARIANT}"
+readonly PKG_KEXT_WHATEVERGREEN="WhateverGreen-${KEXT_WHATEVERGREEN_VERSION}-${OC_PKG_VARIANT}"
 # Download package list
 declare -ar PKG_DOWNLOAD_LIST=(
   # OpenCore
@@ -76,19 +79,21 @@ declare -ar PKG_LIST=(
 )
 # Configuration
 #
+# GitHub repository content base URL
+readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/"
 # ACPI SSDT
 declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-AWAC.aml"
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-EC-USBX.aml"
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PLUG.aml"
-  "https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/ACPI/SSDT-PMC.aml"
+  "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-AWAC.aml"
+  "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-EC-USBX.aml"
+  "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-PLUG.aml"
+  "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-PMC.aml"
 )
 # Additional Kexts
 declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
-  [USBMap.kext]="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/Kexts/USBMap.kext/Contents/Info.plist"
+  [USBMap.kext]="${GH_REPO_CONTENT_BASE_URL}/Kexts/USBMap.kext/Contents/Info.plist"
 )
 # OpenCore configuration
-readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/raw/master/OC/config.plist"
+readonly OC_CONFIG_PLIST="${GH_REPO_CONTENT_BASE_URL}/OC/config.plist"
 
 ## Functions
 # Print error message and exit
@@ -97,6 +102,21 @@ readonly OC_CONFIG_PLIST="https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS
 fail() {
   (echo >&2 "[$(date +'%Y-%m-%dT%H:%M:%S%z')] [FATAL]: $*")
   exit 1
+}
+
+# Perform sanity checks prior doing anything and print
+# Globals:
+#   LOCAL_RUN
+#   OC_PKG_VARIANT
+__preflight_checks() {
+  # Check if OC_PKG_VARIANT is set correctly
+  [[ $OC_PKG_VARIANT =~ ^(DEBUG|RELEASE)$ ]] ||
+    fail "Unsupported OpenCore package variant \"${OC_PKG_VARIANT}\"." \
+      "OC_PKG_VARIANT should be set to \"DEBUG\" or \"RELEASE\"."
+  echo "OpenCore package variant: \"${OC_PKG_VARIANT}\"."
+  # Check if local run is preferred
+  [[ $LOCAL_RUN == 0 ]] ||
+    echo "Local run: Don't download Kexts and config.plist."
 }
 
 # Download all ACPI SSDT to 'ACPI' directory in TMP_DIR
@@ -116,7 +136,7 @@ download_acpi_ssdt() {
 #   EXTRA_KEXTS_DOWNLOAD_LIST
 #   TMP_DIR
 download_extra_kexts() {
-  if [[ LOCAL_RUN -eq 0 ]]; then
+  if [[ $LOCAL_RUN == 0 ]]; then
     echo "Downloading extra Kexts..."
     for k in "${!EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
       wget -nv -c --cut-dirs=5 -nH -P "${TMP_DIR}/Kexts/${k}" -r -np "${EXTRA_KEXTS_DOWNLOAD_LIST[$k]}"
@@ -133,7 +153,7 @@ download_extra_kexts() {
 #   OC_CONFIG_PLIST
 #   TMP_DIR
 download_oc_config() {
-  if [[ LOCAL_RUN -eq 0 ]]; then
+  if [[ $LOCAL_RUN == 0 ]]; then
     echo "Downloading config.plist..."
     wget -nv -c -P "${TMP_DIR}/" "${OC_CONFIG_PLIST}"
   else
@@ -267,6 +287,7 @@ copy_oc_resources() {
 }
 
 ## Start the ball
+__preflight_checks
 # Download all required data
 download_acpi_ssdt
 download_extra_kexts

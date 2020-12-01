@@ -83,7 +83,7 @@ declare -ar PKG_LIST=(
 # Configuration
 #
 # GitHub repository content base URL
-readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/"
+readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master"
 # ACPI SSDT
 declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
   "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-AWAC.aml"

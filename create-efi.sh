@@ -8,6 +8,9 @@ set -euf -o pipefail
 # Set locale
 export LC_ALL="en_US.UTF-8"
 
+# Extend PATH to always use Coreutils supplied utilities first.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+
 # Directories
 readonly BASE_DIR="$(dirname "$(realpath "$0")")"
 readonly BASE_EFI_DIR="${BASE_DIR}/EFI"
@@ -80,7 +83,7 @@ declare -ar PKG_LIST=(
 # Configuration
 #
 # GitHub repository content base URL
-readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/"
+readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master"
 # ACPI SSDT
 declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
   "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-AWAC.aml"

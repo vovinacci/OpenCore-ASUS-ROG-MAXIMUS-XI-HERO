@@ -1,0 +1,31 @@
+repos:
+  # Various basic checks
+  - repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-xml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+  - repo: git://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.4
+    hooks:
+      - id: shellcheck
+  - repo: git://github.com/igorshubovych/markdownlint-cli
+    rev: v0.25.0
+    hooks:
+      - id: markdownlint
+  # YAML linting
+  - repo: git://github.com/adrienverge/yamllint.git
+    rev: v1.25.0
+    hooks:
+      - id: yamllint
+        args:
+          - -c=.yamllint.yaml
+          - -s

@@ -66,14 +66,20 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 None.
 
-**Fixed**:
+**Resolved**:
 
-- [x] (06-Dec-2020) [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) had issues:
+- [x] [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) started having issues mid-autumn 2020:
 
-  - After shut down and then power on PC again, Bluetooth will not work in macOS (however, it's fine at earlier stages, e.g. when typing password during the boot). Workaround: unplug PC after the shutdown
+  - After shut down and then power on PC again, Bluetooth will not work in macOS (however, it's fine at earlier stages, e.g. when typing password during the boot). Workaround: unplug PC after the shutdown.
   - Keyboard and trackpad were working unstable from time to time (input garbage, freezes). Workaround: power cycle keyboard and trackpad, reboot.
 
-  **Solution**: Replaced [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
+  **Solution**: (06-Dec-2020) Replaced [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
+
+- [x] macOS Catalina version 10.15.7 started rebooting suddenly
+
+  - [MemTest86](https://www.memtest86.com/) revealed one [BLS16G4D240FSB](https://pcpartpicker.com/product/8GJtt6/crucial-ballistix-sport-lt-16gb-1-x-16gb-ddr4-2400-memory-bls16g4d240fsb) UDIMM to be faulty. Workaround: Remove faulty UDIMM.
+
+  **Solution**: (30-Nov-2020) Ordered and replaced faulty UDIMM.
 
 ### ACPI
 

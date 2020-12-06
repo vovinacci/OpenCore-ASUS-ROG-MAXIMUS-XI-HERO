@@ -1,22 +1,21 @@
 # OpenCore-ASUS-ROG-MAXIMUS-XI-HERO
-OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create EFI directory.
 
+OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create EFI directory.
 
 ## Table of Contents
 
-   * [Hardware list](#hardware-list)
-   * [macOS](#macos)
-   * [OpenCore](#opencore)
-      * [Known Issues](#known-issues)
-      * [ACPI](#acpi)
-      * [USB](#usb)
-      * [Drivers](#drivers)
-      * [Kext](#kext)
-      * [Resources](#resources)
-      * [Tools](#tools)
-   * [BIOS Settings](#bios-settings)
-   * [Create EFI directory and files helper script](#create-efi-directory-and-files-helper-script)
-
+- [Hardware list](#hardware-list)
+- [macOS](#macos)
+- [OpenCore](#opencore)
+  - [Known Issues](#known-issues)
+  - [ACPI](#acpi)
+  - [USB](#usb)
+  - [Drivers](#drivers)
+  - [Kext](#kext)
+  - [Resources](#resources)
+  - [Tools](#tools)
+- [BIOS Settings](#bios-settings)
+- [Create EFI directory and files helper script](#create-efi-directory-and-files-helper-script)
 
 ## Hardware list
 
@@ -46,13 +45,11 @@ Other accessories:
 | Keyboard | [Magic Keyboard with Numeric Keypad](https://www.apple.com/shop/product/MRMH2LL/A/magic-keyboard-with-numeric-keypad-us-english-space-gray) |
 | Trackpad | [Magic Trackpad 2](https://www.apple.com/shop/product/MRMF2/magic-trackpad-2-space-gray) |
 
-
 ## macOS
 
 macOS Big Sur version 11.0.1 with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
-
 
 ## OpenCore
 
@@ -102,7 +99,6 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 - OpenCore - `OpenCanopy.efi`, `OpenRuntime.efi`
 - [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)
 
-
 ### Kext
 
 - [AppleALC 1.5.4](https://github.com/acidanthera/AppleALC/releases/tag/1.5.4)
@@ -111,23 +107,20 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 - [VirtualSMC 1.1.8](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.8) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
 - [WhateverGreen 1.4.4](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.4)
 
-
 ### Resources
 
 - [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [Resources/](https://github.com/acidanthera/OcBinaryData/blob/master/Resources)
-
 
 ### Tools
 
 - OpenCore - `CleanNvram.efi` `OpenControl.efi`, `OpenShell.efi`
 
-
 ## BIOS Settings
 
 BIOS [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
+
 - Version [1704](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1704.ZIP)
 - Settings [backup](BIOS/V1704.CMO)
-
 
 ## Create EFI directory and files helper script
 
@@ -141,18 +134,21 @@ Requirements:
 - [Wget](https://www.gnu.org/software/wget/)
 
 Should you use [Homebrew](https://brew.sh/) on macOS, install it with
-```
+
+```bash
 brew install bash coreutils openssl@1.1 wget
 ```
 
 To create EFI folder, there's no need to clone this repository, just run
-```
+
+```bash
 bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/create-efi.sh)"
 ```
 
 This should download all necessary packages and extract files to the `EFI` folder in the current directory.
 
 Two things to be done manually before moving everything to actual EFI partition:
+
 - Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
 - Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
 

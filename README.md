@@ -30,7 +30,7 @@ Original hardware selection idea is based on [tonymacx86.com Stork's MyHero II B
 | Thermal paste | [ARCTIC MX-4 2019 Edition 4 g Thermal Paste](https://pcpartpicker.com/product/JmYLrH/arctic-mx-4-2019-edition-4-g-thermal-paste-actcp00002b) |
 | Memory | [Ballistix Sport LT 64G DDR4, 2400 MHz CL16, BLS4C16G4D240FSB](https://www.amazon.com/gp/product/B01B4F3MNQ) |
 | Video Card | [Sapphire Radeon RX 580 8 GB PULSE Video Card](https://pcpartpicker.com/product/y2DzK8/sapphire-radeon-rx-580-8gb-pulse-video-card-11265-05) |
-| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) |
+| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/) |
 | HDD 1,2 | [Samsung 860 Evo 500 GB 2.5" Solid State Drive](https://pcpartpicker.com/product/6yKcCJ/samsung-860-evo-500gb-25-solid-state-drive-mz-76e500bam) |
 | HDD 3 | [Seagate Barracuda 6 TB 3.5" 5400RPM Internal Hard Drive](https://pcpartpicker.com/product/ByL48d/seagate-barracuda-6tb-35-5400rpm-internal-hard-drive-st6000dm003) |
 | Firewire | [SYBA Low Profile PCI-Express Firewire Card](https://www.amazon.com/gp/product/B002S53IG8) |
@@ -43,8 +43,8 @@ Other accessories:
 
 | Type | Item |
 | ---- | ---- |
-| Internal Drive Bay Panel | [Chieftec SDC-025 Drive Bay Panel](https://www.amazon.com/Chieftec-SDC-025-Geh%C3%A4use-f%C3%BCr-Speicherlaufwerke/dp/B009DGM4B0) |
-| SATA Cable | [SATA III 50cm data cable with 90 degree bent connector](https://www.amazon.co.uk/Gembird-cc-satam-data90-0-5-Cable-Cables-500-Piece/dp/B06XCTW4YZ) |
+| Keyboard | [Magic Keyboard with Numeric Keypad](https://www.apple.com/shop/product/MRMH2LL/A/magic-keyboard-with-numeric-keypad-us-english-space-gray) |
+| Trackpad | [Magic Trackpad 2](https://www.apple.com/shop/product/MRMF2/magic-trackpad-2-space-gray) |
 
 
 ## macOS
@@ -62,7 +62,18 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ### Known issues
 
-  None.
+**Open**:
+
+None.
+
+**Fixed**:
+
+- [x] (06-Dec-2020) [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) had issues:
+
+  - After shut down and then power on PC again, Bluetooth will not work in macOS (however, it's fine at earlier stages, e.g. when typing password during the boot). Workaround: unplug PC after the shutdown
+  - Keyboard and trackpad were working unstable from time to time (input garbage, freezes). Workaround: power cycle keyboard and trackpad, reboot.
+
+  **Solution**: Replaced [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
 
 ### ACPI
 
@@ -135,7 +146,7 @@ To create EFI folder, there's no need to clone this repository, just run
 bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/create-efi.sh)"
 ```
 
-This should download all necessary packages and extract files to the `EFI` folder in current directory.
+This should download all necessary packages and extract files to the `EFI` folder in the current directory.
 
 Two things to be done manually before moving everything to actual EFI partition:
 - Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).

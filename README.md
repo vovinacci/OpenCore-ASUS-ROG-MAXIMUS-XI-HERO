@@ -53,7 +53,9 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.6.3](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.3)
+> :warning: **If you are updating from OpenCore 0.6.3**: Ensure to read [this comment](https://github.com/acidanthera/bugtracker/issues/1222#issuecomment-739241310) first. :warning:
+
+- [OpenCore 0.6.4](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.4)
 - [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
@@ -101,11 +103,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.4](https://github.com/acidanthera/AppleALC/releases/tag/1.5.4)
+- [AppleALC 1.5.5](https://github.com/acidanthera/AppleALC/releases/tag/1.5.5)
 - [IntelMausi 1.0.4](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.4)
-- [Lilu 1.4.9](https://github.com/acidanthera/Lilu/releases/tag/1.4.9)
-- [VirtualSMC 1.1.8](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.8) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.4](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.4)
+- [Lilu 1.5.0](https://github.com/acidanthera/Lilu/releases/tag/1.5.0)
+- [VirtualSMC 1.1.9](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.9) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.4.5](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.5)
 
 ### Resources
 

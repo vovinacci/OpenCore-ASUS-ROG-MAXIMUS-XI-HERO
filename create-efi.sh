@@ -29,12 +29,12 @@ run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="0.6.4"
-readonly KEXT_APPLEALC_VERSION="1.5.5"
-readonly KEXT_INTELMAUSI_VERSION="1.0.4"
+readonly OPENCORE_VERSION="0.6.5"
+readonly KEXT_APPLEALC_VERSION="1.5.6"
+readonly KEXT_INTELMAUSI_VERSION="1.0.5"
 readonly KEXT_LILU_VERSION="1.5.0"
 readonly KEXT_VIRTUALSMC_VERSION="1.1.9"
-readonly KEXT_WHATEVERGREEN_VERSION="1.4.5"
+readonly KEXT_WHATEVERGREEN_VERSION="1.4.6"
 
 # Installation settings
 # Any non-zero value turns on local file copy, instead of downloading.
@@ -277,11 +277,11 @@ copy_oc_resources() {
   # Enable globbing for file copy
   set +f
   # Copy files
-  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"{AXEFIAudio_Beep.wav,AXEFIAudio_Click.wav,AXEFIAudio_VoiceOver_Boot.wav} \
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"{AXEFIAudio_Beep.mp3,AXEFIAudio_Click.mp3,AXEFIAudio_VoiceOver_Boot.mp3} \
     "${BASE_OC_DIR}"/Resources/Audio/
-  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/OCEFIAudio_VoiceOver_Boot.wav" "${BASE_OC_DIR}"/Resources/Audio/
-  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"AXEFIAudio_en_*.wav "${BASE_OC_DIR}"/Resources/Audio/
-  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"OCEFIAudio_en_*.wav "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/OCEFIAudio_VoiceOver_Boot.mp3" "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"AXEFIAudio_en_*.mp3 "${BASE_OC_DIR}"/Resources/Audio/
+  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"OCEFIAudio_en_*.mp3 "${BASE_OC_DIR}"/Resources/Audio/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Font/"* "${BASE_OC_DIR}"/Resources/Font/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Image/"* "${BASE_OC_DIR}"/Resources/Image/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Label/"* "${BASE_OC_DIR}"/Resources/Label/

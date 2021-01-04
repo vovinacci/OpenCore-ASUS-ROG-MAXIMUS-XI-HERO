@@ -101,11 +101,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.5](https://github.com/acidanthera/AppleALC/releases/tag/1.5.6)
-- [IntelMausi 1.0.4](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.5)
+- [AppleALC 1.5.6](https://github.com/acidanthera/AppleALC/releases/tag/1.5.6)
+- [IntelMausi 1.0.5](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.5)
 - [Lilu 1.5.0](https://github.com/acidanthera/Lilu/releases/tag/1.5.0)
 - [VirtualSMC 1.1.9](https://github.com/acidanthera/VirtualSMC/releases/tag/1.1.9) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.5](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.6)
+- [WhateverGreen 1.4.6](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.6)
 
 ### Resources
 

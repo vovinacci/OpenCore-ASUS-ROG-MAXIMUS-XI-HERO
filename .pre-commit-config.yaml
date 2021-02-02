@@ -1,7 +1,7 @@
 repos:
   # Various basic checks
   - repo: git://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0
+    rev: v3.4.0
     hooks:
       - id: check-added-large-files
       - id: check-merge-conflict
@@ -19,12 +19,12 @@ repos:
       - id: shellcheck
         additional_dependencies: []
   - repo: git://github.com/igorshubovych/markdownlint-cli
-    rev: v0.25.0
+    rev: v0.26.0
     hooks:
       - id: markdownlint
   # YAML linting
   - repo: git://github.com/adrienverge/yamllint.git
-    rev: v1.25.0
+    rev: v1.26.0
     hooks:
       - id: yamllint
         args:

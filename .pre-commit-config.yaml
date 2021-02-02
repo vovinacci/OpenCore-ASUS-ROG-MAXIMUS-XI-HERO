@@ -17,6 +17,7 @@ repos:
     rev: 2.1.4
     hooks:
       - id: shellcheck
+        additional_dependencies: []
   - repo: git://github.com/igorshubovych/markdownlint-cli
     rev: v0.25.0
     hooks:

@@ -9,7 +9,7 @@ on:
     branches:
       - "*"
 jobs:
-  lint:
+  test:
     # TODO(vovin): Return back Big Sur runner [#57]
     # runs-on: macos-11.0
     runs-on: macos-latest

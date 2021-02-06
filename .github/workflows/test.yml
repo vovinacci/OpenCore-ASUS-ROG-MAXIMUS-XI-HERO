@@ -1,0 +1,40 @@
+name: test
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master target branch.
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - "*"
+jobs:
+  lint:
+    # TODO(vovin): Return back Big Sur runner [#57]
+    # runs-on: macos-11.0
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Print versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          brew --version
+          make --version
+      - name: Homebrew install packages
+        run: |
+          brew bundle
+      - name: Run lint checks
+        run: |
+          make lint
+      - name: Run tests
+        run: |
+          # Extend PATH to always use Coreutils supplied utilities first.
+          export PATH="/usr/local/opt/coreutils/libexec/gnubin:${{ env.PATH }}"
+          # Print versions
+          unzip -v
+          wget --version
+          # Should be picked from `coreutils` package
+          which cp dirname mkdir mktemp mv realpath rm
+          #
+          make test

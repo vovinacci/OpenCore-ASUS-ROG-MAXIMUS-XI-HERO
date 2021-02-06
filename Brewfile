@@ -1,2 +1,9 @@
+# Lint
 brew 'shellcheck'
 brew 'yamllint'
+# Test
+brew 'bash'
+brew 'bats-core'
+brew 'coreutils'
+brew 'openssl@1.1'
+brew 'wget'

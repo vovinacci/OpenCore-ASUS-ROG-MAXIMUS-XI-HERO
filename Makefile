@@ -20,6 +20,7 @@ help:  ## Display this help
 .PHONY: lint
 lint:  ## Run linter checks
 	$(PRINT_TARGET)
+	@echo "GNU bash, version $${BASH_VERSION}"
 	@echo "Linting property list files..."
 	@find "${CURDIR}" -name '*.plist' -print0 | xargs -0 -n1 plutil -lint
 	@echo "Linting bash scripts..."
@@ -43,6 +44,13 @@ endif
 run: clean  ## Generate EFI folder with 'config.plist' template
 	$(PRINT_TARGET)
 	@LOCAL_RUN=1 "${CURDIR}/create-efi.sh"
+
+.PHONY: test
+test:  ## Run tests
+	$(PRINT_TARGET)
+	@echo "GNU bash, version $${BASH_VERSION}"
+	@bats --version
+	# TODO(vovin): Implement tests [#57]
 
 .PHONY: toc
 toc:  ## Generate README.md table of contents

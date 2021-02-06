@@ -56,7 +56,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 > :warning: **If you are updating from OpenCore 0.6.5**: Ensure to read and follow [Updating Bootstrap in 0.6.6](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html#updating-bootstrap-in-0-6-6) first. :warning:
 
 - [OpenCore 0.6.6](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.6)
-- [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+- [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
 ### Known issues
@@ -80,7 +80,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ### ACPI
 
-As per [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
+As per [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
 
 - [SSDT-AWAC.aml](ACPI/SSDT-AWAC.aml)
 - [SSDT-EC-USBX.aml](ACPI/SSDT-EC-USBX.aml)
@@ -89,7 +89,7 @@ As per [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guid
 
 ### USB
 
-Based on [USB Mapping Guide](https://dortania.github.io/OpenCore-Post-Install/usb/) and [Intel USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).
+Based on Dortania [USB Mapping Guide](https://dortania.github.io/OpenCore-Post-Install/usb/) and [Intel USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).
 
 USB port naming is taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 ![USB port mapping](assets/usb-mapping.png)
@@ -121,8 +121,30 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 BIOS [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
 
-- Version [1704](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1704.ZIP)
-- Settings [backup](BIOS/V1704.CMO)
+- Version [1802](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1802.ZIP)
+- Settings [backup](BIOS/V1802.CMO)
+
+BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:
+
+- Advanced
+
+| Submenu | Key: Value | Comment |
+| --- | --- | --- |
+| CPU Configuration | Software Guard Extensions (SGX): `Disabled` | |
+| CPU Configuration | Intel (VMX) Virtualization Technology: `Enabled` | Required for [Docker](https://www.docker.com/) |
+| System Agent (SA) Configuration | VT-d: `Enabled` | could be enabled as `DisableIoMapper` is set to `true` |
+| System Agent (SA) Configuration | Above 4G Decoding: `Enabled` | |
+| USB Configuration | XHCI Hand-off: `Enabled` | |
+| USB Configuration | Legacy USB Support: `Enabled` | |
+
+- Boot
+
+| Submenu | Key: Value | Comment |
+| --- | --- | --- |
+| Boot Configuration | Fast Boot: `Disabled` | |
+| Boot Configuration | Boot Logo Display: `Disabled` | |
+| Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
+| Secure Boot | OS Type: `Windows UEFI mode` | |
 
 ## Create EFI directory and files helper script
 

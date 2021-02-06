@@ -33,6 +33,9 @@ lint:  ## Run linter checks
 oc_get_ref_config:  ## Download latest OpenCore reference configuration file to 'OC/Sample.plist' (used for debugging changes)
 	$(PRINT_TARGET)
 	@echo "Downloading 'https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist' to 'OC/Sample.plist'..."
+ifeq "$(shell command -v wget)" ""
+	$(error Cannot find wget)
+endif
 	@wget -nv -c https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist -O ./OC/Sample.plist
 	@ls -lah ./OC/Sample.plist
 

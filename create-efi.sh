@@ -243,8 +243,7 @@ copy_acpi_ssdt() {
 #   TMP_DIR
 copy_oc_drivers() {
   echo "Copying OpenCore drivers to EFI/Drivers directory..."
-  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{OpenCanopy.efi,OpenHFSPlus.efi,OpenRuntime.efi} "${BASE_OC_DIR}"/Drivers/
-  # TODO(vovin): Remove this if `OpenHfsPlus.ef` works fine.
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{OpenCanopy.efi,OpenRuntime.efi} "${BASE_OC_DIR}"/Drivers/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Drivers/HfsPlus.efi" "${BASE_OC_DIR}"/Drivers/
 }
 

@@ -29,12 +29,12 @@ run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="0.6.5"
-readonly KEXT_APPLEALC_VERSION="1.5.6"
+readonly OPENCORE_VERSION="0.6.6"
+readonly KEXT_APPLEALC_VERSION="1.5.7"
 readonly KEXT_INTELMAUSI_VERSION="1.0.5"
-readonly KEXT_LILU_VERSION="1.5.0"
-readonly KEXT_VIRTUALSMC_VERSION="1.1.9"
-readonly KEXT_WHATEVERGREEN_VERSION="1.4.6"
+readonly KEXT_LILU_VERSION="1.5.1"
+readonly KEXT_VIRTUALSMC_VERSION="1.2.0"
+readonly KEXT_WHATEVERGREEN_VERSION="1.4.7"
 
 # Installation settings
 # Any non-zero value turns on local file copy, instead of downloading.
@@ -200,7 +200,7 @@ create_efi_dirs() {
   mkdir -pv "${BASE_EFI_DIR}"
   mkdir -pv "${BASE_EFI_DIR}"/BOOT
   mkdir -pv "${BASE_OC_DIR}"
-  mkdir -pv "${BASE_OC_DIR}"/{ACPI,Bootstrap,Drivers,Kexts,Resources,Tools}
+  mkdir -pv "${BASE_OC_DIR}"/{ACPI,Drivers,Kexts,Resources,Tools}
   mkdir -pv "${BASE_OC_DIR}"/Resources/{Audio,Font,Image,Label}
 }
 
@@ -214,7 +214,6 @@ copy_oc_bin() {
   echo "Copying OpenCore binaries to EFI directories..."
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/BOOT/BOOTx64.efi" "${BASE_EFI_DIR}"/BOOT/
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/OpenCore.efi" "${BASE_OC_DIR}"/
-  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Bootstrap/Bootstrap.efi" "${BASE_OC_DIR}"/Bootstrap/
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Tools/"{OpenControl.efi,OpenShell.efi,ResetSystem.efi} "${BASE_OC_DIR}"/Tools/
 }
 

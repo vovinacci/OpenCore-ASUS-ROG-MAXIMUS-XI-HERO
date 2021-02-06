@@ -29,6 +29,13 @@ lint:  ## Run linter checks
 	@yamllint --version
 	@yamllint -s "${CURDIR}"
 
+.PHONY: oc_get_ref_config
+oc_get_ref_config:  ## Download latest OpenCore reference configuration file to 'OC/Sample.plist' (used for debugging changes)
+	$(PRINT_TARGET)
+	@echo "Downloading 'https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist' to 'OC/Sample.plist'..."
+	@wget -nv -c https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist -O ./OC/Sample.plist
+	@ls -lah ./OC/Sample.plist
+
 .PHONY: run
 run: clean  ## Generate EFI folder with 'config.plist' template
 	$(PRINT_TARGET)

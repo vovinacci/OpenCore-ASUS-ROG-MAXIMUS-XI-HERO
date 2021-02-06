@@ -1,11 +1,14 @@
 name: test
 on:
   # Trigger the workflow on push or pull request,
-  # but only for the master target branch.
+  # but only for the master branch.
   push:
     branches:
       - master
   pull_request:
+    # Note: 'branches' and 'branches-ignore' are target PR branches
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
+    # "For a 'pull_request' event, only branches and tags on the base are evaluated."
     branches:
       - "*"
 jobs:
@@ -16,13 +19,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Print versions
+      - name: Homebrew install packages
         run: |
           bash -c 'echo $BASH_VERSION'
           brew --version
           make --version
-      - name: Homebrew install packages
-        run: |
           brew bundle
       - name: Run lint checks
         run: |
@@ -30,7 +31,8 @@ jobs:
       - name: Run tests
         run: |
           # Extend PATH to always use Coreutils supplied utilities first.
-          export PATH="/usr/local/opt/coreutils/libexec/gnubin:${{ env.PATH }}"
+          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${{ env.PATH }}"
+          declare -p PATH
           # Print versions
           unzip -v
           wget --version

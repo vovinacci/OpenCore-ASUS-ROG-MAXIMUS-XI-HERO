@@ -148,7 +148,7 @@ BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://do
 
 ## Create EFI directory and files helper script
 
-[![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/linter/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions)
+[![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/linter/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Alinter)
 
 Requirements:
 

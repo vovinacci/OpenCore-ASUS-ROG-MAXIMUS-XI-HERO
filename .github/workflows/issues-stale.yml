@@ -14,3 +14,4 @@ jobs:
             no activity. If no action is taken it will be closed in 7 days.
           days-before-stale: 14
           days-before-close: 7
+          exempt-issue-labels: triaged

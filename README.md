@@ -119,32 +119,32 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ## BIOS Settings
 
-BIOS [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
+BIOS:
 
-- Version [1802](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1802.ZIP)
+- Version [1802](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1802.ZIP) from [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/)
 - Settings [backup](BIOS/V1802.CMO)
 
 BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:
 
 - Advanced
 
-| Submenu | Key: Value | Comment |
-| --- | --- | --- |
-| CPU Configuration | Software Guard Extensions (SGX): `Disabled` | |
-| CPU Configuration | Intel (VMX) Virtualization Technology: `Enabled` | Required for [Docker](https://www.docker.com/) |
-| System Agent (SA) Configuration | VT-d: `Enabled` | could be enabled as `DisableIoMapper` is set to `true` |
-| System Agent (SA) Configuration | Above 4G Decoding: `Enabled` | |
-| USB Configuration | XHCI Hand-off: `Enabled` | |
-| USB Configuration | Legacy USB Support: `Enabled` | |
+  | Submenu | Key: Value | Comment |
+  | --- | --- | --- |
+  | CPU Configuration | Software Guard Extensions (SGX): `Disabled` | |
+  | CPU Configuration | Intel (VMX) Virtualization Technology: `Enabled` | Required for [Docker](https://www.docker.com/) |
+  | System Agent (SA) Configuration | VT-d: `Enabled` | could be enabled as `DisableIoMapper` is set to `true` |
+  | System Agent (SA) Configuration | Above 4G Decoding: `Enabled` | |
+  | USB Configuration | XHCI Hand-off: `Enabled` | |
+  | USB Configuration | Legacy USB Support: `Enabled` | |
 
 - Boot
 
-| Submenu | Key: Value | Comment |
-| --- | --- | --- |
-| Boot Configuration | Fast Boot: `Disabled` | |
-| Boot Configuration | Boot Logo Display: `Disabled` | |
-| Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
-| Secure Boot | OS Type: `Windows UEFI mode` | |
+  | Submenu | Key: Value | Comment |
+  | --- | --- | --- |
+  | Boot Configuration | Fast Boot: `Disabled` | |
+  | Boot Configuration | Boot Logo Display: `Disabled` | |
+  | Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
+  | Secure Boot | OS Type: `Windows UEFI mode` | |
 
 ## Create EFI directory and files helper script
 

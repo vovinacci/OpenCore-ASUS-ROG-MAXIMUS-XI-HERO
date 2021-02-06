@@ -51,6 +51,7 @@ test:  ## Run tests
 	@echo "GNU bash, version $${BASH_VERSION}"
 	@bats --version
 	# TODO(vovin): Implement tests [#57]
+	bats --tap --timing test
 
 .PHONY: toc
 toc:  ## Generate README.md table of contents

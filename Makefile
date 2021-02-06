@@ -50,8 +50,8 @@ test:  ## Run tests
 	$(PRINT_TARGET)
 	@echo "GNU bash, version $${BASH_VERSION}"
 	@bats --version
-	# TODO(vovin): Implement tests [#57]
-	bats --tap --timing test
+	@# TODO(vovin): Implement tests [#57]
+	@bats ${CI:--tap} --timing test
 
 .PHONY: toc
 toc:  ## Generate README.md table of contents

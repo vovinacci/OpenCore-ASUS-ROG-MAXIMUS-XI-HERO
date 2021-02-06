@@ -14,6 +14,9 @@ on:
 jobs:
   test:
     # TODO(vovin): Return back Big Sur runner [#57]
+    # From https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources
+    #   Note: The macOS 11.0 virtual environment is currently provided as a private preview only.
+    # This causes longer build wait times.
     # runs-on: macos-11.0
     runs-on: macos-latest
     steps:
@@ -31,7 +34,7 @@ jobs:
       - name: Run tests
         run: |
           # Extend PATH to always use Coreutils supplied utilities first.
-          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${{ env.PATH }}"
+          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
           declare -p PATH
           # Print versions
           unzip -v

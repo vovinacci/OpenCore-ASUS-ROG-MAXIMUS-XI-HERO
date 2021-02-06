@@ -144,7 +144,7 @@ BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://do
   | Boot Configuration | Fast Boot: `Disabled` | |
   | Boot Configuration | Boot Logo Display: `Disabled` | |
   | Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
-  | Secure Boot | OS Type: `Windows UEFI mode` | |
+  | Secure Boot | OS Type: `Windows UEFI mode` | Ensure `Secure Boot state` is in `Disabled` state. If this is not the case, navigate to `Boot` -> `Secure Boot` -> `Key Management` and select `Clear Secure Boot Keys` |
 
 ## Create EFI directory and files helper script
 

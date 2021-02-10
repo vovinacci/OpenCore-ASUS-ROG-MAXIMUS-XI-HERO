@@ -1,4 +1,6 @@
 #!/usr/bin/env bats
+#
+# 'create-efi.sh' tests.
 
 load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'

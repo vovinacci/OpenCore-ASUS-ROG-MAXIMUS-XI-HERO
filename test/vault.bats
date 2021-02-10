@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 #
-# util/vault.sh tests.
+# 'util/vault.sh' tests.
 
 load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
@@ -11,5 +11,3 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert_failure 1
   assert_output --partial 'ANSIBLE_VAULT_PASSWORD_FILE variable not set.'
 }
-
-# TODO(vovin): Add dummy vault and test substitutions.

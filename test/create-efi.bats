@@ -1,0 +1,177 @@
+#!/usr/bin/env bats
+
+load '/usr/local/lib/bats-support/load.bash'
+load '/usr/local/lib/bats-assert/load.bash'
+
+@test "create-efi.sh: OC_PKG_VARIANT != RELEASE|DEBUG should fail the script" {
+  export OC_PKG_VARIANT=TEST
+  run ./create-efi.sh
+  assert_failure 1
+  assert_output --partial "Unsupported OpenCore package variant \"${OC_PKG_VARIANT}\". OC_PKG_VARIANT should be set to \"DEBUG\" or \"RELEASE\"."
+}
+
+@test "create-efi.sh: Running with defaults should be successful" {
+  rm -fr ./EFI
+  run ./create-efi.sh
+  # Assert status code
+  assert_success
+  # Assert output
+  assert_output --partial "OpenCore package variant: \"RELEASE\"."
+  assert_output --partial "Downloading ACPI SSDTs..."
+  assert_output --partial "Downloading extra Kexts..."
+  assert_output --partial "Downloading config.plist..."
+  assert_output --partial "Downloading packages..."
+  assert_output --partial "Unarchiving packages..."
+  assert_output --partial "Deleting EFI directory..."
+  assert_output --partial "Creating EFI directory structure..."
+  assert_output --partial "Copying OpenCore binaries to EFI directories..."
+  assert_output --partial "Copying OpenCore configuration template..."
+  assert_output --partial "Copying ACPI SSTDs to EFI/ACPI directory..."
+  assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
+  assert_output --partial "Copying Kexts to EFI/Kexts directory..."
+  assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  # Assert files
+  assert [ -d ./EFI ]
+  assert [ -d ./EFI/BOOT ]
+  assert [ -e ./EFI/BOOT/BOOTx64.efi ]
+  assert [ -d ./EFI/OC ]
+  assert [ -d ./EFI/OC/ACPI ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-AWAC.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-EC-USBX.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PLUG.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PMC.aml ]
+  assert [ -d ./EFI/OC/Drivers ]
+  assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -d ./EFI/OC/Kexts ]
+  assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
+  assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
+  assert [ -d ./EFI/OC/Kexts/Lilu.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCProcessor.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCSuperIO.kext ]
+  assert [ -e ./EFI/OC/Kexts/USBMap.kext/Contents/Info.plist ]
+  assert [ -d ./EFI/OC/Kexts/VirtualSMC.kext ]
+  assert [ -d ./EFI/OC/Resources ]
+  assert [ -d ./EFI/OC/Resources/Audio ]
+  assert [ -d ./EFI/OC/Resources/Font ]
+  assert [ -d ./EFI/OC/Resources/Image ]
+  assert [ -d ./EFI/OC/Resources/Label ]
+  assert [ -d ./EFI/OC/Tools ]
+  assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
+  assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
+  assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
+  assert [ -e ./EFI/OC/config.plist ]
+  assert [ -e ./EFI/OC/OpenCore.efi ]
+}
+
+@test "create-efi.sh: Running with LOCAL_RUN=1 should be successful" {
+  rm -fr ./EFI
+  export LOCAL_RUN=1
+  run ./create-efi.sh
+  assert_success
+  assert_output --partial "OpenCore package variant: \"RELEASE\"."
+  assert_output --partial "Local run: Don't download Kexts and config.plist."
+  assert_output --partial "Downloading ACPI SSDTs..."
+  assert_output --partial "Copying extra Kexts..."
+  assert_output --partial "Copying config.plist..."
+  assert_output --partial "Downloading packages..."
+  assert_output --partial "Unarchiving packages..."
+  assert_output --partial "Deleting EFI directory..."
+  assert_output --partial "Creating EFI directory structure..."
+  assert_output --partial "Copying OpenCore binaries to EFI directories..."
+  assert_output --partial "Copying OpenCore configuration template..."
+  assert_output --partial "Copying ACPI SSTDs to EFI/ACPI directory..."
+  assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
+  assert_output --partial "Copying Kexts to EFI/Kexts directory..."
+  assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  # Assert files
+  assert [ -d ./EFI ]
+  assert [ -d ./EFI/BOOT ]
+  assert [ -e ./EFI/BOOT/BOOTx64.efi ]
+  assert [ -d ./EFI/OC ]
+  assert [ -d ./EFI/OC/ACPI ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-AWAC.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-EC-USBX.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PLUG.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PMC.aml ]
+  assert [ -d ./EFI/OC/Drivers ]
+  assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -d ./EFI/OC/Kexts ]
+  assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
+  assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
+  assert [ -d ./EFI/OC/Kexts/Lilu.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCProcessor.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCSuperIO.kext ]
+  assert [ -e ./EFI/OC/Kexts/USBMap.kext/Contents/Info.plist ]
+  assert [ -d ./EFI/OC/Kexts/VirtualSMC.kext ]
+  assert [ -d ./EFI/OC/Resources ]
+  assert [ -d ./EFI/OC/Resources/Audio ]
+  assert [ -d ./EFI/OC/Resources/Font ]
+  assert [ -d ./EFI/OC/Resources/Image ]
+  assert [ -d ./EFI/OC/Resources/Label ]
+  assert [ -d ./EFI/OC/Tools ]
+  assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
+  assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
+  assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
+  assert [ -e ./EFI/OC/config.plist ]
+  assert [ -e ./EFI/OC/OpenCore.efi ]
+}
+
+@test "create-efi.sh: Running with LOCAL_RUN=1 and OC_PKG_VARIANT=DEBUG should be successful" {
+  rm -fr ./EFI
+  export LOCAL_RUN=1
+  export OC_PKG_VARIANT=DEBUG
+  run ./create-efi.sh
+  assert_success
+  assert_output --partial "OpenCore package variant: \"DEBUG\"."
+  assert_output --partial "Local run: Don't download Kexts and config.plist."
+  assert_output --partial "Downloading ACPI SSDTs..."
+  assert_output --partial "Copying extra Kexts..."
+  assert_output --partial "Copying config.plist..."
+  assert_output --partial "Downloading packages..."
+  assert_output --partial "Unarchiving packages..."
+  assert_output --partial "Deleting EFI directory..."
+  assert_output --partial "Creating EFI directory structure..."
+  assert_output --partial "Copying OpenCore binaries to EFI directories..."
+  assert_output --partial "Copying OpenCore configuration template..."
+  assert_output --partial "Copying ACPI SSTDs to EFI/ACPI directory..."
+  assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
+  assert_output --partial "Copying Kexts to EFI/Kexts directory..."
+  assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  # Assert files
+  assert [ -d ./EFI ]
+  assert [ -d ./EFI/BOOT ]
+  assert [ -e ./EFI/BOOT/BOOTx64.efi ]
+  assert [ -d ./EFI/OC ]
+  assert [ -d ./EFI/OC/ACPI ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-AWAC.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-EC-USBX.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PLUG.aml ]
+  assert [ -e ./EFI/OC/ACPI/SSDT-PMC.aml ]
+  assert [ -d ./EFI/OC/Drivers ]
+  assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
+  assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -d ./EFI/OC/Kexts ]
+  assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
+  assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
+  assert [ -d ./EFI/OC/Kexts/Lilu.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCProcessor.kext ]
+  assert [ -d ./EFI/OC/Kexts/SMCSuperIO.kext ]
+  assert [ -e ./EFI/OC/Kexts/USBMap.kext/Contents/Info.plist ]
+  assert [ -d ./EFI/OC/Kexts/VirtualSMC.kext ]
+  assert [ -d ./EFI/OC/Resources ]
+  assert [ -d ./EFI/OC/Resources/Audio ]
+  assert [ -d ./EFI/OC/Resources/Font ]
+  assert [ -d ./EFI/OC/Resources/Image ]
+  assert [ -d ./EFI/OC/Resources/Label ]
+  assert [ -d ./EFI/OC/Tools ]
+  assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
+  assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
+  assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
+  assert [ -e ./EFI/OC/config.plist ]
+  assert [ -e ./EFI/OC/OpenCore.efi ]
+}

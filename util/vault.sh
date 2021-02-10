@@ -13,6 +13,7 @@ export LC_ALL="en_US.UTF-8"
 
 # Base directory
 readonly BASE_DIR="$(dirname "$(realpath "$0")")"
+# OpenCore configuration file
 readonly OC_CONFIG_FILE="${BASE_DIR}/../EFI/OC/config.plist"
 
 # Print out to STDERR

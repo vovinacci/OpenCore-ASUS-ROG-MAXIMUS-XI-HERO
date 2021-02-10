@@ -50,7 +50,6 @@ test:  ## Run tests
 	$(PRINT_TARGET)
 	@echo "GNU bash, version $${BASH_VERSION}"
 	@bats --version
-	@# TODO(vovin): Implement tests [#57]
 	@bats ${CI:--tap} --timing test
 
 .PHONY: toc

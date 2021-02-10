@@ -1,0 +1,43 @@
+name: test
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch.
+  push:
+    branches:
+      - master
+  pull_request:
+    # Note: 'branches' and 'branches-ignore' are target PR branches
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
+    # "For a 'pull_request' event, only branches and tags on the base are evaluated."
+    branches:
+      - "*"
+jobs:
+  test:
+    # From https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources
+    #   Note: The macOS 11.0 virtual environment is currently provided as a private preview only.
+    # This causes longer build wait times.
+    runs-on: macos-11.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Homebrew install packages
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          brew --version
+          make --version
+          brew bundle
+      - name: Run lint checks
+        run: |
+          make lint
+      - name: Run tests
+        run: |
+          # Extend PATH to always use Coreutils supplied utilities first.
+          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
+          declare -p PATH
+          # Print versions
+          unzip -v
+          wget --version
+          # Should be picked from `coreutils` package
+          which cp dirname mkdir mktemp mv realpath rm
+          #
+          make test

@@ -14,7 +14,7 @@ repos:
         args:
           - --markdown-linebreak-ext=md
   - repo: git://github.com/jumanjihouse/pre-commit-hooks
-    rev: 2.1.4
+    rev: 2.1.5
     hooks:
       - id: shellcheck
         additional_dependencies: []

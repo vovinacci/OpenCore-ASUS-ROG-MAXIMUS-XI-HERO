@@ -139,7 +139,7 @@ function replace_dummy_values() {
   assert [ -e ./util/ocvalidate ]
   # Assert configuration validation
   replace_dummy_values
-  run util/ocvalidate ./EFI/OC/config.plist.test
+  run ./util/ocvalidate ./EFI/OC/config.plist.test
   assert_success
 }
 
@@ -200,6 +200,6 @@ function replace_dummy_values() {
   assert [ -e ./util/ocvalidate ]
   # Assert configuration validation
   replace_dummy_values
-  run util/ocvalidate ./EFI/OC/config.plist.test
+  run ./util/ocvalidate ./EFI/OC/config.plist.test
   assert_success
 }

@@ -19,7 +19,7 @@ readonly TMP_DIR="$(mktemp -d)"
 
 # Keep environment clean
 trap 'run-on-trap $?' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM
-run-on-trap() {
+function run-on-trap() {
   echo "Removing temporary directory '${TMP_DIR}'..."
   rm -rf "${TMP_DIR}"
   if [[ $1 -ne 0 ]]; then
@@ -99,19 +99,19 @@ declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
 readonly OC_CONFIG_PLIST="${GH_REPO_CONTENT_BASE_URL}/OC/config.plist"
 
 ## Functions
-# Print error message and exit
+# Print error message to stderr and exit with code 1
 # Arguments:
 #   Error message
-fail() {
+function fail() {
   (echo >&2 "[$(date +'%Y-%m-%dT%H:%M:%S%z')] [FATAL]: $*")
   exit 1
 }
 
-# Perform sanity checks prior doing anything and print
+# Perform sanity checks prior doing anything and print runtime information
 # Globals:
 #   LOCAL_RUN
 #   OC_PKG_VARIANT
-__preflight_checks() {
+function __preflight_checks() {
   # Check if OC_PKG_VARIANT is set correctly
   [[ $OC_PKG_VARIANT =~ ^(DEBUG|RELEASE)$ ]] ||
     fail "Unsupported OpenCore package variant \"${OC_PKG_VARIANT}\"." \
@@ -126,7 +126,7 @@ __preflight_checks() {
 # Globals:
 #   ACPI_SSDT_DOWNLOAD_LIST
 #   TMP_DIR
-download_acpi_ssdt() {
+function download_acpi_ssdt() {
   echo "Downloading ACPI SSDTs..."
   mkdir -p "${TMP_DIR}/ACPI"
   for i in "${ACPI_SSDT_DOWNLOAD_LIST[@]}"; do
@@ -138,7 +138,7 @@ download_acpi_ssdt() {
 # Globals:
 #   EXTRA_KEXTS_DOWNLOAD_LIST
 #   TMP_DIR
-download_extra_kexts() {
+function download_extra_kexts() {
   if [[ $LOCAL_RUN == 0 ]]; then
     echo "Downloading extra Kexts..."
     for k in "${!EXTRA_KEXTS_DOWNLOAD_LIST[@]}"; do
@@ -155,7 +155,7 @@ download_extra_kexts() {
 #   BASE_DIR
 #   OC_CONFIG_PLIST
 #   TMP_DIR
-download_oc_config() {
+function download_oc_config() {
   if [[ $LOCAL_RUN == 0 ]]; then
     echo "Downloading config.plist..."
     wget -nv -c -P "${TMP_DIR}/" "${OC_CONFIG_PLIST}"
@@ -169,7 +169,7 @@ download_oc_config() {
 # Globals:
 #   PKG_DOWNLOAD_LIST
 #   TMP_DIR
-download_pkg() {
+function download_pkg() {
   echo "Downloading packages..."
   for i in "${PKG_DOWNLOAD_LIST[@]}"; do
     wget -nv -c -P "${TMP_DIR}" "$i"
@@ -180,7 +180,7 @@ download_pkg() {
 # Globals:
 #   PKG_LIST
 #   TMP_DIR
-unarchive_pkg() {
+function unarchive_pkg() {
   echo "Unarchiving packages..."
   pushd "${TMP_DIR}" >/dev/null || fail "Cannot 'pushd ${TMP_DIR}'"
   for i in "${PKG_LIST[@]}"; do
@@ -193,7 +193,7 @@ unarchive_pkg() {
 # Globals:
 #   BASE_EFI_DIR
 #   BASE_OC_DIR
-create_efi_dirs() {
+function create_efi_dirs() {
   echo "Deleting EFI directory..."
   rm -rfv "${BASE_EFI_DIR}"
   echo "Creating EFI directory structure..."
@@ -210,7 +210,7 @@ create_efi_dirs() {
 #   BASE_OC_DIR
 #   PKG_OC
 #   TMP_DIR
-copy_oc_bin() {
+function copy_oc_bin() {
   echo "Copying OpenCore binaries to EFI directories..."
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/BOOT/BOOTx64.efi" "${BASE_EFI_DIR}"/BOOT/
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/OpenCore.efi" "${BASE_OC_DIR}"/
@@ -221,16 +221,28 @@ copy_oc_bin() {
 # Globals:
 #   BASE_OC_DIR
 #   TMP_DIR
-copy_oc_config() {
+function copy_oc_config() {
   echo "Copying OpenCore configuration template..."
   cp -v "${TMP_DIR}/config.plist" "${BASE_OC_DIR}"/
+}
+
+# Copy 'ocvalidate' utility to 'util' if running locally
+# Globals:
+#   BASE_DIR
+#   LOCAL_RUN
+#   TMP_DIR
+function copy_ocvalidate() {
+  [[ $LOCAL_RUN == 0 ]] || {
+    echo "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
+    cp -v "${TMP_DIR}/${PKG_OC}/Utilities/ocvalidate/ocvalidate" "${BASE_DIR}/util/"
+  }
 }
 
 # Copy ACPI SSDT to 'EFI/ACPI' directory
 # Globals:
 #   BASE_OC_DIR
 #   TMP_DIR
-copy_acpi_ssdt() {
+function copy_acpi_ssdt() {
   echo "Copying ACPI SSTDs to EFI/ACPI directory..."
   cp -rv "${TMP_DIR}/ACPI"/{SSDT-AWAC.aml,SSDT-EC-USBX.aml,SSDT-PLUG.aml,SSDT-PMC.aml} "${BASE_OC_DIR}"/ACPI
 }
@@ -241,7 +253,7 @@ copy_acpi_ssdt() {
 #   PKG_OC
 #   PKG_OC_BINDATA
 #   TMP_DIR
-copy_oc_drivers() {
+function copy_oc_drivers() {
   echo "Copying OpenCore drivers to EFI/Drivers directory..."
   cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{OpenCanopy.efi,OpenRuntime.efi} "${BASE_OC_DIR}"/Drivers/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Drivers/HfsPlus.efi" "${BASE_OC_DIR}"/Drivers/
@@ -256,7 +268,7 @@ copy_oc_drivers() {
 #   PKG_KEXT_VIRTUALSMC
 #   PKG_KEXT_WHATEVERGREEN
 #   TMP_DIR
-copy_kexts() {
+function copy_kexts() {
   echo "Copying Kexts to EFI/Kexts directory..."
   cp -vr "${TMP_DIR}/Kexts" "${BASE_OC_DIR}"/
   cp -vr "${TMP_DIR}/${PKG_KEXT_APPLEALC}"/AppleALC.kext "${BASE_OC_DIR}"/Kexts/
@@ -271,7 +283,7 @@ copy_kexts() {
 #   BASE_OC_DIR
 #   PKG_OC_BINDATA
 #   TMP_DIR
-copy_oc_resources() {
+function copy_oc_resources() {
   echo "Copying OpenCore resource files to EFI/Resources directories..."
   # Enable globbing for file copy
   set +f
@@ -296,6 +308,7 @@ download_extra_kexts
 download_oc_config
 download_pkg
 unarchive_pkg
+copy_ocvalidate
 # Create EFI folder
 create_efi_dirs
 copy_oc_bin

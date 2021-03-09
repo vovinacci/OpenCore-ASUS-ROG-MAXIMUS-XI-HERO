@@ -5,6 +5,19 @@
 load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
 
+# Replace OpenCore configuration template placeholders with dummy values.
+# Save resulting file as './EFI/OC/config.plist.test'
+function replace_dummy_values() {
+  readonly OC_CONFIG_FILE="./EFI/OC/config.plist"
+  readonly OC_CONFIG_PLIST_TEMPLATE=$(<"./EFI/OC/config.plist")
+  OC_CONFIG_PLIST="${OC_CONFIG_PLIST_TEMPLATE//\{\{BOARDSERIAL\}\}/M0000000000000001}"
+  OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{MACADDRESS\}\}/ESIzRFVm}"
+  OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SERIAL\}\}/W00000000001}"
+  OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SMUUID\}\}/00000000-0000-0000-0000-000000000000}"
+  rm -f "${OC_CONFIG_FILE}"
+  echo "$OC_CONFIG_PLIST" >"${OC_CONFIG_FILE}.test"
+}
+
 @test "create-efi.sh: OC_PKG_VARIANT != RELEASE|DEBUG should fail the script" {
   export OC_PKG_VARIANT=TEST
   run ./create-efi.sh
@@ -79,6 +92,7 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert_output --partial "Copying config.plist..."
   assert_output --partial "Downloading packages..."
   assert_output --partial "Unarchiving packages..."
+  assert_output --partial "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
   assert_output --partial "Deleting EFI directory..."
   assert_output --partial "Creating EFI directory structure..."
   assert_output --partial "Copying OpenCore binaries to EFI directories..."
@@ -120,6 +134,11 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
   assert [ -e ./EFI/OC/config.plist ]
   assert [ -e ./EFI/OC/OpenCore.efi ]
+  assert [ -e ./util/ocvalidate ]
+  # Assert configuration validation
+  replace_dummy_values
+  run util/ocvalidate ./EFI/OC/config.plist.test
+  assert_success
 }
 
 @test "create-efi.sh: Running with LOCAL_RUN=1 and OC_PKG_VARIANT=DEBUG should be successful" {
@@ -135,6 +154,7 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert_output --partial "Copying config.plist..."
   assert_output --partial "Downloading packages..."
   assert_output --partial "Unarchiving packages..."
+  assert_output --partial "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
   assert_output --partial "Deleting EFI directory..."
   assert_output --partial "Creating EFI directory structure..."
   assert_output --partial "Copying OpenCore binaries to EFI directories..."
@@ -176,4 +196,9 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
   assert [ -e ./EFI/OC/config.plist ]
   assert [ -e ./EFI/OC/OpenCore.efi ]
+  assert [ -e ./util/ocvalidate ]
+  # Assert configuration validation
+  replace_dummy_values
+  run util/ocvalidate ./EFI/OC/config.plist.test
+  assert_success
 }

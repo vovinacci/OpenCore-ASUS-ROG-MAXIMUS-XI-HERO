@@ -19,3 +19,6 @@ Sample.plist
 
 # Generated EFI folder
 EFI
+
+# OpenCore configuration validation utility
+ocvalidate

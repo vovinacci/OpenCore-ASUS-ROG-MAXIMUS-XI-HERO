@@ -5,6 +5,11 @@
 load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
 
+# Cleanup after each test case
+function teardown() {
+  make clean
+}
+
 # Replace OpenCore configuration template placeholders with dummy values.
 # Save resulting file as './EFI/OC/config.plist.test'
 function replace_dummy_values() {
@@ -14,7 +19,6 @@ function replace_dummy_values() {
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{MACADDRESS\}\}/ESIzRFVm}"
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SERIAL\}\}/W00000000001}"
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SMUUID\}\}/00000000-0000-0000-0000-000000000000}"
-  rm -f "${OC_CONFIG_FILE}"
   echo "$OC_CONFIG_PLIST" >"${OC_CONFIG_FILE}.test"
 }
 
@@ -26,7 +30,6 @@ function replace_dummy_values() {
 }
 
 @test "create-efi.sh: Running with defaults should be successful" {
-  rm -fr ./EFI
   run ./create-efi.sh
   # Assert status code
   assert_success
@@ -81,7 +84,6 @@ function replace_dummy_values() {
 }
 
 @test "create-efi.sh: Running with LOCAL_RUN=1 should be successful" {
-  rm -fr ./EFI
   export LOCAL_RUN=1
   run ./create-efi.sh
   assert_success
@@ -142,7 +144,6 @@ function replace_dummy_values() {
 }
 
 @test "create-efi.sh: Running with LOCAL_RUN=1 and OC_PKG_VARIANT=DEBUG should be successful" {
-  rm -fr ./EFI
   export LOCAL_RUN=1
   export OC_PKG_VARIANT=DEBUG
   run ./create-efi.sh

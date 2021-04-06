@@ -24,7 +24,7 @@ repos:
       - id: markdownlint
   # YAML linting
   - repo: git://github.com/adrienverge/yamllint.git
-    rev: v1.26.0
+    rev: v1.26.1
     hooks:
       - id: yamllint
         args:

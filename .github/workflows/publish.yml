@@ -18,10 +18,10 @@ jobs:
           export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
           echo "Create EFI folder"
           make run
-          echo "Create tarball for ${GITHUB_REF}"
-          tar -zcvf EFI-OC-${{ GITHUB_REF }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI
+          echo "Create tarball for ${env.GITHUB_REF}"
+          tar -zcvf EFI-OC-${{ env.GITHUB_REF }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI
           echo "Create zip"
-          zip EFI-OC-${{ GITHUB_REF }}-ASUS-ROG-MAXIMUS-XI-HERO.zip -r EFI
+          zip EFI-OC-${{ env.GITHUB_REF }}-ASUS-ROG-MAXIMUS-XI-HERO.zip -r EFI
       - name: Release
         uses: softprops/action-gh-release@v1
         with:

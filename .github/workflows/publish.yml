@@ -19,7 +19,8 @@ jobs:
           echo "Create EFI folder"
           make run
           echo "Create tarball for ${GITHUB_REF}"
-          RELEASE=${GITHUB_REF##*/}"
+          RELEASE="${GITHUB_REF##*/}"
+          echo "RELEASE=${RELEASE}" >> $GITHUB_ENV
           echo "Release name: ${RELEASE}"
           tar -zcvf EFI-OC-${RELEASE}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI
           echo "Create zip"
@@ -27,9 +28,9 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          name: OpenCore ${{ github.ref }} support
+          name: OpenCore ${{ env.RELEASE }} support
           draft: false
           prerelease: false
           files: |
-            EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz
-            EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.zip
+            EFI-OC-${{ env.RELEASE }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz
+            EFI-OC-${{ env.RELEASE }}-ASUS-ROG-MAXIMUS-XI-HERO.zip

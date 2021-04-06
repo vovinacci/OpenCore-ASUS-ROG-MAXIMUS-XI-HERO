@@ -34,3 +34,5 @@ jobs:
           files: |
             EFI-OC-${{ env.RELEASE }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz
             EFI-OC-${{ env.RELEASE }}-ASUS-ROG-MAXIMUS-XI-HERO.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

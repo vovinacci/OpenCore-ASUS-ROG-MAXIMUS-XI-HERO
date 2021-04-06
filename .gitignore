@@ -17,8 +17,10 @@ tags
 # OpenCore sample configuration file
 Sample.plist
 
-# Generated EFI folder
+# Generated EFI folder and artifacts
 EFI
+EFI*.tar.gz
+EFI*.zip
 
 # OpenCore configuration validation utility
 ocvalidate

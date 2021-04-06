@@ -1,0 +1,28 @@
+name: "Create release"
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - '*.*.*'  # Push events to matching `*.*.*`, i.e. `0.6.8`, `20.15.10`
+jobs:
+  release:
+    runs-on: macos-11.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create release assets
+        run: |
+          make run
+          echo "Create tarball"
+          tar -zcvf EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI
+          echo "Create zip"
+          zip EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.zip -r EFI
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: OpenCore ${{ github.ref }} support
+          draft: false
+          prerelease: false
+          files: |
+            EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz
+            EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.zip

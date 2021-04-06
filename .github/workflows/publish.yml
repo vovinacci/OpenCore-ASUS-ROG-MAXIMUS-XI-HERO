@@ -19,7 +19,7 @@ jobs:
           echo "Create EFI folder"
           make run
           echo "Create tarball for ${GITHUB_REF}"
-          RELEASE=${GITHUB_REF##*/})"
+          RELEASE=${GITHUB_REF##*/}"
           echo "Release name: ${RELEASE}"
           tar -zcvf EFI-OC-${RELEASE}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI
           echo "Create zip"

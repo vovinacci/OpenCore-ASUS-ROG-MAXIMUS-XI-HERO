@@ -12,6 +12,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Create release assets
         run: |
+          echo "Install packages"
+          brew bundle
+          echo "Update path"
+          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
+          echo "Create EFI folder"
           make run
           echo "Create tarball"
           tar -zcvf EFI-OC-${{ github.ref }}-ASUS-ROG-MAXIMUS-XI-HERO.tar.gz EFI

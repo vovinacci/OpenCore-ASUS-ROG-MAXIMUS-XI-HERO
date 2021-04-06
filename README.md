@@ -15,7 +15,9 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create 
   - [Resources](#resources)
   - [Tools](#tools)
 - [BIOS Settings](#bios-settings)
-- [Create EFI directory and files helper script](#create-efi-directory-and-files-helper-script)
+- [Installation](#installation)
+  - [Download EFI folder archive from repository releases page](#download-efi-folder-archive-from-repository-releases-page)
+  - [Create EFI directory and files helper script](#create-efi-directory-and-files-with-helper-script)
 
 ## Hardware list
 
@@ -144,7 +146,22 @@ BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://do
   | Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
   | Secure Boot | OS Type: `Windows UEFI mode` | Ensure `Secure Boot state` is in `Disabled` state. If this is not the case, navigate to `Boot` -> `Secure Boot` -> `Key Management` and select `Clear Secure Boot Keys` |
 
-## Create EFI directory and files helper script
+## Installation
+
+There are two options to create `EFI` folder:
+
+- Download `EFI` folder archive from repository [releases page](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)
+- Create EFI directory and files with helper script
+
+### Download EFI folder archive from repository releases page
+
+- Navigate to repository [releases page](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases) and download tarball or zip package.
+- Unarchive downloaded file locally
+- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `OC/config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
+- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `OC/config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
+- Once done, mount EFI partition and copy `EFI` folder there.
+
+### Create EFI directory and files with helper script
 
 [![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/test/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Atest++branch%3Amaster+)
 

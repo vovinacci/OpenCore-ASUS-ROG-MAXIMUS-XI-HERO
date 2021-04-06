@@ -148,7 +148,7 @@ BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://do
 
 ## Installation
 
-[![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/test/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Atest++branch%3Amaster+) [![Latest Release](https://img.shields.io/github/v/release/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)[![Release date](https://img.shields.io/github/release-date/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)
+[![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/test/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Atest++branch%3Amaster+) [![Latest Release](https://img.shields.io/github/v/release/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)[![Release date](https://img.shields.io/github/release-date/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?label=)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)
 
 There are two options to create `EFI` folder:
 

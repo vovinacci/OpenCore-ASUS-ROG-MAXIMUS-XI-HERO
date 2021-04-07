@@ -159,8 +159,8 @@ There are two options to create `EFI` folder:
 
 - Navigate to repository [releases page](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases) and download tarball or zip package.
 - Unarchive downloaded file locally
-- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `OC/config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
-- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `OC/config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
+- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `EFI/OC/config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
+- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `EFI/OC/config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
 - Once done, mount EFI partition and copy `EFI` folder there.
 
 ### Create EFI directory and files with helper script
@@ -188,7 +188,7 @@ This should download all necessary packages and extract files to the `EFI` folde
 
 Two things to be done manually before moving everything to actual EFI partition:
 
-- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
-- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
+- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `EFI/OC/config.plist`. If you don't have one, great example on how to do this could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
+- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `EFI/OC/config.plist`. Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
 
 After that, mount EFI partition and copy `EFI` folder there.

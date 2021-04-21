@@ -12,10 +12,11 @@ export LC_ALL="en_US.UTF-8"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
 
 # Directories
-readonly BASE_DIR="$(dirname "$(realpath "$0")")"
-readonly BASE_EFI_DIR="${BASE_DIR}/EFI"
-readonly BASE_OC_DIR="${BASE_EFI_DIR}/OC"
-readonly TMP_DIR="$(mktemp -d)"
+BASE_DIR="$(dirname "$(realpath "$0")")"
+BASE_EFI_DIR="${BASE_DIR}/EFI"
+BASE_OC_DIR="${BASE_EFI_DIR}/OC"
+TMP_DIR="$(mktemp -d)"
+readonly BASE_DIR BASE_EFI_DIR BASE_OC_DIR TMP_DIR
 
 # Keep environment clean
 trap 'run-on-trap $?' EXIT SIGHUP SIGINT SIGQUIT SIGPIPE SIGTERM

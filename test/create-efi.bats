@@ -2,8 +2,9 @@
 #
 # 'create-efi.sh' tests.
 
-load '/usr/local/lib/bats-support/load.bash'
-load '/usr/local/lib/bats-assert/load.bash'
+readonly TEST_BREW_PREFIX="$(brew --prefix)"
+load "${TEST_BREW_PREFIX}/lib/bats-support/load.bash"
+load "${TEST_BREW_PREFIX}/lib/bats-assert/load.bash"
 
 # Cleanup after each test case
 function teardown() {

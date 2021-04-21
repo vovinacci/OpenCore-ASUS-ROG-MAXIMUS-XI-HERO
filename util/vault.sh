@@ -12,9 +12,11 @@ set -euf -o pipefail
 export LC_ALL="en_US.UTF-8"
 
 # Base directory
-readonly BASE_DIR="$(dirname "$(realpath "$0")")"
+BASE_DIR="$(dirname "$(realpath "$0")")"
+readonly BASE_DIR
 # OpenCore configuration file
-readonly OC_CONFIG_FILE="${BASE_DIR}/../EFI/OC/config.plist"
+OC_CONFIG_FILE="${BASE_DIR}/../EFI/OC/config.plist"
+readonly OC_CONFIG_FILE
 
 # Print error message to stderr and exit with code 1
 # Arguments:

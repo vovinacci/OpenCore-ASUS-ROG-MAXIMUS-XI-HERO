@@ -49,13 +49,13 @@ Other accessories:
 
 ## macOS
 
-macOS Big Sur version 11.3 (20E232) with FileVault 2 enabled.
+macOS Big Sur version 11.3.1 (20E241) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 
 ## OpenCore
 
-- [OpenCore 0.6.8](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.8)
+- [OpenCore 0.6.9](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.9)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
 
@@ -103,10 +103,10 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.5.9](https://github.com/acidanthera/AppleALC/releases/tag/1.5.9)
-- [IntelMausi 1.0.5](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.5)
-- [Lilu 1.5.2](https://github.com/acidanthera/Lilu/releases/tag/1.5.2)
-- [VirtualSMC 1.2.2](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.2) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [AppleALC 1.6.0](https://github.com/acidanthera/AppleALC/releases/tag/1.6.0)
+- [IntelMausi 1.0.6](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.6)
+- [Lilu 1.5.3](https://github.com/acidanthera/Lilu/releases/tag/1.5.3)
+- [VirtualSMC 1.2.3](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.3) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
 - [WhateverGreen 1.4.9](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.9)
 
 ### Resources

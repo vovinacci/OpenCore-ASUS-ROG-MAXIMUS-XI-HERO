@@ -49,7 +49,7 @@ Other accessories:
 
 ## macOS
 
-macOS Big Sur version 11.3.1 (20E241) with FileVault 2 enabled.
+macOS Big Sur version 11.4 (20F71) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 

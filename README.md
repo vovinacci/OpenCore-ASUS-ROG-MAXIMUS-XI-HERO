@@ -21,7 +21,7 @@ OpenCore configuration for ASUS ROG MAXIMUS XI HERO and helper script to create 
 
 ## Hardware list
 
-Original hardware selection idea is based on [tonymacx86.com Stork's MyHero II Build](https://www.tonymacx86.com/threads/storks-myhero-ii-build-asus-rog-maximus-z370-hero-x-i7-8700k-amd-rx-580.245074/)
+Original hardware selection based on [tonymacx86.com Stork's MyHero II Build](https://www.tonymacx86.com/threads/storks-myhero-ii-build-asus-rog-maximus-z370-hero-x-i7-8700k-amd-rx-580.245074/)
 
 | Type | Item |
 | ---- | ---- |
@@ -55,9 +55,11 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.6.9](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.6.9)
+- [OpenCore 0.7.0](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.0)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
-- [OpenCore Configuration Sanity Checker](https://opencore.slowgeek.com/)
+- [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
+- [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
+- [FileVault](https://dortania.github.io/OpenCore-Post-Install/universal/security/filevault.html)
 
 ### Known issues
 
@@ -67,7 +69,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 - [x] [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) started having issues mid-autumn 2020:
 
-  - After shut down and then powering on PC again, Bluetooth will not work when logged in to macOS. However, it's fine at earlier stages, e.g. when typing password during the boot. Workaround: unplug and plug power cord after the shutdown.
+  - After shut down and then powering on PC again, Bluetooth will not work when logged in to macOS. However, it's fine at earlier stages, e.g., when typing password during the boot. Workaround: unplug and plug power cord after the shutdown.
   - Keyboard and trackpad were working unstable from time to time (input garbage, freezes). Workaround: power cycle keyboard and trackpad, reboot.
 
   **Solution**: (06-Dec-2020) Replaced [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
@@ -91,7 +93,7 @@ As per [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Ins
 
 Based on Dortania [USB Mapping Guide](https://dortania.github.io/OpenCore-Post-Install/usb/) and [Intel USB mapping](https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html).
 
-USB port naming is taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
+USB port naming taken from [this great reddit post](https://www.reddit.com/r/hackintosh/comments/agzo9l/i99900k_asus_rog_maximus_xi_hero_64gb_ram/).
 ![USB port mapping](assets/usb-mapping.png)
 
 Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
@@ -103,14 +105,15 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.6.0](https://github.com/acidanthera/AppleALC/releases/tag/1.6.0)
+- [AppleALC 1.6.1](https://github.com/acidanthera/AppleALC/releases/tag/1.6.1)
 - [IntelMausi 1.0.6](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.6)
 - [Lilu 1.5.3](https://github.com/acidanthera/Lilu/releases/tag/1.5.3)
-- [VirtualSMC 1.2.3](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.3) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.4.9](https://github.com/acidanthera/WhateverGreen/releases/tag/1.4.9)
+- [VirtualSMC 1.2.4](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.4) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [WhateverGreen 1.5.0](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.0)
 
 ### Resources
 
+- [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) theme - `Acidanthera\GoldenGate`
 - [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [Resources/](https://github.com/acidanthera/OcBinaryData/blob/master/Resources)
 
 ### Tools
@@ -124,7 +127,7 @@ BIOS:
 - Version [1802](https://dlcdnets.asus.com/pub/ASUS/mb/LGA1151/ROG_MAXIMUS_XI_HERO/ROG-MAXIMUS-XI-HERO-ASUS-1802.ZIP) from [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/).
 - Settings [backup](BIOS/V1802.CMO).
 
-BIOS settings are based on Dortania [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:
+BIOS settings based on Dortania [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:
 
 - Advanced
 

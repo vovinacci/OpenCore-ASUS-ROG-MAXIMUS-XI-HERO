@@ -30,12 +30,12 @@ function run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="0.6.9"
-readonly KEXT_APPLEALC_VERSION="1.6.0"
+readonly OPENCORE_VERSION="0.7.0"
+readonly KEXT_APPLEALC_VERSION="1.6.1"
 readonly KEXT_INTELMAUSI_VERSION="1.0.6"
 readonly KEXT_LILU_VERSION="1.5.3"
-readonly KEXT_VIRTUALSMC_VERSION="1.2.3"
-readonly KEXT_WHATEVERGREEN_VERSION="1.4.9"
+readonly KEXT_VIRTUALSMC_VERSION="1.2.4"
+readonly KEXT_WHATEVERGREEN_VERSION="1.5.0"
 
 # Installation settings
 # Any non-zero value turns on local file copy, instead of downloading.
@@ -295,7 +295,7 @@ function copy_oc_resources() {
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"AXEFIAudio_en_*.mp3 "${BASE_OC_DIR}"/Resources/Audio/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Audio/"OCEFIAudio_en_*.mp3 "${BASE_OC_DIR}"/Resources/Audio/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Font/"* "${BASE_OC_DIR}"/Resources/Font/
-  cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Image/"*.icns "${BASE_OC_DIR}"/Resources/Image/
+  cp -vr "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Image/"* "${BASE_OC_DIR}"/Resources/Image/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Resources/Label/"* "${BASE_OC_DIR}"/Resources/Label/
   # Disable globbing back
   set -f

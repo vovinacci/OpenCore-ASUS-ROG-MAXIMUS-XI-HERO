@@ -19,7 +19,7 @@ repos:
       - id: shellcheck
         additional_dependencies: []
   - repo: git://github.com/igorshubovych/markdownlint-cli
-    rev: v0.28.1
+    rev: v0.29.0
     hooks:
       - id: markdownlint
   # YAML linting

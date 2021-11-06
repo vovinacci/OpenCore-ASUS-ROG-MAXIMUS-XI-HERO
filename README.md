@@ -59,7 +59,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.7.4](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.4)
+- [OpenCore 0.7.5](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.5)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
@@ -109,11 +109,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.6.5](https://github.com/acidanthera/AppleALC/releases/tag/1.6.5)
+- [AppleALC 1.6.6](https://github.com/acidanthera/AppleALC/releases/tag/1.6.6)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
-- [Lilu 1.5.6](https://github.com/acidanthera/Lilu/releases/tag/1.5.6)
+- [Lilu 1.5.7](https://github.com/acidanthera/Lilu/releases/tag/1.5.7)
 - [VirtualSMC 1.2.7](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.7) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.5.4](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.4)
+- [WhateverGreen 1.5.5](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.5)
 
 ### Resources
 

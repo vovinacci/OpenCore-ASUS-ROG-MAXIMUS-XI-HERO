@@ -4,6 +4,8 @@ SHELL := /usr/bin/env bash
 PRINT_TARGET = @echo "--> $@"
 # Default make goal
 .DEFAULT_GOAL := help
+# Required OpenCore version
+REQUIRED_OPENCORE_VERSION = $(shell grep 'readonly OPENCORE_VERSION=' create-efi.sh | awk -F'"' '{ print $$2; }')
 
 ## Targets
 .PHONY: clean
@@ -49,11 +51,11 @@ lint:  ## Run linter checks
 .PHONY: oc_get_ref_config
 oc_get_ref_config: clean  ## Download latest OpenCore reference configuration file to 'OC/Sample.plist' (used for debugging changes)
 	$(PRINT_TARGET)
-	@echo "Downloading 'https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist' to 'OC/Sample.plist'..."
+	@echo "Downloading 'https://raw.githubusercontent.com/acidanthera/OpenCorePkg/$(REQUIRED_OPENCORE_VERSION)/Docs/Sample.plist' to 'OC/Sample.plist'..."
 ifeq "$(shell command -v wget)" ""
 	$(error Cannot find wget)
 endif
-	@wget -nv -c https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Docs/Sample.plist -O ./OC/Sample.plist
+	@wget -nv -c https://raw.githubusercontent.com/acidanthera/OpenCorePkg/$(REQUIRED_OPENCORE_VERSION)/Docs/Sample.plist -O ./OC/Sample.plist
 	@ls -lah ./OC/Sample.plist
 
 .PHONY: run

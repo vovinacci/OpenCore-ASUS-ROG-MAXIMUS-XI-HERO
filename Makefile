@@ -5,7 +5,7 @@ PRINT_TARGET = @echo "--> $@"
 # Default make goal
 .DEFAULT_GOAL := help
 # Required OpenCore version
-REQUIRED_OPENCORE_VERSION = $(shell grep 'readonly OPENCORE_VERSION=' create-efi.sh | awk -F'"' '{ print $$2; }')
+REQUIRED_OPENCORE_VERSION := $(shell grep 'readonly OPENCORE_VERSION=' create-efi.sh | awk -F'"' '{ print $$2; }')
 
 ## Targets
 .PHONY: clean

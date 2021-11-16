@@ -1,0 +1,26 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+#   https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+#
+# Note:
+#   - Workflow runs that are triggered by Dependabot from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events
+#     are treated as if they were opened from a repository fork. This means they will receive a read-only GITHUB_TOKEN and will not have access
+#     to any secrets available in the repository. For more details, see
+#       https://github.blog/changelog/2021-02-19-github-actions-workflows-triggered-by-dependabot-prs-will-run-with-read-only-permissions/
+#     This would result in workflows failures should credentials be required (e.g. Dependabot security updates).
+#     Solution:
+#       - In `Organization` -> `Settings` -> `Actions`, enable `Run workflows from fork pull requests` and `Send secrets to workflows from fork pull requests`.
+#       - Enable same options in repository as well.
+#     It is assumed to be safe as we don't use forks.
+#
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "UTC"

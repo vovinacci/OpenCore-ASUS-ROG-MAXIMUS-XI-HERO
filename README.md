@@ -27,29 +27,29 @@ This repository contains:
 
 Original hardware selection based on [tonymacx86.com Stork's MyHero II Build](https://www.tonymacx86.com/threads/storks-myhero-ii-build-asus-rog-maximus-z370-hero-x-i7-8700k-amd-rx-580.245074/)
 
-| Type | Item |
-| ---- | ---- |
-| Motherboard | [Asus ROG MAXIMUS XI HERO ATX LGA1151 Motherboard](https://pcpartpicker.com/product/PGTPxr/asus-rog-maximus-xi-hero-atx-lga1151-motherboard-rog-maximus-xi-hero) |
-| CPU | [Intel - Core i9-9900K 3.6 GHz 8-Core Processor](https://pcpartpicker.com/product/jHZFf7/intel-core-i9-9900k-36ghz-8-core-processor-bx80684i99900k) |
-| CPU Cooler | [Corsair H60 (2018) 57.2 CFM Liquid CPU Cooler](https://pcpartpicker.com/product/F2rmP6/corsair-h60-2018-572-cfm-liquid-cpu-cooler-cw-9060036-ww) |
-| Thermal paste | [ARCTIC MX-4 2019 Edition 4 g Thermal Paste](https://pcpartpicker.com/product/JmYLrH/arctic-mx-4-2019-edition-4-g-thermal-paste-actcp00002b) |
-| Memory | [Ballistix Sport LT 64G DDR4, 2400 MHz CL16, BLS4C16G4D240FSB](https://www.amazon.com/gp/product/B01B4F3MNQ) |
-| Video Card | [Sapphire Radeon RX 580 8 GB PULSE Video Card](https://pcpartpicker.com/product/y2DzK8/sapphire-radeon-rx-580-8gb-pulse-video-card-11265-05) |
-| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/) |
-| HDD 1,2 | [Samsung 860 Evo 500 GB 2.5" Solid State Drive](https://pcpartpicker.com/product/6yKcCJ/samsung-860-evo-500gb-25-solid-state-drive-mz-76e500bam) |
-| HDD 3 | [Seagate Barracuda 6 TB 3.5" 5400RPM Internal Hard Drive](https://pcpartpicker.com/product/ByL48d/seagate-barracuda-6tb-35-5400rpm-internal-hard-drive-st6000dm003) |
-| Firewire | [SYBA Low Profile PCI-Express Firewire Card](https://www.amazon.com/gp/product/B002S53IG8) |
-| Power Supply | [Corsair RMx (2018) 750 W 80+ Gold Certified Fully Modular ATX Power Supply](https://pcpartpicker.com/product/79tQzy/corsair-rmx-2018-750w-80-gold-certified-fully-modular-atx-power-supply-cp-9020179-na) |
-| Case | [Corsair 450D ATX Mid Tower Case](https://pcpartpicker.com/product/9JvRsY/corsair-case-cc9011049ww) |
-| Monitor | [Dell S2415H 23.8" 1920x1080 60 Hz Monitor](https://pcpartpicker.com/product/gZL7YJ/dell-monitor-s2415h) |
-| Camera | [Logitech C920S HD Pro Webcam](https://www.amazon.com/gp/product/B07K95WFWM) |
+| Type                                    | Item                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Motherboard                             | [Asus ROG MAXIMUS XI HERO ATX LGA1151 Motherboard](https://pcpartpicker.com/product/PGTPxr/asus-rog-maximus-xi-hero-atx-lga1151-motherboard-rog-maximus-xi-hero)                                           |
+| CPU                                     | [Intel - Core i9-9900K 3.6 GHz 8-Core Processor](https://pcpartpicker.com/product/jHZFf7/intel-core-i9-9900k-36ghz-8-core-processor-bx80684i99900k)                                                        |
+| CPU Cooler                              | [Corsair H60 (2018) 57.2 CFM Liquid CPU Cooler](https://pcpartpicker.com/product/F2rmP6/corsair-h60-2018-572-cfm-liquid-cpu-cooler-cw-9060036-ww)                                                          |
+| Thermal paste                           | [ARCTIC MX-4 2019 Edition 4 g Thermal Paste](https://pcpartpicker.com/product/JmYLrH/arctic-mx-4-2019-edition-4-g-thermal-paste-actcp00002b)                                                               |
+| Memory                                  | [Ballistix Sport LT 64G DDR4, 2400 MHz CL16, BLS4C16G4D240FSB](https://www.amazon.com/gp/product/B01B4F3MNQ)                                                                                               |
+| Video Card                              | [Sapphire Radeon RX 580 8 GB PULSE Video Card](https://pcpartpicker.com/product/y2DzK8/sapphire-radeon-rx-580-8gb-pulse-video-card-11265-05)                                                               |
+| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/)                                                                                                                 |
+| HDD 1,2                                 | [Samsung 860 Evo 500 GB 2.5" Solid State Drive](https://pcpartpicker.com/product/6yKcCJ/samsung-860-evo-500gb-25-solid-state-drive-mz-76e500bam)                                                           |
+| HDD 3                                   | [Seagate Barracuda 6 TB 3.5" 5400RPM Internal Hard Drive](https://pcpartpicker.com/product/ByL48d/seagate-barracuda-6tb-35-5400rpm-internal-hard-drive-st6000dm003)                                        |
+| Firewire                                | [SYBA Low Profile PCI-Express Firewire Card](https://www.amazon.com/gp/product/B002S53IG8)                                                                                                                 |
+| Power Supply                            | [Corsair RMx (2018) 750 W 80+ Gold Certified Fully Modular ATX Power Supply](https://pcpartpicker.com/product/79tQzy/corsair-rmx-2018-750w-80-gold-certified-fully-modular-atx-power-supply-cp-9020179-na) |
+| Case                                    | [Corsair 450D ATX Mid Tower Case](https://pcpartpicker.com/product/9JvRsY/corsair-case-cc9011049ww)                                                                                                        |
+| Monitor                                 | [Dell S2415H 23.8" 1920x1080 60 Hz Monitor](https://pcpartpicker.com/product/gZL7YJ/dell-monitor-s2415h)                                                                                                   |
+| Camera                                  | [Logitech C920S HD Pro Webcam](https://www.amazon.com/gp/product/B07K95WFWM)                                                                                                                               |
 
 Other accessories:
 
-| Type | Item |
-| ---- | ---- |
+| Type     | Item                                                                                                                                        |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Keyboard | [Magic Keyboard with Numeric Keypad](https://www.apple.com/shop/product/MRMH2LL/A/magic-keyboard-with-numeric-keypad-us-english-space-gray) |
-| Trackpad | [Magic Trackpad 2](https://www.apple.com/shop/product/MRMF2/magic-trackpad-2-space-gray) |
+| Trackpad | [Magic Trackpad 2](https://www.apple.com/shop/product/MRMF2/magic-trackpad-2-space-gray)                                                    |
 
 ## macOS
 
@@ -59,7 +59,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.7.5](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.5)
+- [OpenCore 0.7.6](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.6)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
@@ -109,10 +109,10 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.6.6](https://github.com/acidanthera/AppleALC/releases/tag/1.6.6)
+- [AppleALC 1.6.7](https://github.com/acidanthera/AppleALC/releases/tag/1.6.7)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
-- [Lilu 1.5.7](https://github.com/acidanthera/Lilu/releases/tag/1.5.7)
-- [VirtualSMC 1.2.7](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.7) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
+- [Lilu 1.5.8](https://github.com/acidanthera/Lilu/releases/tag/1.5.8)
+- [VirtualSMC 1.2.8](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.8) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
 - [WhateverGreen 1.5.5](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.5)
 
 ### Resources
@@ -135,23 +135,23 @@ BIOS settings based on Dortania [Coffee Lake Intel BIOS settings](https://dortan
 
 - Advanced
 
-  | Submenu | Key: Value | Comment |
-  | --- | --- | --- |
-  | CPU Configuration | Software Guard Extensions (SGX): `Disabled` | |
-  | CPU Configuration | Intel (VMX) Virtualization Technology: `Enabled` | Required for [Docker](https://www.docker.com/) |
-  | System Agent (SA) Configuration | VT-d: `Enabled` | could be enabled as `DisableIoMapper` is set to `true` |
-  | System Agent (SA) Configuration | Above 4G Decoding: `Enabled` | |
-  | USB Configuration | XHCI Hand-off: `Enabled` | |
-  | USB Configuration | Legacy USB Support: `Enabled` | |
+    | Submenu                         | Key / Value                                      | Comment                                                |
+    |---------------------------------|--------------------------------------------------|--------------------------------------------------------|
+    | CPU Configuration               | Software Guard Extensions (SGX): `Disabled`      |                                                        |
+    | CPU Configuration               | Intel (VMX) Virtualization Technology: `Enabled` | Required for [Docker](https://www.docker.com/)         |
+    | System Agent (SA) Configuration | VT-d: `Enabled`                                  | Could be enabled as `DisableIoMapper` is set to `true` |
+    | System Agent (SA) Configuration | Above 4G Decoding: `Enabled`                     |                                                        |
+    | USB Configuration               | XHCI Hand-off: `Enabled`                         |                                                        |
+    | USB Configuration               | Legacy USB Support: `Enabled`                    |                                                        |
 
 - Boot
 
-  | Submenu | Key: Value | Comment |
-  | --- | --- | --- |
-  | Boot Configuration | Fast Boot: `Disabled` | |
-  | Boot Configuration | Boot Logo Display: `Disabled` | |
-  | Boot Configuration | Bootup NumLock State: `Off` | This is a matter of personal preferences |
-  | Secure Boot | OS Type: `Windows UEFI mode` | Ensure `Secure Boot state` is in `Disabled` state. If this is not the case, navigate to `Boot` -> `Secure Boot` -> `Key Management` and select `Clear Secure Boot Keys` |
+    | Submenu            | Key / Value                   | Comment                                                                                                                                                                 |
+    |--------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Boot Configuration | Fast Boot: `Disabled`         |                                                                                                                                                                         |
+    | Boot Configuration | Boot Logo Display: `Disabled` |                                                                                                                                                                         |
+    | Boot Configuration | Bootup NumLock State: `Off`   | This is a matter of personal preferences                                                                                                                                |
+    | Secure Boot        | OS Type: `Windows UEFI mode`  | Ensure `Secure Boot state` is in `Disabled` state. If this is not the case, navigate to `Boot` -> `Secure Boot` -> `Key Management` and select `Clear Secure Boot Keys` |
 
 ## Installation
 

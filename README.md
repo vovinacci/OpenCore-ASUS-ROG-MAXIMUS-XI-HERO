@@ -128,8 +128,8 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 BIOS:
 
-- Version [1902](https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/ROG-MAXIMUS-XI-HERO-ASUS-1902.ZIP) from [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/).
-- Settings [backup](BIOS/V1902.CMO).
+- Version [2004](https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/ROG-MAXIMUS-XI-HERO-ASUS-2004.ZIP) from the [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/).
+- Settings [backup](BIOS/V2004.CMO).
 
 BIOS settings based on Dortania [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:
 

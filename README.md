@@ -59,7 +59,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.7.7](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.7)
+- [OpenCore 0.7.8](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.8)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
@@ -71,12 +71,12 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 **Resolved**:
 
-- [x] [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) started having issues mid-autumn 2020:
+- [x] [Fenvi T-919 Wi-Fi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) started having issues mid-autumn 2020:
 
   - After shut down and then powering on PC again, Bluetooth will not work when logged in to macOS. However, it's fine at earlier stages, e.g., when typing password during the boot. Workaround: unplug and plug power cord after the shutdown.
   - Keyboard and trackpad were working unstable from time to time (input garbage, freezes). Workaround: power cycle keyboard and trackpad, reboot.
 
-  **Solution**: (06-Dec-2020) Replaced [Fenvi T-919 WiFi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
+  **Solution**: (06-Dec-2020) Replaced [Fenvi T-919 Wi-Fi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) with [Fenvi HB1200 Wi-Fi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/).
 
 - [x] macOS Catalina version 10.15.7 started rebooting suddenly
 
@@ -109,11 +109,11 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.6.8](https://github.com/acidanthera/AppleALC/releases/tag/1.6.8)
+- [AppleALC 1.6.9](https://github.com/acidanthera/AppleALC/releases/tag/1.6.9)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
-- [Lilu 1.5.9](https://github.com/acidanthera/Lilu/releases/tag/1.5.9)
+- [Lilu 1.6.0](https://github.com/acidanthera/Lilu/releases/tag/1.6.0)
 - [VirtualSMC 1.2.8](https://github.com/acidanthera/VirtualSMC/releases/tag/1.2.8) (`SMCProcessor.kext`, `SMCSuperIO.kext`)
-- [WhateverGreen 1.5.6](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.6)
+- [WhateverGreen 1.5.7](https://github.com/acidanthera/WhateverGreen/releases/tag/1.5.7)
 
 ### Resources
 

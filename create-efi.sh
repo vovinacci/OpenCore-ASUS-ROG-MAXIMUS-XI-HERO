@@ -301,6 +301,11 @@ function copy_oc_resources() {
   set -f
 }
 
+# Copy tools to 'EFI/OC/Tools' directory
+function copy_tools() {
+    :
+}
+
 ## Start the ball
 __preflight_checks
 # Download all required data
@@ -310,13 +315,15 @@ download_oc_config
 download_pkg
 unarchive_pkg
 copy_ocvalidate
-# Create EFI folder
+# Create folders
 create_efi_dirs
+# Copy data
 copy_oc_bin
 copy_oc_config
 copy_acpi_ssdt
 copy_oc_drivers
 copy_kexts
 copy_oc_resources
+copy_tools
 
 # EOF

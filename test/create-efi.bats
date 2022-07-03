@@ -1,8 +1,11 @@
 #!/usr/bin/env bats
 #
 # 'create-efi.sh' tests.
+# shellcheck disable=SC2030,SC2031
 
-readonly TEST_BREW_PREFIX="$(brew --prefix)"
+TEST_BREW_PREFIX="$(brew --prefix)"
+readonly TEST_BREW_PREFIX
+
 load "${TEST_BREW_PREFIX}/lib/bats-support/load.bash"
 load "${TEST_BREW_PREFIX}/lib/bats-assert/load.bash"
 
@@ -14,8 +17,10 @@ function teardown() {
 # Replace OpenCore configuration template placeholders with dummy values.
 # Save resulting file as './EFI/OC/config.plist.test'
 function replace_dummy_values() {
-  readonly OC_CONFIG_FILE="./EFI/OC/config.plist"
-  readonly OC_CONFIG_PLIST_TEMPLATE=$(<"./EFI/OC/config.plist")
+  OC_CONFIG_FILE="./EFI/OC/config.plist"
+  OC_CONFIG_PLIST_TEMPLATE=$(<"./EFI/OC/config.plist")
+  readonly OC_CONFIG_FILE OC_CONFIG_PLIST_TEMPLATE
+
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST_TEMPLATE//\{\{BOARDSERIAL\}\}/M0000000000000001}"
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{MACADDRESS\}\}/ESIzRFVm}"
   OC_CONFIG_PLIST="${OC_CONFIG_PLIST//\{\{SERIAL\}\}/W00000000001}"
@@ -40,6 +45,7 @@ function replace_dummy_values() {
   assert_output --partial "Downloading extra Kexts..."
   assert_output --partial "Downloading config.plist..."
   assert_output --partial "Downloading packages..."
+  assert_output --partial "Downloading tools..."
   assert_output --partial "Unarchiving packages..."
   assert_output --partial "Deleting EFI directory..."
   assert_output --partial "Creating EFI directory structure..."
@@ -49,6 +55,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
   assert [ -d ./EFI/BOOT ]
@@ -63,6 +70,8 @@ function replace_dummy_values() {
   assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -e ./EFI/OC/Drivers/ResetNvramEntry.efi ]
+  assert [ -e ./EFI/OC/Drivers/ToggleSipEntry.efi ]
   assert [ -d ./EFI/OC/Kexts ]
   assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
   assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
@@ -77,6 +86,11 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
+  assert [ -d ./EFI/OC/Tools/memtest86 ]
+  assert [ -e ./EFI/OC/Tools/memtest86/blacklist.cfg ]
+  assert [ -e ./EFI/OC/Tools/memtest86/BOOTX64.efi ]
+  assert [ -e ./EFI/OC/Tools/memtest86/mt86.png ]
+  assert [ -e ./EFI/OC/Tools/memtest86/unifont.bin ]
   assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
   assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
   assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
@@ -89,11 +103,12 @@ function replace_dummy_values() {
   run ./create-efi.sh
   assert_success
   assert_output --partial "OpenCore package variant: \"RELEASE\"."
-  assert_output --partial "Local run: Don't download Kexts and config.plist."
+  assert_output --partial "Local run: Don't download Kexts, tools and config.plist."
   assert_output --partial "Downloading ACPI SSDTs..."
   assert_output --partial "Copying extra Kexts..."
   assert_output --partial "Copying config.plist..."
   assert_output --partial "Downloading packages..."
+  assert_output --partial "Copying tools..."
   assert_output --partial "Unarchiving packages..."
   assert_output --partial "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
   assert_output --partial "Deleting EFI directory..."
@@ -104,6 +119,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
   assert [ -d ./EFI/BOOT ]
@@ -118,6 +134,8 @@ function replace_dummy_values() {
   assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -e ./EFI/OC/Drivers/ResetNvramEntry.efi ]
+  assert [ -e ./EFI/OC/Drivers/ToggleSipEntry.efi ]
   assert [ -d ./EFI/OC/Kexts ]
   assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
   assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
@@ -132,6 +150,11 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
+  assert [ -d ./EFI/OC/Tools/memtest86 ]
+  assert [ -e ./EFI/OC/Tools/memtest86/blacklist.cfg ]
+  assert [ -e ./EFI/OC/Tools/memtest86/BOOTX64.efi ]
+  assert [ -e ./EFI/OC/Tools/memtest86/mt86.png ]
+  assert [ -e ./EFI/OC/Tools/memtest86/unifont.bin ]
   assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
   assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
   assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]
@@ -150,11 +173,12 @@ function replace_dummy_values() {
   run ./create-efi.sh
   assert_success
   assert_output --partial "OpenCore package variant: \"DEBUG\"."
-  assert_output --partial "Local run: Don't download Kexts and config.plist."
+  assert_output --partial "Local run: Don't download Kexts, tools and config.plist."
   assert_output --partial "Downloading ACPI SSDTs..."
   assert_output --partial "Copying extra Kexts..."
   assert_output --partial "Copying config.plist..."
   assert_output --partial "Downloading packages..."
+  assert_output --partial "Copying tools..."
   assert_output --partial "Unarchiving packages..."
   assert_output --partial "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
   assert_output --partial "Deleting EFI directory..."
@@ -165,6 +189,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
   assert [ -d ./EFI/BOOT ]
@@ -179,6 +204,8 @@ function replace_dummy_values() {
   assert [ -e ./EFI/OC/Drivers/HfsPlus.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenCanopy.efi ]
   assert [ -e ./EFI/OC/Drivers/OpenRuntime.efi ]
+  assert [ -e ./EFI/OC/Drivers/ResetNvramEntry.efi ]
+  assert [ -e ./EFI/OC/Drivers/ToggleSipEntry.efi ]
   assert [ -d ./EFI/OC/Kexts ]
   assert [ -d ./EFI/OC/Kexts/AppleALC.kext ]
   assert [ -d ./EFI/OC/Kexts/IntelMausi.kext ]
@@ -193,6 +220,11 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
+  assert [ -d ./EFI/OC/Tools/memtest86 ]
+  assert [ -e ./EFI/OC/Tools/memtest86/blacklist.cfg ]
+  assert [ -e ./EFI/OC/Tools/memtest86/BOOTX64.efi ]
+  assert [ -e ./EFI/OC/Tools/memtest86/mt86.png ]
+  assert [ -e ./EFI/OC/Tools/memtest86/unifont.bin ]
   assert [ -e ./EFI/OC/Tools/OpenControl.efi ]
   assert [ -e ./EFI/OC/Tools/OpenShell.efi ]
   assert [ -e ./EFI/OC/Tools/ResetSystem.efi ]

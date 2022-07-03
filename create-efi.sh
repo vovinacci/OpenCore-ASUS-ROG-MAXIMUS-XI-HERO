@@ -84,7 +84,9 @@ declare -ar PKG_LIST=(
 # Configuration
 #
 # GitHub repository content base URL
-readonly GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master"
+GITHUB_HEAD_REF="${GITHUB_HEAD_REF:-master}" # https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+GH_REPO_CONTENT_BASE_URL="https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/${GITHUB_HEAD_REF}"
+readonly GITHUB_HEAD_REF GH_REPO_CONTENT_BASE_URL
 # ACPI SSDT
 declare -ar ACPI_SSDT_DOWNLOAD_LIST=(
   "${GH_REPO_CONTENT_BASE_URL}/ACPI/SSDT-AWAC.aml"
@@ -98,6 +100,13 @@ declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
 )
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="${GH_REPO_CONTENT_BASE_URL}/OC/config.plist"
+# Additional tools
+declare -ar TOOLS_MEMTEST=(
+  "${GH_REPO_CONTENT_BASE_URL}/tools/memtest86/blacklist.cfg"
+  "${GH_REPO_CONTENT_BASE_URL}/tools/memtest86/BOOTX64.efi"
+  "${GH_REPO_CONTENT_BASE_URL}/tools/memtest86/mt86.png"
+  "${GH_REPO_CONTENT_BASE_URL}/tools/memtest86/unifont.bin"
+)
 
 ## Functions
 # Print error message to stderr and exit with code 1
@@ -120,7 +129,7 @@ function __preflight_checks() {
   echo "OpenCore package variant: \"${OC_PKG_VARIANT}\"."
   # Check if local run is preferred
   [[ $LOCAL_RUN == 0 ]] ||
-    echo "Local run: Don't download Kexts and config.plist."
+    echo "Local run: Don't download Kexts, tools and config.plist."
 }
 
 # Download all ACPI SSDT to 'ACPI' directory in TMP_DIR
@@ -175,6 +184,26 @@ function download_pkg() {
   for i in "${PKG_DOWNLOAD_LIST[@]}"; do
     wget -nv -c -P "${TMP_DIR}" "$i"
   done
+}
+
+# Download tools to TMP_DIR
+# Globals:
+#   BASE_DIR
+#   LOCAL_RUN
+#   TMP_DIR
+#   TOOLS_MEMTEST
+function download_tools() {
+  if [[ $LOCAL_RUN == 0 ]]; then
+    echo "Downloading tools..."
+    mkdir -p "${TMP_DIR}/tools/memtest86"
+    for i in "${TOOLS_MEMTEST[@]}"; do
+      wget -nv -c -P "${TMP_DIR}/tools/memtest86" "$i"
+    done
+    wget -nv -c -P "${TMP_DIR}/" "${OC_CONFIG_PLIST}"
+  else
+    echo "Copying tools..."
+    cp -rv "${BASE_DIR}/tools" "${TMP_DIR}/"
+  fi
 }
 
 # Unarchive all downloaded packages in TMP_DIR and delete archives
@@ -301,6 +330,12 @@ function copy_oc_resources() {
   set -f
 }
 
+# Copy tools to 'EFI/OC/Tools' directory
+function copy_tools() {
+  echo "Copying tools to EFI/Tools directory..."
+  cp -rv "${TMP_DIR}/tools/memtest86" "${BASE_OC_DIR}"/Tools/
+}
+
 ## Start the ball
 __preflight_checks
 # Download all required data
@@ -308,15 +343,18 @@ download_acpi_ssdt
 download_extra_kexts
 download_oc_config
 download_pkg
+download_tools
 unarchive_pkg
 copy_ocvalidate
-# Create EFI folder
+# Create folders
 create_efi_dirs
+# Copy data
 copy_oc_bin
 copy_oc_config
 copy_acpi_ssdt
 copy_oc_drivers
 copy_kexts
 copy_oc_resources
+copy_tools
 
 # EOF

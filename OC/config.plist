@@ -993,7 +993,7 @@
 				<key>Comment</key>
 				<string>Memory testing utility</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Flavour</key>
 				<string>MemTest</string>
 				<key>Name</key>

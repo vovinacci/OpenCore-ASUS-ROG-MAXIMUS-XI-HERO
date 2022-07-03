@@ -104,7 +104,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Drivers
 
-- OpenCore - `OpenCanopy.efi`, `OpenRuntime.efi`
+- OpenCore - `OpenCanopy.efi`, `OpenRuntime.efi`, `ResetNvramEntry.efi`, `ToggleSipEntry.efi`
 - [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)
 
 ### Kext
@@ -122,7 +122,8 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Tools
 
-- OpenCore - `CleanNvram.efi` `OpenControl.efi`, `OpenShell.efi`
+- OpenCore - `OpenControl.efi`, `OpenShell.efi`, `ResetSystem.efi`
+- [PassMark MemTest86](tools/README.md#passmark-memtest86)
 
 ## BIOS Settings
 

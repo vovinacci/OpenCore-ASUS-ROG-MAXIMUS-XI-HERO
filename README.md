@@ -6,8 +6,6 @@ This repository contains:
 - Helper script to create EFI directory
 - EFI folder archive
 
-**Note**: Due to russian invasion to Ukraine, I don't have access to this hardware anymore, and cannot update to the latest OpenCore version. New maintainer would be very much welcomed.
-
 ## Table of Contents
 
 - [Hardware list](#hardware-list)

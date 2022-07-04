@@ -128,8 +128,9 @@ function __preflight_checks() {
       "OC_PKG_VARIANT should be set to \"DEBUG\" or \"RELEASE\"."
   echo "OpenCore package variant: \"${OC_PKG_VARIANT}\"."
   # Check if local run is preferred
-  [[ $LOCAL_RUN == 0 ]] ||
+  if [[ $LOCAL_RUN != 0 ]]; then
     echo "Local run: Don't download Kexts, tools and config.plist."
+  fi
 }
 
 # Download all ACPI SSDT to 'ACPI' directory in TMP_DIR
@@ -262,10 +263,10 @@ function copy_oc_config() {
 #   LOCAL_RUN
 #   TMP_DIR
 function copy_ocvalidate() {
-  [[ $LOCAL_RUN == 0 ]] || {
+  if [[ $LOCAL_RUN != 0 ]]; then
     echo "Local run: Copy OpenCore configuration validation utility (ocvalidate)..."
     cp -v "${TMP_DIR}/${PKG_OC}/Utilities/ocvalidate/ocvalidate" "${BASE_DIR}/util/"
-  }
+  fi
 }
 
 # Copy ACPI SSDT to 'EFI/ACPI' directory

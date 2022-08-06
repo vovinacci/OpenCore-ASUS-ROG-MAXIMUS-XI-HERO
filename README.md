@@ -59,7 +59,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.8.2](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.8.2)
+- [OpenCore 0.8.3](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.8.3)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)

@@ -13,10 +13,7 @@ on:
       - "*"
 jobs:
   test:
-    # From https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources
-    #   Note: The macOS 11.0 virtual environment is currently provided as a private preview only.
-    # This causes longer build wait times.
-    runs-on: macos-11.0
+    runs-on: macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v3

@@ -53,7 +53,7 @@ Other accessories:
 
 ## macOS
 
-macOS Monterey version 12.5.1 (21G83) with FileVault 2 enabled.
+macOS Monterey version 12.6 (21G115) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 

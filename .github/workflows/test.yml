@@ -37,4 +37,4 @@ jobs:
           # Should be picked from `coreutils` package
           which cp dirname mkdir mktemp mv realpath rm
           #
-          make test
+          if ! make test; then ls -lahR; exit 2; fi

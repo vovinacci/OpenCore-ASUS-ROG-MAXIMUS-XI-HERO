@@ -53,7 +53,7 @@ Other accessories:
 
 ## macOS
 
-macOS Ventura version 13.0 (22A380) with FileVault 2 enabled.
+macOS Ventura version 13.2 (22D49) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 

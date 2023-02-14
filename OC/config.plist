@@ -1497,7 +1497,7 @@
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
-				<string>Tcp4Dxe.efi</string>
+				<string>TcpDxe.efi</string>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -1701,6 +1701,8 @@
 			<true/>
 			<key>ResizeGpuBars</key>
 			<integer>-1</integer>
+			<key>ResizeUsePciRbIo</key>
+			<false/>
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>
 			<key>UnblockFsConnect</key>

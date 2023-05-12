@@ -6,7 +6,7 @@ Additional tools used with OpenCore.
 
 [PassMark MemTest86](https://www.memtest86.com/) is the original, free, standalone memory testing software for x86 and ARM computers.
 
-Version used - `10 Build 1000`.
+Version used - `10.4 Build 1000`.
 
 **Notes**:
 

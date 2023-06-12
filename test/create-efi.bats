@@ -83,6 +83,8 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources ]
   assert [ -d ./EFI/OC/Resources/Audio ]
   assert [ -d ./EFI/OC/Resources/Font ]
+  assert [ -e ./EFI/OC/Resources/Font/Terminus.hex ]
+  assert [ -e ./EFI/OC/Resources/Font/TerminusCore.hex ]
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]

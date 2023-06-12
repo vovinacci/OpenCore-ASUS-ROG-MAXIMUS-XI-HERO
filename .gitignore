@@ -1,3 +1,7 @@
+### direnv ###
+.direnv
+.envrc
+
 ### JetBrains
 .idea
 *.iml

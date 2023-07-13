@@ -29,6 +29,8 @@ function fail() {
 # Perform sanity checks prior doing anything
 # Globals:
 #   OC_CONFIG_FILE
+#   SOPS_AGE_KEY
+#   SOPS_AGE_RECIPIENTS
 function __preflight_checks() {
   # Check SOPS variables, required for secret decryption
   if [[ ! -v SOPS_AGE_KEY ]]; then

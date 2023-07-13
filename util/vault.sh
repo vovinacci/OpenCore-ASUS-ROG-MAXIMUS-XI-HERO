@@ -30,6 +30,14 @@ function fail() {
 # Globals:
 #   OC_CONFIG_FILE
 function __preflight_checks() {
+  # Check SOPS variables, required for secret decryption
+  if [[ ! -v SOPS_AGE_KEY ]]; then
+    fail "SOPS_AGE_KEY variable is not set."
+  fi
+  if [[ ! -v SOPS_AGE_RECIPIENTS ]]; then
+    fail "SOPS_AGE_RECIPIENTS variable is not set."
+  fi
+
   # Check generated OpenCore configuration template in EFI folder
   [[ -f "$OC_CONFIG_FILE" ]] ||
     fail "Cannot read '${OC_CONFIG_FILE}'."

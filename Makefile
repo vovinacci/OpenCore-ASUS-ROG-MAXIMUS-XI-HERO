@@ -40,7 +40,7 @@ lint:  ## Run linter checks
 	$(PRINT_TARGET)
 	@echo "GNU bash, version $${BASH_VERSION}"
 	@echo "Linting property list files..."
-	find "${CURDIR}" -name '*.plist' -print0 | xargs -0 -n1 plutil -lint
+	find "${CURDIR}" -name '*.plist' -print0 | xargs -0 -t -n1 plutil -lint
 	@echo "Linting bash scripts..."
 	shellcheck --version
 	find "${CURDIR}" -name '*.sh' -print0 | xargs -0 -t -n1 shellcheck --color=always --severity=style
@@ -72,7 +72,7 @@ test: clean  ## Run tests
 .PHONY: toc
 toc:  ## Generate README.md table of contents
 	$(PRINT_TARGET)
-	@bash -c "$$(curl -fsSL raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc) README.md"
+	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc) README.md"
 
 .PHONY: vault_pre
 vault_pre:  ## Vault prerequisite checks
@@ -86,8 +86,8 @@ endif
 vault: vault_pre run  ## Generate OpenCore 'config.plist' from template
 	$(PRINT_TARGET)
 	"${CURDIR}/util/vault.sh"
-#ifeq "$(shell command -v $(CURDIR)/util/ocvalidate)" ""
-#	$(error Cannot find $(CURDIR)/util/ocvalidate)
-#endif
+ifeq "$(shell command -v $(CURDIR)/util/ocvalidate)" ""
+	$(error Cannot find $(CURDIR)/util/ocvalidate)
+endif
 	@echo "Validating 'config.plist'..."
 	${CURDIR}/util/ocvalidate ${CURDIR}/EFI/OC/config.plist

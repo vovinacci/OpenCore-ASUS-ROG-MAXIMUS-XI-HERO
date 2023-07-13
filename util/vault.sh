@@ -3,7 +3,7 @@
 # Replace '{{BOARDSERIAL}}', '{{MACADDRESS}}', '{{SERIAL}}' and '{{SMUUID}}'
 # with actual values from vault.
 #
-# Requires Ansible Vault.
+# Requires SOPS - https://github.com/mozilla/sops.
 
 # Write safe shell scripts
 set -euf -o pipefail
@@ -28,20 +28,25 @@ function fail() {
 
 # Perform sanity checks prior doing anything
 # Globals:
-#   ANSIBLE_VAULT_PASSWORD_FILE
 #   OC_CONFIG_FILE
+#   SOPS_AGE_KEY
+#   SOPS_AGE_RECIPIENTS
 function __preflight_checks() {
-  # Check ANSIBLE_VAULT_PASSWORD_FILE variable set
-  [[ -z "${ANSIBLE_VAULT_PASSWORD_FILE:+x}" ]] &&
-    fail "ANSIBLE_VAULT_PASSWORD_FILE variable not set."
+  # Check SOPS variables, required for secret decryption
+  if [[ ! -v SOPS_AGE_KEY ]]; then
+    fail "SOPS_AGE_KEY variable is not set."
+  fi
+  if [[ ! -v SOPS_AGE_RECIPIENTS ]]; then
+    fail "SOPS_AGE_RECIPIENTS variable is not set."
+  fi
 
   # Check generated OpenCore configuration template in EFI folder
   [[ -f "$OC_CONFIG_FILE" ]] ||
     fail "Cannot read '${OC_CONFIG_FILE}'."
 
-  # Check ansible-vault available
-  ansible-vault --version >/dev/null ||
-    fail "Cannot execute 'ansible-vault'."
+  # Check if SOPS is available
+  sops --version >/dev/null ||
+    fail "Cannot execute 'sops'."
 }
 
 # Generate 'config.plist' from template
@@ -54,7 +59,7 @@ function generate_config_plist() {
 
   echo "Sourcing vault variables..."
   # shellcheck disable=SC1090
-  source <(ansible-vault decrypt "${BASE_DIR}/oc_vars.enc" --output=-)
+  source <(sops --decrypt "${BASE_DIR}/oc_vars.enc")
 
   echo "Substituting template with values from vault"
   local OC_CONFIG_PLIST

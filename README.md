@@ -189,7 +189,7 @@ brew install bash coreutils openssl@1.1 wget
 To create EFI folder, there's no need to clone this repository, just run
 
 ```bash
-bash -c "$(curl -fsSL raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/create-efi.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/master/create-efi.sh)"
 ```
 
 This should download all necessary packages and extract files to the `EFI` folder in the current directory.

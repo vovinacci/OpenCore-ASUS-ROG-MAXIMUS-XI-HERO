@@ -20,3 +20,11 @@ load '/usr/local/lib/bats-assert/load.bash'
   assert_failure 1
   assert_output --partial 'SOPS_AGE_RECIPIENTS variable is not set.'
 }
+
+@test "util/vault.sh: unset SOPS_AGE_KEY and SOPS_AGE_RECIPIENTS variables should fail the script" {
+  unset SOPS_AGE_KEY
+  unset SOPS_AGE_RECIPIENTS
+  run ./util/vault.sh
+  assert_failure 1
+  assert_output --partial 'SOPS_AGE_KEY variable is not set.'
+}

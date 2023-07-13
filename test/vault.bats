@@ -6,6 +6,7 @@ load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
 
 @test "util/vault.sh: unset SOPS_AGE_KEY variable should fail the script" {
+  export SOPS_AGE_RECIPIENTS="test"
   unset SOPS_AGE_KEY
   run ./util/vault.sh
   assert_failure 1
@@ -13,6 +14,7 @@ load '/usr/local/lib/bats-assert/load.bash'
 }
 
 @test "util/vault.sh: unset SOPS_AGE_RECIPIENTS variable should fail the script" {
+  export SOPS_AGE_KEY="test"
   unset SOPS_AGE_RECIPIENTS
   run ./util/vault.sh
   assert_failure 1

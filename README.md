@@ -59,7 +59,7 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ## OpenCore
 
-- [OpenCore 0.9.4](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.4)
+- [OpenCore 0.9.5](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.5)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
@@ -109,7 +109,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.8.4](https://github.com/acidanthera/AppleALC/releases/tag/1.8.4)
+- [AppleALC 1.8.5](https://github.com/acidanthera/AppleALC/releases/tag/1.8.5)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
 - [Lilu 1.6.7](https://github.com/acidanthera/Lilu/releases/tag/1.6.7)
 - [VirtualSMC 1.3.2](https://github.com/acidanthera/VirtualSMC/releases/tag/1.3.2) (`SMCProcessor.kext`, `SMCSuperIO.kext`)

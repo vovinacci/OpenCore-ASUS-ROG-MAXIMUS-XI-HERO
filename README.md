@@ -41,7 +41,7 @@ Original hardware selection based on [tonymacx86.com Stork's MyHero II Build](ht
 | Firewire                                | [SYBA Low Profile PCI-Express Firewire Card](https://www.amazon.com/gp/product/B002S53IG8)                                                                                                                 |
 | Power Supply                            | [Corsair RMx (2018) 750 W 80+ Gold Certified Fully Modular ATX Power Supply](https://pcpartpicker.com/product/79tQzy/corsair-rmx-2018-750w-80-gold-certified-fully-modular-atx-power-supply-cp-9020179-na) |
 | Case                                    | [Corsair 450D ATX Mid Tower Case](https://pcpartpicker.com/product/9JvRsY/corsair-case-cc9011049ww)                                                                                                        |
-| Monitor                                 | [Dell S2415H 23.8" 1920x1080 60 Hz Monitor](https://pcpartpicker.com/product/gZL7YJ/dell-monitor-s2415h)                                                                                                   |
+| Monitor 1,2                             | [Dell U2717D 27.0" 2560 x 1440 60 Hz Monitor](https://pcpartpicker.com/product/QpH48d/dell-monitor-u2717d)                                                                                                 |
 | Camera                                  | [Logitech C920S HD Pro Webcam](https://www.amazon.com/gp/product/B07K95WFWM)                                                                                                                               |
 
 Other accessories:

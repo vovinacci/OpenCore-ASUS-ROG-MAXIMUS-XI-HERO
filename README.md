@@ -35,7 +35,8 @@ Original hardware selection based on [tonymacx86.com Stork's MyHero II Build](ht
 | Thermal paste                           | [ARCTIC MX-4 2019 Edition 4 g Thermal Paste](https://pcpartpicker.com/product/JmYLrH/arctic-mx-4-2019-edition-4-g-thermal-paste-actcp00002b)                                                               |
 | Memory                                  | [Ballistix Sport LT 64G DDR4, 2400 MHz CL16, BLS4C16G4D240FSB](https://www.amazon.com/gp/product/B01B4F3MNQ)                                                                                               |
 | Video Card                              | [Sapphire Radeon RX 580 8 GB PULSE Video Card](https://pcpartpicker.com/product/y2DzK8/sapphire-radeon-rx-580-8gb-pulse-video-card-11265-05)                                                               |
-| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/)                                                                                                                 |
+| Wi-Fi + Bluetooth Adapter PCI-E x1 Card | [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/) - Bluetooth only since Sonoma. See [Known issues](#known-issues) for more details                               |
+| Wi-Fi to Ethernet Adapter               | [BrosTrend AC1200 WiFi to Ethernet Adapter](https://www.amazon.com/BrosTrend-600Mbps-Adapter-Wireless-WNA016/dp/B0118SPFCK) - See [Known issues](#known-issues) for more details                           |
 | HDD 1,2                                 | [Samsung 860 Evo 500 GB 2.5" Solid State Drive](https://pcpartpicker.com/product/6yKcCJ/samsung-860-evo-500gb-25-solid-state-drive-mz-76e500bam)                                                           |
 | HDD 3                                   | [Seagate Barracuda 6 TB 3.5" 5400RPM Internal Hard Drive](https://pcpartpicker.com/product/ByL48d/seagate-barracuda-6tb-35-5400rpm-internal-hard-drive-st6000dm003)                                        |
 | Firewire                                | [SYBA Low Profile PCI-Express Firewire Card](https://www.amazon.com/gp/product/B002S53IG8)                                                                                                                 |
@@ -53,13 +54,13 @@ Other accessories:
 
 ## macOS
 
-macOS Ventura version 13.6 (22G120) with FileVault 2 enabled.
+macOS Sonoma version 14.2.1 (23C71) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 
 ## OpenCore
 
-- [OpenCore 0.9.5](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.5)
+- [OpenCore 0.9.7](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.7)
 - [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 - [Desktop Coffee Lake](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html)
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
@@ -67,7 +68,19 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 ### Known issues
 
-**Open**: None.
+**Open**:
+
+- [ ] Wireless doesn't work in Sonoma.
+
+  - Sonoma, removed IO80211FamilyLegacy support, which drops support for **BCM943224**, **BCM94331**, **BCM94350**, **BCM94360**, **BCM943602** based cards.
+    This drops [Fenvi HB1200 WiFi + Bluetooth 4.0 BCM4360](https://www.amazon.com/gp/product/B07T9JD93Y/) and
+    [Fenvi T-919 Wi-Fi + Bluetooth 4.0 BCM94360CD](https://pcpartpicker.com/product/BJ97YJ/fenvi-fv-t919-none-wi-fi-adapter-fv-t919) Wi-Fi support.
+    Bluetooth works just fine.
+
+    More details: [macOS Sonoma and OpenCore Legacy Patcher Support](https://github.com/dortania/OpenCore-Legacy-Patcher/issues/1076)
+
+    **Workaround**: (28-Sep-2023) Bought [BrosTrend AC1200 WiFi to Ethernet Adapter](https://www.amazon.com/BrosTrend-600Mbps-Adapter-Wireless-WNA016/dp/B0118SPFCK)
+    and connected via Ethernet cable.
 
 **Resolved**:
 
@@ -109,7 +122,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 
 ### Kext
 
-- [AppleALC 1.8.5](https://github.com/acidanthera/AppleALC/releases/tag/1.8.5)
+- [AppleALC 1.8.8](https://github.com/acidanthera/AppleALC/releases/tag/1.8.8)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
 - [Lilu 1.6.7](https://github.com/acidanthera/Lilu/releases/tag/1.6.7)
 - [VirtualSMC 1.3.2](https://github.com/acidanthera/VirtualSMC/releases/tag/1.3.2) (`SMCProcessor.kext`, `SMCSuperIO.kext`)

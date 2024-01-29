@@ -54,7 +54,7 @@ Other accessories:
 
 ## macOS
 
-macOS Sonoma version 14.2.1 (23C71) with FileVault 2 enabled.
+macOS Sonoma version 14.3 (23D56) with FileVault 2 enabled.
 
 You may find great installation guide [here](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/).
 

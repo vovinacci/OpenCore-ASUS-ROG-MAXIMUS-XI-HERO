@@ -6,7 +6,7 @@ This section describes BIOS settings for ASUS ROG MAXIMUS XI HERO.
 
 - Version [2004](https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/ROG-MAXIMUS-XI-HERO-ASUS-2004.ZIP) could be obtained from
   the [download page](https://rog.asus.com/motherboards/rog-maximus/rog-maximus-xi-hero-model/helpdesk_bios/).
-- Settings [backup](../BIOS/V2004.CMO).
+- Settings [backup](../assets/BIOS/V2004.CMO).
 
 BIOS settings are based on Dortania
 [Coffee Lake Intel BIOS settings](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#intel-bios-settings) recommendations:

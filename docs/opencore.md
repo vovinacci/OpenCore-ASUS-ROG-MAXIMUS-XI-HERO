@@ -11,10 +11,10 @@ You may find great installation guide [here](https://dortania.github.io/OpenCore
 
 As per [Dortania OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#acpi), compiled SSDTs:
 
-- [SSDT-AWAC.aml](../ACPI/SSDT-AWAC.aml)
-- [SSDT-EC-USBX.aml](../ACPI/SSDT-EC-USBX.aml)
-- [SSDT-PLUG.aml](../ACPI/SSDT-PLUG.aml)
-- [SSDT-PMC.aml](../ACPI/SSDT-PMC.aml)
+- [SSDT-AWAC.aml](../assets/ACPI/SSDT-AWAC.aml)
+- [SSDT-EC-USBX.aml](../assets/ACPI/SSDT-EC-USBX.aml)
+- [SSDT-PLUG.aml](../assets/ACPI/SSDT-PLUG.aml)
+- [SSDT-PMC.aml](../assets/ACPI/SSDT-PMC.aml)
 
 ## USB
 

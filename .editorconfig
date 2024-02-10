@@ -7,3 +7,15 @@ end_of_line = lf
 insert_final_newline = true
 max_line_length = 160
 trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[*.{bats,sh}]
+indent_style = space
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2

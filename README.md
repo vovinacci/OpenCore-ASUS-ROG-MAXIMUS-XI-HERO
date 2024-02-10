@@ -16,7 +16,10 @@ Currently running macOS Sonoma `14.3.1` (`23D60`) with FileVault 2 enabled.
 
 ## Hardware details
 
-Please refer to [Full hardware list](docs/hardware.md), and [Known issues](docs/known-issues.md) for the reference.
+Please refer to
+
+- [Full hardware list](docs/hardware.md)
+- [Known issues](docs/known-issues.md)
 
 ## OpenCore, BIOS and tools
 

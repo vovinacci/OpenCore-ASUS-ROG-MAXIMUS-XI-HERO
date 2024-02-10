@@ -1,4 +1,4 @@
-# OpenCore configuration for ASUS ROG MAXIMUS XI HERO
+# OpenCore for ASUS ROG MAXIMUS XI HERO
 
 [![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/test/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Atest++branch%3Amaster+) [![Latest Release](https://img.shields.io/github/v/release/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)[![Release date](https://img.shields.io/github/release-date/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?label=)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)
 

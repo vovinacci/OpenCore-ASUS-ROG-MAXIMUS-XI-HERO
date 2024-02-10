@@ -25,6 +25,7 @@ Please refer to
 - [OpenCore configuration details](docs/opencore.md)
 - [BIOS Settings](docs/bios.md)
 - [Tools](tools/README.md)
+- [Assets](assets/README.md)
 
 ## Contributing and testing
 

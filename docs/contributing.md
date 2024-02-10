@@ -52,7 +52,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/vovinacci/OpenCore-ASUS-
 
 Once done, follow [replace placeholders](#replace-placeholders), mount EFI partition and copy `EFI` folder there.
 
-### Replace placeholders
+## Replace placeholders
 
 Two things to be done manually before moving everything to actual EFI partition:
 

@@ -11,7 +11,7 @@ Currently running macOS Sonoma `14.3.1` (`23D60`) with FileVault 2 enabled.
 
 - Download `EFI` folder as tarball or zip archive from [releases page](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases).
 - Unarchive downloaded file locally, and change directory there.
-- Follow [replace placeholders](docs/contributing.md#replace-placeholders).
+- Follow [replace placeholders](docs/contributing.md#replace-placeholders) section.
 - Once done, mount EFI partition and copy `EFI` folder there.
 
 ## Hardware details

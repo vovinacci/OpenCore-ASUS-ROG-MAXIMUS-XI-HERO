@@ -131,6 +131,7 @@ Resulting [USBMap.kext](Kexts/USBMap.kext) is used.
 ### Resources
 
 - [OpenCanopy](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html) theme - `Acidanthera\GoldenGate`
+  - OpenCanopy theme [background](assets/README.md) - `Background.icns`
 - [OcBinaryData](https://github.com/acidanthera/OcBinaryData) - [Resources/](https://github.com/acidanthera/OcBinaryData/blob/master/Resources)
 
 ### Tools

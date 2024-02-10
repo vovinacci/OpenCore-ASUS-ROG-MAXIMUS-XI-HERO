@@ -66,28 +66,22 @@ run: clean  ## Generate EFI folder with 'config.plist' template
 test: clean  ## Run tests
 	$(PRINT_TARGET)
 	@echo "GNU bash, version $${BASH_VERSION}"
-	@bats --version
-	@bats ${CI:--tap} --timing test
+	bats --version
+	bats ${CI:--tap} --timing test
 
-.PHONY: toc
-toc:  ## Generate README.md table of contents
+.PHONY: vault
+vault: run  ## Generate OpenCore 'config.plist' from template
 	$(PRINT_TARGET)
-	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc) README.md"
-
-.PHONY: vault_pre
-vault_pre:  ## Vault prerequisite checks
-	$(PRINT_TARGET)
+	@# Check for required tools
 ifeq "$(shell command -v sops)" ""
 	$(error Cannot find sops)
 endif
 	sops --version
-
-.PHONY: vault
-vault: vault_pre run  ## Generate OpenCore 'config.plist' from template
-	$(PRINT_TARGET)
+	@# Replace placeholders in 'config.plist' with secrets
 	"${CURDIR}/util/vault.sh"
+	@# Validate 'config.plist'
+	@echo "Validating 'config.plist'..."
 ifeq "$(shell command -v $(CURDIR)/util/ocvalidate)" ""
 	$(error Cannot find $(CURDIR)/util/ocvalidate)
 endif
-	@echo "Validating 'config.plist'..."
 	${CURDIR}/util/ocvalidate ${CURDIR}/EFI/OC/config.plist

@@ -22,10 +22,10 @@ The following dependencies must be installed on the development system:
 - [OpenSSL](https://www.openssl.org/) 1.1 (required for Wget)
 - [Wget](https://www.gnu.org/software/wget/)
 
-Should you use [Homebrew](https://brew.sh/) on macOS, install it with
+Should you use [Homebrew](https://brew.sh/) on macOS, full list of dependencies could be installed with
 
-```bash
-brew install bash coreutils openssl@1.1 wget
+```shell
+brew bundle
 ```
 
 ## Linting and unit testing
@@ -58,7 +58,10 @@ Once done, follow [replace placeholders](#replace-placeholders), mount EFI parti
 
 Two things to be done manually before moving everything to actual EFI partition:
 
-- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `EFI/OC/config.plist`. If you don't have one, great example on how to do this
-  could be found [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
-- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `EFI/OC/config.plist`. Another great example on how to do it is
-  [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).
+- Replace `{{SERIAL}}`, `{{BOARDSERIAL}}` and `{{SMUUID}}` with actual values in `EFI/OC/config.plist`.
+
+  If you don't have one, great example on how to do this could be found
+  [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial).
+- Replace `{{MACADDRESS}}` with actual `en0` MAC address value in `EFI/OC/config.plist`.
+
+  Another great example on how to do it is [here](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-en0).

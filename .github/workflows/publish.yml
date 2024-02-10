@@ -15,7 +15,7 @@ jobs:
           echo "Install packages"
           brew bundle
           echo "Update path"
-          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
+          export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
           echo "Create EFI folder"
           make run
           echo "Create tarball for ${GITHUB_REF}"

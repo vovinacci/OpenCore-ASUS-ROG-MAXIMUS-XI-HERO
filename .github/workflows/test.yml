@@ -13,23 +13,26 @@ on:
       - "*"
 jobs:
   test:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Homebrew install packages
         run: |
+          set -x
           bash -c 'echo $BASH_VERSION'
           brew --version
+          brew --prefix
           make --version
           brew bundle
+          set +x
       - name: Run lint checks
         run: |
           make lint
       - name: Run tests
         run: |
           # Extend PATH to always use Coreutils supplied utilities first.
-          export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
+          export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
           declare -p PATH
           # Print versions
           unzip -v

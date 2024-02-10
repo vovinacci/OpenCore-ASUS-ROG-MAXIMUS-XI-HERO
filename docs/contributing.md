@@ -3,11 +3,13 @@
 This document provides guidelines for contributing to the toolkit.
 
 1. Install required software (see [Dependencies](#dependencies)).
-2. Make changes (see [Linting and unit testing](#linting-and-unit-testing) and [Manual testing](#manual-testing)), then commit. Initial commit messages should
-   follow the [Conventional Commits](https://www.conventionalcommits.org/) style (e.g. `feat(opencore): add new driver`).
+2. Make changes, ensure [Linting and unit testing](#linting-and-unit-testing) and [Manual testing](#manual-testing)), then commit.
+
+   Initial commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/) style (e.g. `feat(opencore): add new driver`).
 3. Send a pull request with your changes.
-4. A maintainer will review the pull request and make comments. Prefer adding additional commits over amending and force-pushing since it can be difficult to
-   follow code reviews when the commit history changes.
+4. A maintainer will review the pull request and make comments.
+
+   Prefer adding additional commits over amending and force-pushing since it can be difficult to follow code reviews when the commit history changes.
 
    Commits will be squashed when they're merged.
 

@@ -30,8 +30,8 @@ function run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="0.9.7"
-readonly KEXT_APPLEALC_VERSION="1.8.8"
+readonly OPENCORE_VERSION="0.9.8"
+readonly KEXT_APPLEALC_VERSION="1.8.9"
 readonly KEXT_INTELMAUSI_VERSION="1.0.7"
 readonly KEXT_LILU_VERSION="1.6.7"
 readonly KEXT_VIRTUALSMC_VERSION="1.3.2"
@@ -100,6 +100,8 @@ declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
 )
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="${GH_REPO_CONTENT_BASE_URL}/OC/config.plist"
+# OpenCanopy theme background
+readonly OC_THEME_BACKGROUND_URL="${GH_REPO_CONTENT_BASE_URL}/assets/Background.icns"
 # Additional tools
 declare -ar TOOLS_MEMTEST=(
   "${GH_REPO_CONTENT_BASE_URL}/tools/memtest86/blacklist.cfg"
@@ -164,6 +166,7 @@ function download_extra_kexts() {
 # Download OpenCore 'config.plist' to TMP_DIR
 # Globals:
 #   BASE_DIR
+#   LOCAL_RUN
 #   OC_CONFIG_PLIST
 #   TMP_DIR
 function download_oc_config() {
@@ -173,6 +176,22 @@ function download_oc_config() {
   else
     echo "Copying config.plist..."
     cp -v "${BASE_DIR}/OC/config.plist" "${TMP_DIR}/"
+  fi
+}
+
+# Download OpenCore theme background to TMP_DIR
+# Globals:
+#   BASE_DIR
+#   LOCAL_RUN
+#   OC_THEME_BACKGROUND_URL
+#   TMP_DIR
+function download_oc_theme_background() {
+  if [[ $LOCAL_RUN == 0 ]]; then
+    echo "Downloading theme background image..."
+    wget -nv -c -P "${TMP_DIR}/" "${OC_THEME_BACKGROUND_URL}"
+  else
+    echo "Copying theme background image..."
+    cp -v "${BASE_DIR}/assets/Background.icns" "${TMP_DIR}/"
   fi
 }
 
@@ -286,7 +305,8 @@ function copy_acpi_ssdt() {
 #   TMP_DIR
 function copy_oc_drivers() {
   echo "Copying OpenCore drivers to EFI/Drivers directory..."
-  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{OpenCanopy.efi,OpenRuntime.efi,ResetNvramEntry.efi,ToggleSipEntry.efi} "${BASE_OC_DIR}"/Drivers/
+  cp -v "${TMP_DIR}/${PKG_OC}/X64/EFI/OC/Drivers/"{FirmwareSettingsEntry.efi,OpenCanopy.efi,OpenRuntime.efi,ResetNvramEntry.efi,ToggleSipEntry.efi} \
+    "${BASE_OC_DIR}"/Drivers/
   cp -v "${TMP_DIR}/${PKG_OC_BINDATA}/OcBinaryData-master/Drivers/HfsPlus.efi" "${BASE_OC_DIR}"/Drivers/
 }
 
@@ -331,6 +351,14 @@ function copy_oc_resources() {
   set -f
 }
 
+# Copy OpenCore theme background to 'EFI/Resources/Image/Acidanthera/GoldenGate' directory
+# Globals:
+#   BASE_OC_DIR
+function copy_oc_theme_background() {
+  echo "Copying OpenCore theme to EFI/Resources/Image/Acidanthera/GoldenGate' directory..."
+  cp -v "${TMP_DIR}/Background.icns" "${BASE_OC_DIR}"/Resources/Image/Acidanthera/GoldenGate/
+}
+
 # Copy tools to 'EFI/OC/Tools' directory
 function copy_tools() {
   echo "Copying tools to EFI/Tools directory..."
@@ -343,6 +371,7 @@ __preflight_checks
 download_acpi_ssdt
 download_extra_kexts
 download_oc_config
+download_oc_theme_background
 download_pkg
 download_tools
 unarchive_pkg
@@ -356,6 +385,7 @@ copy_acpi_ssdt
 copy_oc_drivers
 copy_kexts
 copy_oc_resources
+copy_oc_theme_background
 copy_tools
 
 # EOF

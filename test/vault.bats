@@ -2,8 +2,11 @@
 #
 # 'util/vault.sh' tests.
 
-load '/usr/local/lib/bats-support/load.bash'
-load '/usr/local/lib/bats-assert/load.bash'
+TEST_BREW_PREFIX="$(brew --prefix)"
+readonly TEST_BREW_PREFIX
+
+load "${TEST_BREW_PREFIX}/lib/bats-support/load.bash"
+load "${TEST_BREW_PREFIX}/lib/bats-assert/load.bash"
 
 @test "util/vault.sh: unset SOPS_AGE_KEY variable should fail the script" {
   export SOPS_AGE_RECIPIENTS="test"

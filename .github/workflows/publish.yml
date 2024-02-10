@@ -6,7 +6,7 @@ on:
       - '*.*.*'  # Push events to matching `*.*.*`, i.e. `0.6.8`, `20.15.10`
 jobs:
   release:
-    runs-on: macos-13
+    runs-on: macos-14
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -8,9 +8,6 @@ set -euf -o pipefail
 # Set locale
 export LC_ALL="en_US.UTF-8"
 
-# Extend PATH to always use Coreutils and Homebrew supplied utilities first.
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
-
 # Directories
 BASE_DIR="$(dirname "$(realpath "$0")")"
 BASE_EFI_DIR="${BASE_DIR}/EFI"
@@ -101,6 +98,7 @@ declare -Ar EXTRA_KEXTS_DOWNLOAD_LIST=(
 # OpenCore configuration
 readonly OC_CONFIG_PLIST="${GH_REPO_CONTENT_BASE_URL}/OC/config.plist"
 # OpenCanopy theme background
+# For the details see, https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/tree/master/assets#opencanopy-background-images
 readonly OC_THEME_BACKGROUND_URL="${GH_REPO_CONTENT_BASE_URL}/assets/Background.icns"
 # Additional tools
 declare -ar TOOLS_MEMTEST=(
@@ -123,12 +121,20 @@ function fail() {
 # Globals:
 #   LOCAL_RUN
 #   OC_PKG_VARIANT
+# Outputs:
+#   PATH
 function __preflight_checks() {
+  # Check if Homebrew is installed
+  if [[ ! -x "$(command -v brew)" ]]; then
+    fail "Homebrew is not installed."
+  fi
+
   # Check if OC_PKG_VARIANT is set correctly
   [[ $OC_PKG_VARIANT =~ ^(DEBUG|RELEASE)$ ]] ||
     fail "Unsupported OpenCore package variant \"${OC_PKG_VARIANT}\"." \
       "OC_PKG_VARIANT should be set to \"DEBUG\" or \"RELEASE\"."
   echo "OpenCore package variant: \"${OC_PKG_VARIANT}\"."
+
   # Check if local run is preferred
   if [[ $LOCAL_RUN != 0 ]]; then
     echo "Local run: Don't download Kexts, tools and config.plist."
@@ -367,6 +373,12 @@ function copy_tools() {
 
 ## Start the ball
 __preflight_checks
+
+# Extend PATH to always use Coreutils and Homebrew supplied utilities first instead of BSD ones.
+PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
+export PATH
+
+## Main section
 # Download all required data
 download_acpi_ssdt
 download_extra_kexts

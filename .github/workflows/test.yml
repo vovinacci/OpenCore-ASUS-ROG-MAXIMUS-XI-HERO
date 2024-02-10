@@ -24,8 +24,8 @@ jobs:
           brew --version
           brew --prefix
           make --version
-          brew bundle
           set +x
+          brew bundle
       - name: Run lint checks
         run: |
           make lint
@@ -35,9 +35,13 @@ jobs:
           export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:${PATH}"
           declare -p PATH
           # Print versions
+          set -x
           unzip -v
           wget --version
+          set +x
           # Should be picked from `coreutils` package
+          set -x
           which cp dirname mkdir mktemp mv realpath rm
+          set +x
           #
           make test

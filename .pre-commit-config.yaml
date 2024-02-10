@@ -1,7 +1,7 @@
 repos:
   # Various basic checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-added-large-files
         args:
@@ -21,12 +21,12 @@ repos:
       - id: shellcheck
         additional_dependencies: []
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.36.0
+    rev: v0.39.0
     hooks:
       - id: markdownlint
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.32.0
+    rev: v1.34.0
     hooks:
       - id: yamllint
         args:

@@ -44,6 +44,7 @@ function replace_dummy_values() {
   assert_output --partial "Downloading ACPI SSDTs..."
   assert_output --partial "Downloading extra Kexts..."
   assert_output --partial "Downloading config.plist..."
+  assert_output --partial "Downloading theme background image..."
   assert_output --partial "Downloading packages..."
   assert_output --partial "Downloading tools..."
   assert_output --partial "Unarchiving packages..."
@@ -55,6 +56,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying OpenCore theme to EFI/Resources/Image/Acidanthera/GoldenGate' directory..."
   assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
@@ -86,6 +88,7 @@ function replace_dummy_values() {
   assert [ -e ./EFI/OC/Resources/Font/Terminus.hex ]
   assert [ -e ./EFI/OC/Resources/Font/TerminusCore.hex ]
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
+  assert [ -e ./EFI/OC/Resources/Image/Acidanthera/GoldenGate/Background.icns ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
   assert [ -d ./EFI/OC/Tools/memtest86 ]
@@ -109,6 +112,7 @@ function replace_dummy_values() {
   assert_output --partial "Downloading ACPI SSDTs..."
   assert_output --partial "Copying extra Kexts..."
   assert_output --partial "Copying config.plist..."
+  assert_output --partial "Copying theme background image..."
   assert_output --partial "Downloading packages..."
   assert_output --partial "Copying tools..."
   assert_output --partial "Unarchiving packages..."
@@ -121,6 +125,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying OpenCore theme to EFI/Resources/Image/Acidanthera/GoldenGate' directory..."
   assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
@@ -150,6 +155,7 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources/Audio ]
   assert [ -d ./EFI/OC/Resources/Font ]
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
+  assert [ -e ./EFI/OC/Resources/Image/Acidanthera/GoldenGate/Background.icns ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
   assert [ -d ./EFI/OC/Tools/memtest86 ]
@@ -179,6 +185,7 @@ function replace_dummy_values() {
   assert_output --partial "Downloading ACPI SSDTs..."
   assert_output --partial "Copying extra Kexts..."
   assert_output --partial "Copying config.plist..."
+  assert_output --partial "Copying theme background image..."
   assert_output --partial "Downloading packages..."
   assert_output --partial "Copying tools..."
   assert_output --partial "Unarchiving packages..."
@@ -191,6 +198,7 @@ function replace_dummy_values() {
   assert_output --partial "Copying OpenCore drivers to EFI/Drivers directory..."
   assert_output --partial "Copying Kexts to EFI/Kexts directory..."
   assert_output --partial "Copying OpenCore resource files to EFI/Resources directories..."
+  assert_output --partial "Copying OpenCore theme to EFI/Resources/Image/Acidanthera/GoldenGate' directory..."
   assert_output --partial "Copying tools to EFI/Tools directory..."
   # Assert files
   assert [ -d ./EFI ]
@@ -219,7 +227,10 @@ function replace_dummy_values() {
   assert [ -d ./EFI/OC/Resources ]
   assert [ -d ./EFI/OC/Resources/Audio ]
   assert [ -d ./EFI/OC/Resources/Font ]
+  assert [ -e ./EFI/OC/Resources/Font/Terminus.hex ]
+  assert [ -e ./EFI/OC/Resources/Font/TerminusCore.hex ]
   assert [ -d ./EFI/OC/Resources/Image/Acidanthera ]
+  assert [ -e ./EFI/OC/Resources/Image/Acidanthera/GoldenGate/Background.icns ]
   assert [ -d ./EFI/OC/Resources/Label ]
   assert [ -d ./EFI/OC/Tools ]
   assert [ -d ./EFI/OC/Tools/memtest86 ]

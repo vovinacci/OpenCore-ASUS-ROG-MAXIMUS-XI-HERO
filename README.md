@@ -5,7 +5,7 @@
 `EFI` folder based on [OpenCore 0.9.8](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.8) for ASUS ROG MAXIMUS XI HERO, Intel Core i9-9900K, and
 Sapphire Radeon RX 580.
 
-Currently running macOS Sonoma `14.3.1` (`23D60`) with FileVault 2 enabled.
+Currently running macOS Sonoma `14.4` (`23E214`) with FileVault 2 enabled.
 
 ## Installation
 

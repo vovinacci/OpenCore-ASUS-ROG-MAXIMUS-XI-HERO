@@ -26,7 +26,7 @@ jobs:
           echo "Create zip"
           zip EFI-OC-${RELEASE}-ASUS-ROG-MAXIMUS-XI-HERO.zip -r EFI
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: OpenCore ${{ env.RELEASE }} support
           draft: false

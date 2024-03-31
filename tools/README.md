@@ -20,11 +20,15 @@ Installation:
 - Download [MemTest86 archive](https://www.memtest86.com/downloads/memtest86-usb.zip).
 - Unzip it and mount `memtest86-usb.img`. It's assumed that it's located in `~/Downloads/memtest86-usb/memtest86-usb.img`
 
+  ```shell
+  hdiutil mount ~/Downloads/memtest86-usb/memtest86-usb.img
+  ```
+
   ```console
-  $ hdiutil mount ~/Downloads/memtest86-usb/memtest86-usb.img
-  /dev/disk6              GUID_partition_scheme
-  /dev/disk6s1            Microsoft Basic Data            /Volumes/NO NAME
-  /dev/disk6s2            EFI
+  /dev/disk5              GUID_partition_scheme
+  /dev/disk5s1            Microsoft Basic Data            /Volumes/NO NAME
+  /dev/disk5s2            EFI
+  /dev/disk5s3            Microsoft Basic Data
   ```
 
 - (Optional) Remove old `memtest86` folder contents:
@@ -43,8 +47,7 @@ Installation:
 
 - Unmount the volume and cleanup
 
-  ```console
-  $ hdiutil unmount /Volumes/NO\ NAME
-  "/Volumes/NO NAME" unmounted successfully.
-  $ rm -fr ~/Downloads/{memtest86-usb.zip,memtest86-usb}
+  ```shell
+  hdiutil unmount /Volumes/NO\ NAME
+  rm -fr ~/Downloads/{memtest86-usb.zip,memtest86-usb}
   ```

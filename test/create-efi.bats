@@ -4,8 +4,6 @@
 # shellcheck disable=SC2030,SC2031
 
 TEST_BREW_PREFIX="$(brew --prefix)"
-readonly TEST_BREW_PREFIX
-
 load "${TEST_BREW_PREFIX}/lib/bats-support/load.bash"
 load "${TEST_BREW_PREFIX}/lib/bats-assert/load.bash"
 

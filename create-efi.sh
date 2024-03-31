@@ -27,7 +27,7 @@ function run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="0.9.8"
+readonly OPENCORE_VERSION="0.9.9"
 readonly KEXT_APPLEALC_VERSION="1.8.9"
 readonly KEXT_INTELMAUSI_VERSION="1.0.7"
 readonly KEXT_LILU_VERSION="1.6.7"

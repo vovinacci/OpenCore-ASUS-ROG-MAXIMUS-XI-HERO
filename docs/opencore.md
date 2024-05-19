@@ -37,7 +37,7 @@ Resulting [USBMap.kext](../Kexts/USBMap.kext) is used.
 
 ## Kext
 
-- [AppleALC 1.8.9](https://github.com/acidanthera/AppleALC/releases/tag/1.8.9)
+- [AppleALC 1.9.0](https://github.com/acidanthera/AppleALC/releases/tag/1.9.0)
 - [IntelMausi 1.0.7](https://github.com/acidanthera/IntelMausi/releases/tag/1.0.7)
 - [Lilu 1.6.7](https://github.com/acidanthera/Lilu/releases/tag/1.6.7)
 - [VirtualSMC 1.3.2](https://github.com/acidanthera/VirtualSMC/releases/tag/1.3.2) (`SMCProcessor.kext`, `SMCSuperIO.kext`)

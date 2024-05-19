@@ -2,10 +2,10 @@
 
 [![Build Status](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/workflows/test/badge.svg)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/actions?query=workflow%3Atest++branch%3Amaster+) [![Latest Release](https://img.shields.io/github/v/release/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)[![Release date](https://img.shields.io/github/release-date/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO.svg?label=)](https://github.com/vovinacci/OpenCore-ASUS-ROG-MAXIMUS-XI-HERO/releases)
 
-`EFI` folder based on [OpenCore 0.9.9](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.9.9) for ASUS ROG MAXIMUS XI HERO, Intel Core i9-9900K, and
+`EFI` folder based on [OpenCore 1.0.0](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.0) for ASUS ROG MAXIMUS XI HERO, Intel Core i9-9900K, and
 Sapphire Radeon RX 580.
 
-Currently running macOS Sonoma `14.4.1` (`23E224`) with FileVault 2 enabled.
+Currently running macOS Sonoma `14.5` (`23F79`) with FileVault 2 enabled.
 
 ## Installation
 

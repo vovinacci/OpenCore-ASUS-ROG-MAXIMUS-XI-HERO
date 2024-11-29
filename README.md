@@ -5,7 +5,7 @@
 `EFI` folder based on [OpenCore 1.0.2](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.2) for ASUS ROG MAXIMUS XI HERO, Intel Core i9-9900K, and
 Sapphire Radeon RX 580.
 
-Currently running macOS Sequoia `15.0.1` (`24A348`) with FileVault 2 enabled.
+Currently running macOS Sequoia `15.1.1` (`24B91`) with FileVault 2 enabled.
 
 ## Installation
 

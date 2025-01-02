@@ -27,12 +27,12 @@ function run-on-trap() {
 }
 
 # Package versions. Set desired versions here.
-readonly OPENCORE_VERSION="1.0.2"
-readonly KEXT_APPLEALC_VERSION="1.9.2"
-readonly KEXT_INTELMAUSI_VERSION="1.0.7"
-readonly KEXT_LILU_VERSION="1.6.9"
+readonly OPENCORE_VERSION="1.0.3"
+readonly KEXT_APPLEALC_VERSION="1.9.3"
+readonly KEXT_INTELMAUSI_VERSION="1.0.8"
+readonly KEXT_LILU_VERSION="1.7.0"
 readonly KEXT_VIRTUALSMC_VERSION="1.3.4"
-readonly KEXT_WHATEVERGREEN_VERSION="1.6.8"
+readonly KEXT_WHATEVERGREEN_VERSION="1.6.9"
 
 # Installation settings
 # Any non-zero value turns on local file copy, instead of downloading.
